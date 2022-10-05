@@ -32,6 +32,10 @@ body {
   width: 25px;
 }
 
+.desc-icon {
+  width: 100px;
+}
+
 .header {
   text-align: center;
 }

@@ -50,7 +50,7 @@ function App() {
         console.log(res.data);
         setCoins(res.data);
         setApiData(res.data);
-        // setDesc(res.data);
+        setDesc(res.data);
       } catch (error) {
         console.log("Error", error);
       }
