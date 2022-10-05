@@ -5,6 +5,7 @@ import "./App.css";
 import Pages from "./components/Pages";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Desc from "./components/Desc";
 
 function setApiData(apiData) {
   localStorage.setItem("apiData", JSON.stringify(apiData));
@@ -17,11 +18,14 @@ function getApiData() {
 }
 
 function App() {
-  const [coins, setCoins] = useState([]);
+  const [coins, setCoins] = useState(getApiData());
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [desc, setDesc] = useState(getApiData());
 
   useEffect(() => {
+    if (coins.length > 0) return;
+    console.log("no data found. getting new data");
     async function getApiData() {
       try {
         const res = await axios.get(
@@ -37,15 +41,16 @@ function App() {
           );
           //each entry will have correct data attached to it
           res.data[index].history = history.data;
-          // const description = await axios.get(
-          //   `https://api.coingecko.com/api/v3/coins/${element.id}`
-          // );
+          const description = await axios.get(
+            `https://api.coingecko.com/api/v3/coins/${element.id}`
+          );
 
-          // res.data[index].desc = description.data;
+          res.data[index].desc = description.data;
         }
         console.log(res.data);
         setCoins(res.data);
         setApiData(res.data);
+        // setDesc(res.data);
       } catch (error) {
         console.log("Error", error);
       }
@@ -58,8 +63,9 @@ function App() {
     setSearch(e.target.value);
   };
 
-  const filteredCoins = coins.filter((coins) => coins.name.toLowerCase());
+  // const filteredCoins = coins.filter((coins) => coins.name.toLowerCase());
   console.log(coins);
+
   return (
     <>
       <Navbar />
@@ -71,10 +77,11 @@ function App() {
       ></input>
       <Coins coins={coins} />
       <Pages pages={page} />
+      <Desc desc={desc} />
 
-      {/* <Routes>
-        <Route path="coin-description" element={<Description />} />
-      </Routes> */}
+      <Routes>
+        <Route path="coin-description" element={<Desc />} />
+      </Routes>
     </>
   );
 }
