@@ -20,6 +20,17 @@ body {
   justify-content: space-around;
   flex-direction: row;
   background: #2a3143;
+  border-top: #ffad00;
+  margin: 2px;
+  padding: 5px;
+  height: 50px;
+}
+
+.coin-container:hover {
+  transform: scale(1.01);
+  transition: 0.2s ease-in-out;
+  background-color: #343f56;
+  cursor: pointer;
 }
 
 .description-container {
@@ -28,6 +39,7 @@ body {
   flex-direction: column;
   background: #2a3143;
 }
+
 .crypto-icon {
   width: 25px;
 }
@@ -36,6 +48,28 @@ body {
   width: 100px;
 }
 
+.star-icon {
+  fill: #ffffff;
+  opacity: 0.5;
+}
+
+.star-icon:hover {
+  fill: #ffad00;
+  opacity: 1;
+}
+
 .header {
   text-align: center;
+}
+
+a {
+  color: #ffffff;
+}
+
+a:visited {
+  color: #ffad00;
+}
+
+ul {
+  text-decoration: none;
 }

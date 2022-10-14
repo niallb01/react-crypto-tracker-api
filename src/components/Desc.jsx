@@ -3,7 +3,6 @@ import CoinDesc from "./CoinDesc";
 const Desc = (props) => {
   return (
     <>
-      <h1>Description</h1>
       {props.desc.map((coindesc) => {
         return (
           <div className="description-container">
@@ -23,6 +22,7 @@ const Desc = (props) => {
               twentyFourHourLow={coindesc.low_24h.toLocaleString()}
               ath={coindesc.ath.toLocaleString()}
               atl={coindesc.atl.toLocaleString()}
+              descText={coindesc.desc.description.en}
             />
           </div>
         );

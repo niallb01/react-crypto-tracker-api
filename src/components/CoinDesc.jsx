@@ -14,6 +14,7 @@ import MarketRank from "./MarketRank";
 import Ath from "./Ath";
 import Atl from "./Atl";
 import Volume from "./Volume";
+import DescText from "./DescText";
 
 const CoinDesc = (props) => {
   return (
@@ -24,7 +25,6 @@ const CoinDesc = (props) => {
       <Symbol symbol={props.symbol} />
       <CoinPrice coinprice={props.coinPrice} />
       <MarketCap marketcap={props.marketCap} />
-
       <Volume volume={props.volume} />
       <Circulating circulating={props.circulating} />
       <FullyDiluted fullydiluted={props.fullyDiluted} />
@@ -34,6 +34,7 @@ const CoinDesc = (props) => {
       <TwentyFourHourLow twentyfourhourlow={props.twentyFourHourLow} />
       <Ath ath={props.ath} />
       <Atl atl={props.atl} />
+      <DescText desctext={props.descText} />
     </>
   );
 };

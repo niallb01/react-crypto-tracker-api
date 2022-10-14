@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Coins from "./components/Coins";
 import "./App.css";
-import Pages from "./components/Pages";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Coins from "./components/Coins";
 import Desc from "./components/Desc";
+import Login from "./pagecomponents/Login";
+import Logout from "./pagecomponents/Logout";
+import SignUp from "./pagecomponents/SignUp";
+import ModifyAccount from "./pagecomponents/ModifyAccount";
 
 function setApiData(apiData) {
   localStorage.setItem("apiData", JSON.stringify(apiData));
@@ -69,18 +72,13 @@ function App() {
   return (
     <>
       <Navbar />
-      <h2>Search Currency</h2>
-      <input
-        type="text"
-        className="search-input"
-        onKeyUp={handleSearchInput}
-      ></input>
-      <Coins coins={coins} />
-      <Pages pages={page} />
-      <Desc desc={desc} />
-
       <Routes>
-        <Route path="coin-description" element={<Desc />} />
+        <Route path="/" element={<Coins coins={coins} />} />
+        <Route path="/coin-description" element={<Desc desc={desc} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/modify-account" element={<ModifyAccount />} />
       </Routes>
     </>
   );
