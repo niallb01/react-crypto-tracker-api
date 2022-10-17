@@ -60,6 +60,13 @@ body {
 
 .header {
   text-align: center;
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.header-icon {
+  text-shadow: #ffad00 1px 0 10px;
+  color: #810081;
 }
 
 a {
@@ -70,6 +77,32 @@ a:visited {
   color: #ffad00;
 }
 
-ul {
-  text-decoration: none;
+.nav-links {
+  display: flex;
+  text-decoration: none !important;
+  align-items: center;
+  gap: 10px;
+  list-style-type: none;
+}
+
+.search-input {
+  width: 300px;
+  background-color: #2a3143;
+  border-radius: 5px 5px;
+}
+
+.search-icon {
+  color: #ffffff;
+}
+
+::placeholder {
+  padding: 5px;
+}
+
+.twenty-four-hours-red {
+  color: #ff7060;
+}
+
+.twenty-four-hours-green {
+  color: #27da71;
 }

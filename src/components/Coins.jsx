@@ -1,19 +1,37 @@
 import Coin from "./Coin";
 import Pages from "./Pages";
 import { useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import { InputAdornment } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import TextField from "@mui/material/TextField";
 
 const Coins = (props) => {
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState("");
+
+  const handleSearchInput = (e) => {
+    setSearch(e.target.value);
+    console.log(e.target.value);
+  };
+
   return (
     <>
-      <h2>Search Currency</h2>
-      <input
-        type="text"
-        className="search-input"
-        // onKeyUp={handleSearchInput}
-      ></input>
+      <div className="user-coin-search">
+        <TextField
+          className="search-input"
+          placeholder="Search Currency..."
+          onInput={handleSearchInput}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon className="search-icon" />
+              </InputAdornment>
+            ),
+            style: { color: "#ffffff" },
+          }}
+        />
+      </div>
 
       {props.coins.map((coin) => {
         return (

@@ -11,10 +11,10 @@ const Navbar = (props) => {
           <Link to="/">Home</Link>;
         }}
       >
-        <FaCoins />
-        Crypto Tracker Api
+        <FaCoins className="header-icon" />
+        Live Coin Tracker
       </h1>
-      <ul>
+      <ul className="nav-links">
         <li>
           <Link to="/login">Login</Link>
         </li>
