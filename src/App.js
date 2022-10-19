@@ -32,8 +32,9 @@ function App() {
     async function getApiData() {
       try {
         const res = await axios.get(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=2&page=${page}&sparkline=false`
+          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=3&page=${page}&sparkline=false`
         );
+        console.log(res);
         const now = Math.round(Date.now() / 1000);
         const sevenDaysAgo = Math.round(now - 86400);
         for (let index = 0; index < res.data.length; index++) {
@@ -59,12 +60,6 @@ function App() {
     getApiData();
   }, []);
 
-  //need event listener and function
-  const handleSearchInput = (e) => {
-    setSearch(e.target.value);
-  };
-
-  // const filteredCoins = coins.filter((coins) => coins.name.toLowerCase());
   console.log(coins);
 
   return (

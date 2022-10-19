@@ -16,7 +16,7 @@ const Coin = (props) => {
       <Name name={props.name} />
       <Symbol symbol={props.symbol} />
       <CoinPrice coinprice={props.coinPrice} />
-      <TwentyFourHour twentyfourhour={props.twentyFourHour} />
+      <TwentyFourHour twentyFourHour={props.twentyFourHour} />
       <Volume volume={props.volume} />
       <MarketCap marketcap={props.marketCap} />
     </>

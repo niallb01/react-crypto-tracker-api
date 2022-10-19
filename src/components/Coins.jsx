@@ -5,6 +5,7 @@ import { FaStar, FaRegStar } from "react-icons/fa";
 import { InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 const Coins = (props) => {
   const [page, setPage] = useState(1);
@@ -15,25 +16,54 @@ const Coins = (props) => {
     console.log(e.target.value);
   };
 
+  const filteredCoins = props.coins.filter((coin) => {
+    console.log(coin.name, search);
+    return coin.name.toLowerCase().includes(search.toLowerCase());
+  });
+
+  //if user enters search term use filtered version of coins otherwise use all coins
+  const coinsToUse = search ? filteredCoins : props.coins;
+  console.log(coinsToUse);
+
   return (
     <>
       <div className="user-coin-search">
-        <TextField
-          className="search-input"
-          placeholder="Search Currency..."
-          onInput={handleSearchInput}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon className="search-icon" />
-              </InputAdornment>
-            ),
-            style: { color: "#ffffff" },
-          }}
-        />
+        <Grid2
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          {/* <TextField
+            className="search-input"
+            placeholder="Search Currency..."
+            onInput={handleSearchInput}
+            value={search}
+            margin="normal"
+            sx={{ marginBottom: 5 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon className="search-icon" />
+                </InputAdornment>
+              ),
+              style: { color: "#ffffff" },
+            }}
+          /> */}
+          <input
+            className="search-input"
+            list="search-input-2"
+            onInput={handleSearchInput}
+          ></input>
+          <datalist id="search-input-2">
+            {props.coins.map((coin) => (
+              <option>{coin.name}</option>
+            ))}
+          </datalist>
+        </Grid2>
       </div>
 
-      {props.coins.map((coin) => {
+      {coinsToUse.map((coin) => {
         return (
           <div className="coin-container">
             <FaRegStar className="star-icon" size="16" />

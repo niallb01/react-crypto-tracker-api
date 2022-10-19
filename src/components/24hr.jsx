@@ -1,10 +1,11 @@
 const TwentyFourHour = (props) => {
+  console.log(props.twentyFourHour);
   return (
     <>
-      {TwentyFourHour < "0" ? (
-        <p className="twenty-four-hours-red">{props.twentyfourhour}%</p>
+      {props.twentyFourHour < 0 ? (
+        <p className="twenty-four-hours-red">{props.twentyFourHour}%</p>
       ) : (
-        <p className="twenty-four-hours-green">{props.twentyfourhour}%</p>
+        <p className="twenty-four-hours-green">{props.twentyFourHour}%</p>
       )}
     </>
   );

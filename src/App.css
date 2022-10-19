@@ -79,16 +79,22 @@ a:visited {
 
 .nav-links {
   display: flex;
-  text-decoration: none !important;
+  text-decoration: none;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 50px;
   list-style-type: none;
+  margin-bottom: 20px;
 }
 
 .search-input {
-  width: 300px;
+  width: 500px;
   background-color: #2a3143;
   border-radius: 5px 5px;
+  height: 1.4375em;
+  padding: 16.5px 14px;
+  padding-left: 5px;
+  color: #ffffff;
 }
 
 .search-icon {
@@ -105,4 +111,19 @@ a:visited {
 
 .twenty-four-hours-green {
   color: #27da71;
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .search-input {
+    width: 300px;
+    background-color: #2a3143;
+    border-radius: 5px 5px;
+  }
 }

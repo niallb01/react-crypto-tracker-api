@@ -15,9 +15,11 @@ const Desc = (props) => {
               coinPrice={coindesc.current_price.toLocaleString()}
               volume={coindesc.total_volume.toLocaleString()}
               circulating={coindesc.circulating_supply.toLocaleString()}
-              fullyDiluted={coindesc.fully_diluted_valuation}
+              fullyDiluted={coindesc.fully_diluted_valuation.toLocaleString()}
               totalSupply={coindesc.total_supply.toLocaleString()}
-              maxSupply={coindesc.max_supply}
+              maxSupply={
+                coindesc.max_supply ? coindesc.max_supply.toLocaleString() : "∞"
+              }
               twentyFourHourHigh={coindesc.high_24h.toLocaleString()}
               twentyFourHourLow={coindesc.low_24h.toLocaleString()}
               ath={coindesc.ath.toLocaleString()}
