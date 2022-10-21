@@ -2,10 +2,9 @@ import Coin from "./Coin";
 import Pages from "./Pages";
 import { useState } from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
-import { InputAdornment } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import TextField from "@mui/material/TextField";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import { Link } from "react-router-dom";
+import { Params } from "react-router-dom";
+import CoinDesc from "./CoinDesc";
 
 const Coins = (props) => {
   const [page, setPage] = useState(1);
@@ -13,11 +12,10 @@ const Coins = (props) => {
 
   const handleSearchInput = (e) => {
     setSearch(e.target.value);
-    console.log(e.target.value);
   };
 
   const filteredCoins = props.coins.filter((coin) => {
-    console.log(coin.name, search);
+    // console.log(coin.name, search);
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
 
@@ -28,31 +26,11 @@ const Coins = (props) => {
   return (
     <>
       <div className="user-coin-search">
-        <Grid2
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-        >
-          {/* <TextField
-            className="search-input"
-            placeholder="Search Currency..."
-            onInput={handleSearchInput}
-            value={search}
-            margin="normal"
-            sx={{ marginBottom: 5 }}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon className="search-icon" />
-                </InputAdornment>
-              ),
-              style: { color: "#ffffff" },
-            }}
-          /> */}
+        <div className="search-bar">
           <input
             className="search-input"
             list="search-input-2"
+            placeholder="Search Currency..."
             onInput={handleSearchInput}
           ></input>
           <datalist id="search-input-2">
@@ -60,31 +38,59 @@ const Coins = (props) => {
               <option>{coin.name}</option>
             ))}
           </datalist>
-        </Grid2>
+        </div>
       </div>
-
       {coinsToUse.map((coin) => {
         return (
-          <div className="coin-container">
-            <FaRegStar className="star-icon" size="16" />
-            <Coin
-              rank={coin.market_cap_rank}
-              image={coin.image}
-              name={coin.name}
-              symbol={coin.symbol.toUpperCase()}
-              marketCap={coin.market_cap.toLocaleString()}
-              coinPrice={coin.current_price.toLocaleString()}
-              twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
-              volume={coin.total_volume.toLocaleString()}
-            />
-          </div>
+          <Link
+            to={`/coin-description/${coin.name}`}
+            element={<CoinDesc />}
+            key={coin.name}
+          >
+            <div className="coin-container">
+              <FaRegStar className="star-icon" size="16" />
+              <Coin
+                id={coin.id}
+                rank={coin.market_cap_rank}
+                image={coin.image}
+                name={coin.name}
+                symbol={coin.symbol.toUpperCase()}
+                marketCap={coin.market_cap.toLocaleString()}
+                coinPrice={coin.current_price.toLocaleString()}
+                twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
+                volume={coin.total_volume.toLocaleString()}
+              />
+            </div>
+          </Link>
         );
       })}
-      <div className="page-select">
-        <Pages pages={page} />
-      </div>
+      <>
+        <div className="page-select">{!search && <Pages pages={page} />}</div>
+      </>
     </>
   );
 };
 
 export default Coins;
+
+// Legacy code
+// {coinsToUse.map((coin) => {
+//   return (
+//     <Link to={"/coin-description/${coin.name}"} element={<CoinDesc />}>
+//       <div className="coin-container">
+//         <FaRegStar className="star-icon" size="16" />
+//         <Coin
+//           key={coin.name}
+//           rank={coin.market_cap_rank}
+//           image={coin.image}
+//           name={coin.name}
+//           symbol={coin.symbol.toUpperCase()}
+//           marketCap={coin.market_cap.toLocaleString()}
+//           coinPrice={coin.current_price.toLocaleString()}
+//           twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
+//           volume={coin.total_volume.toLocaleString()}
+//         />
+//       </div>
+//     </Link>
+//   );
+// })}

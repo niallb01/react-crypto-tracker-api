@@ -2,7 +2,7 @@ const MarketRank = (props) => {
   return (
     <>
       <p className="market-cap-rank">
-        <strong>Rank: #{props.marketrank}</strong>
+        <strong>Rank: #{props.marketRank}</strong>
       </p>
     </>
   );

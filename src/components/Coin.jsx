@@ -15,10 +15,10 @@ const Coin = (props) => {
       <Image image={props.image} />
       <Name name={props.name} />
       <Symbol symbol={props.symbol} />
-      <CoinPrice coinprice={props.coinPrice} />
+      <CoinPrice coinPrice={props.coinPrice} />
       <TwentyFourHour twentyFourHour={props.twentyFourHour} />
       <Volume volume={props.volume} />
-      <MarketCap marketcap={props.marketCap} />
+      <MarketCap marketCap={props.marketCap} />
     </>
   );
 };

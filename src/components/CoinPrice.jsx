@@ -1,7 +1,7 @@
 const CoinPrice = (props) => {
   return (
     <>
-      <p className="coin-price">Price: £{props.coinprice}</p>
+      <p className="coin-price">Price: £{props.coinPrice}</p>
     </>
   );
 };

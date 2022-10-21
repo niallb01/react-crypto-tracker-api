@@ -32,9 +32,8 @@ function App() {
     async function getApiData() {
       try {
         const res = await axios.get(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=3&page=${page}&sparkline=false`
+          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=5&page=${page}&sparkline=false`
         );
-        console.log(res);
         const now = Math.round(Date.now() / 1000);
         const sevenDaysAgo = Math.round(now - 86400);
         for (let index = 0; index < res.data.length; index++) {
@@ -45,7 +44,7 @@ function App() {
           //each entry will have correct data attached to it
           res.data[index].history = history.data;
           const description = await axios.get(
-            `https://api.coingecko.com/api/v3/coins/${element.id}`
+            `https://api.coingecko.com/api/v3/coins/${element.id}` // params for dynamic router call?
           );
           res.data[index].desc = description.data;
         }
@@ -60,14 +59,21 @@ function App() {
     getApiData();
   }, []);
 
-  console.log(coins);
+  // console.log(coins);
 
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Coins coins={coins} />} />
-        <Route path="/coin-description" element={<Desc desc={desc} />} />
+        {/* <Route path="/coin-description" element={<Desc desc={desc} />} /> */}
+
+        <Route path="/coin-description" element={<Desc desc={desc} />}></Route>
+
+        <Route
+          path="/coin-description/:coinName"
+          element={<Desc desc={desc} />}
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/sign-up" element={<SignUp />} />

@@ -2,7 +2,7 @@ const FullyDiluted = (props) => {
   return (
     <>
       <p className="fully-diluted">
-        Fully Diluted Valuation: £{props.fullydiluted}
+        Fully Diluted Valuation: £{props.fullyDiluted}
       </p>
     </>
   );

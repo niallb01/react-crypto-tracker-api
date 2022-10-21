@@ -19,22 +19,22 @@ import DescText from "./DescText";
 const CoinDesc = (props) => {
   return (
     <>
-      <MarketRank marketrank={props.marketRank} />
-      <DescImage descimage={props.descImage} />
+      <MarketRank marketRank={props.marketRank} />
+      <DescImage descImage={props.descImage} />
       <Name name={props.name} />
       <Symbol symbol={props.symbol} />
-      <CoinPrice coinprice={props.coinPrice} />
-      <MarketCap marketcap={props.marketCap} />
+      <CoinPrice coinPrice={props.coinPrice} />
+      <MarketCap marketCap={props.marketCap} />
       <Volume volume={props.volume} />
       <Circulating circulating={props.circulating} />
-      <FullyDiluted fullydiluted={props.fullyDiluted} />
-      <TotalSupply totalsupply={props.totalSupply} />
-      <MaxSupply maxsupply={props.maxSupply} />
-      <TwentyFourHourHigh twentyfourhourhigh={props.twentyFourHourHigh} />
-      <TwentyFourHourLow twentyfourhourlow={props.twentyFourHourLow} />
+      <FullyDiluted fullyDiluted={props.fullyDiluted} />
+      <TotalSupply totalSupply={props.totalSupply} />
+      <MaxSupply maxSupply={props.maxSupply} />
+      <TwentyFourHourHigh twentyFourHourHigh={props.twentyFourHourHigh} />
+      <TwentyFourHourLow twentyFourHourLow={props.twentyFourHourLow} />
       <Ath ath={props.ath} />
       <Atl atl={props.atl} />
-      <DescText desctext={props.descText} />
+      <DescText descText={props.descText} />
     </>
   );
 };

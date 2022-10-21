@@ -1,9 +1,19 @@
 import CoinDesc from "./CoinDesc";
+import { useLocation } from "react-router-dom";
 
 const Desc = (props) => {
+  console.log("props", props);
+  const location = useLocation();
+  const currentCoin = location.pathname.split("/");
+  let coinToShow = props.desc;
+  if (currentCoin[2]) {
+    coinToShow = props.desc.filter((coin) => {
+      return coin.name === currentCoin[2];
+    });
+  }
   return (
     <>
-      {props.desc.map((coindesc) => {
+      {coinToShow.map((coindesc) => {
         return (
           <div className="description-container">
             <CoinDesc

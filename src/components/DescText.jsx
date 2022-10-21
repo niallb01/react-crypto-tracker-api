@@ -5,7 +5,7 @@ const DescText = (props) => {
     <>
       <p
         className="description-text"
-        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(props.desctext) }}
+        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(props.descText) }}
       />
     </>
   );

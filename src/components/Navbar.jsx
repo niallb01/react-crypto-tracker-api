@@ -8,7 +8,7 @@ const Navbar = (props) => {
       <h1
         className="header"
         onClick={() => {
-          <Link to="/">Home</Link>;
+          <Link to="/"></Link>;
         }}
       >
         <FaCoins className="header-icon" />
