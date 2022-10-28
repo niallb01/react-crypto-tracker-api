@@ -40,6 +40,14 @@ body {
   background: #2a3143;
 }
 
+.description-container a {
+  text-decoration: underline;
+}
+
+.description-container a:visited {
+  color: #ffad00;
+}
+
 .crypto-icon {
   width: 25px;
 }
@@ -62,7 +70,6 @@ body {
   text-align: center;
   font-size: 30px;
   color: #ffffff;
-  cursor: pointer;
 }
 
 .header-icon {
@@ -76,13 +83,22 @@ a {
 }
 
 .nav-links {
-  display: flex;
+  color: #ffffff;
   text-decoration: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 50px;
   list-style-type: none;
   margin-bottom: 40px;
+}
+
+.nav-links a:hover {
+  color: #ffad00;
+  color: #49c0be;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 1rem;
 }
 
 .search-input {
@@ -124,7 +140,7 @@ a {
   border: none;
   border-radius: 5px;
   width: 70px;
-  height: 30px;
+  height: 25px;
   transition: ease-out 0.3s;
   outline: none;
   cursor: pointer;

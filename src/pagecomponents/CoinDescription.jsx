@@ -17,6 +17,7 @@ const CoinDescription = (props) => {
         return (
           <div className="description-container">
             <CoinDesc
+              key={coindesc.key}
               marketRank={coindesc.market_cap_rank}
               descImage={coindesc.image}
               name={coindesc.name}

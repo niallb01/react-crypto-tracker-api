@@ -5,10 +5,6 @@ import { FaCoins } from "react-icons/fa";
 const Navbar = (props) => {
   return (
     <>
-      {/* <h1 className="header">
-        <FaCoins className="header-icon" />
-        <Link to="/home"></Link>Live Coin Tracker
-      </h1> */}
       <h1 className="header">
         <Link to="/home">
           <FaCoins className="header-icon" />
