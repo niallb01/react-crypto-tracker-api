@@ -62,6 +62,7 @@ body {
   text-align: center;
   font-size: 30px;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .header-icon {
@@ -119,6 +120,7 @@ a {
 
 .sign-up-button {
   background-color: #48c1be;
+  color: #2a3143;
   border: none;
   border-radius: 5px;
   width: 70px;
@@ -130,15 +132,8 @@ a {
 
 .sign-up-button:hover {
   background-color: #384d61;
-}
-
-.button-text {
-  color: #2a3143;
-  font-weight: 500;
-}
-
-.button-text:hover {
-  color: #ffffff;
+  color: #48c1be;
+  border: 1px solid;
 }
 
 @media (max-width: 600px) {

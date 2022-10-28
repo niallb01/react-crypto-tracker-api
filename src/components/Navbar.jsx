@@ -5,14 +5,15 @@ import { FaCoins } from "react-icons/fa";
 const Navbar = (props) => {
   return (
     <>
-      <h1
-        className="header"
-        onClick={() => {
-          <Link to="/"></Link>;
-        }}
-      >
+      {/* <h1 className="header">
         <FaCoins className="header-icon" />
-        Live Coin Tracker
+        <Link to="/home"></Link>Live Coin Tracker
+      </h1> */}
+      <h1 className="header">
+        <Link to="/home">
+          <FaCoins className="header-icon" />
+          Live Coin Tracker
+        </Link>
       </h1>
       <ul className="nav-links">
         <li>
@@ -21,9 +22,6 @@ const Navbar = (props) => {
         <li>
           <Link to="/logout">Logout</Link>
         </li>
-        {/* <li>
-          <Link to="/sign-up">Sign Up</Link>
-        </li> */}
         <li>
           <Link to="/portfolio">Portfolio</Link>
         </li>
@@ -31,11 +29,9 @@ const Navbar = (props) => {
           <Link to="/modify-account">Account</Link>
         </li>
         <li>
-          <button className="sign-up-button">
-            <Link to="/sign-up" className="button-text">
-              Sign Up
-            </Link>
-          </button>
+          <Link to="/sign-up">
+            <button className="sign-up-button">Sign Up</button>
+          </Link>
         </li>
       </ul>
     </>

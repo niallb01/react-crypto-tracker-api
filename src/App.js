@@ -3,13 +3,15 @@ import axios from "axios";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Coins from "./components/Coins";
-import Desc from "./components/Desc";
+// import Coins from "./components/Coins";
+import Home from "./pagecomponents/Home";
+// import Desc from "./components/Desc";
 import Login from "./pagecomponents/Login";
 import Logout from "./pagecomponents/Logout";
 import SignUp from "./pagecomponents/SignUp";
 import Portfolio from "./pagecomponents/Portfolio";
 import ModifyAccount from "./pagecomponents/ModifyAccount";
+import CoinDescription from "./pagecomponents/CoinDescription";
 
 function setApiData(apiData) {
   localStorage.setItem("apiData", JSON.stringify(apiData));
@@ -22,13 +24,13 @@ function getApiData() {
 }
 
 function App() {
-  const [coins, setCoins] = useState(getApiData());
+  const [home, setCoins] = useState(getApiData());
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
-  const [desc, setDesc] = useState(getApiData());
+  const [coinDescription, setDesc] = useState(getApiData());
 
   useEffect(() => {
-    if (coins.length > 0) return;
+    if (home.length > 0) return;
     console.log("no data found. getting new data");
     async function getApiData() {
       try {
@@ -47,7 +49,7 @@ function App() {
           const description = await axios.get(
             `https://api.coingecko.com/api/v3/coins/${element.id}`
           );
-          res.data[index].desc = description.data;
+          res.data[index].coinDescription = description.data;
         }
         console.log(res.data);
         setCoins(res.data);
@@ -61,16 +63,16 @@ function App() {
   }, []);
 
   // console.log(coins);
+  console.log("home", home);
 
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Coins coins={coins} />} />
-        {/* <Route path="/coin-description" element={<Desc desc={desc} />} /> */}
+        <Route path="/home" element={<Home home={home} />} />
         <Route
           path="/coin-description/:coinName"
-          element={<Desc desc={desc} />}
+          element={<CoinDescription coinDescription={coinDescription} />}
         />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
