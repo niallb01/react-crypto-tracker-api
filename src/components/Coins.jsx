@@ -3,7 +3,6 @@ import Pages from "./Pages";
 import { useState } from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Params } from "react-router-dom";
 import CoinDesc from "./CoinDesc";
 
 const Coins = (props) => {
@@ -59,6 +58,7 @@ const Coins = (props) => {
                 coinPrice={coin.current_price.toLocaleString()}
                 twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
                 volume={coin.total_volume.toLocaleString()}
+                fdv={coin.fully_diluted_valuation.toLocaleString()}
               />
             </div>
           </Link>
@@ -72,25 +72,3 @@ const Coins = (props) => {
 };
 
 export default Coins;
-
-// Legacy code
-// {coinsToUse.map((coin) => {
-//   return (
-//     <Link to={"/coin-description/${coin.name}"} element={<CoinDesc />}>
-//       <div className="coin-container">
-//         <FaRegStar className="star-icon" size="16" />
-//         <Coin
-//           key={coin.name}
-//           rank={coin.market_cap_rank}
-//           image={coin.image}
-//           name={coin.name}
-//           symbol={coin.symbol.toUpperCase()}
-//           marketCap={coin.market_cap.toLocaleString()}
-//           coinPrice={coin.current_price.toLocaleString()}
-//           twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
-//           volume={coin.total_volume.toLocaleString()}
-//         />
-//       </div>
-//     </Link>
-//   );
-// })}

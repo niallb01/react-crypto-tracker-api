@@ -21,11 +21,21 @@ const Navbar = (props) => {
         <li>
           <Link to="/logout">Logout</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/sign-up">Sign Up</Link>
+        </li> */}
+        <li>
+          <Link to="/portfolio">Portfolio</Link>
         </li>
         <li>
           <Link to="/modify-account">Account</Link>
+        </li>
+        <li>
+          <button className="sign-up-button">
+            <Link to="/sign-up" className="button-text">
+              Sign Up
+            </Link>
+          </button>
         </li>
       </ul>
     </>

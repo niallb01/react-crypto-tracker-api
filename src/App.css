@@ -117,6 +117,30 @@ a {
   color: #27da71;
 }
 
+.sign-up-button {
+  background-color: #48c1be;
+  border: none;
+  border-radius: 5px;
+  width: 70px;
+  height: 30px;
+  transition: ease-out 0.3s;
+  outline: none;
+  cursor: pointer;
+}
+
+.sign-up-button:hover {
+  background-color: #384d61;
+}
+
+.button-text {
+  color: #2a3143;
+  font-weight: 500;
+}
+
+.button-text:hover {
+  color: #ffffff;
+}
+
 @media (max-width: 600px) {
   .nav-links {
     display: flex;

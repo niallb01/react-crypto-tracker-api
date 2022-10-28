@@ -7,6 +7,7 @@ import Symbol from "./Symbol";
 import Volume from "./Volume";
 import Rank from "./Rank";
 import TwentyFourHour from "./24hr";
+import FDV from "./FDV";
 
 const Coin = (props) => {
   return (
@@ -18,6 +19,7 @@ const Coin = (props) => {
       <CoinPrice coinPrice={props.coinPrice} />
       <TwentyFourHour twentyFourHour={props.twentyFourHour} />
       <Volume volume={props.volume} />
+      <FDV fdv={props.fdv} />
       <MarketCap marketCap={props.marketCap} />
     </>
   );

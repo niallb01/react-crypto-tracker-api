@@ -8,6 +8,7 @@ import Desc from "./components/Desc";
 import Login from "./pagecomponents/Login";
 import Logout from "./pagecomponents/Logout";
 import SignUp from "./pagecomponents/SignUp";
+import Portfolio from "./pagecomponents/Portfolio";
 import ModifyAccount from "./pagecomponents/ModifyAccount";
 
 function setApiData(apiData) {
@@ -44,7 +45,7 @@ function App() {
           //each entry will have correct data attached to it
           res.data[index].history = history.data;
           const description = await axios.get(
-            `https://api.coingecko.com/api/v3/coins/${element.id}` // params for dynamic router call?
+            `https://api.coingecko.com/api/v3/coins/${element.id}`
           );
           res.data[index].desc = description.data;
         }
@@ -67,9 +68,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Coins coins={coins} />} />
         {/* <Route path="/coin-description" element={<Desc desc={desc} />} /> */}
-
-        <Route path="/coin-description" element={<Desc desc={desc} />}></Route>
-
         <Route
           path="/coin-description/:coinName"
           element={<Desc desc={desc} />}
@@ -77,6 +75,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/modify-account" element={<ModifyAccount />} />
       </Routes>
     </>
