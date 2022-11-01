@@ -3,9 +3,7 @@ import axios from "axios";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-// import Coins from "./components/Coins";
 import Home from "./pagecomponents/Home";
-// import Desc from "./components/Desc";
 import Login from "./pagecomponents/Login";
 import Logout from "./pagecomponents/Logout";
 import SignUp from "./pagecomponents/SignUp";
@@ -28,6 +26,7 @@ function App() {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [coinDescription, setDesc] = useState(getApiData());
+  const [portfolio, addPortfolio] = useState([]);
 
   useEffect(() => {
     if (home.length > 0) return;
@@ -62,14 +61,22 @@ function App() {
     getApiData();
   }, []);
 
-  // console.log(coins);
-  console.log("home", home);
+  console.log(portfolio);
 
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/home" element={<Home home={home} />} />
+        <Route
+          path="/home"
+          element={
+            <Home
+              home={home}
+              portfolio={portfolio}
+              addPortfolio={addPortfolio}
+            />
+          }
+        />
         <Route
           path="/coin-description/:coinName"
           element={<CoinDescription coinDescription={coinDescription} />}
@@ -77,7 +84,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/portfolio" element={<Portfolio />} />
+        <Route
+          path="/portfolio"
+          element={<Portfolio portfolio={portfolio} />}
+        />
         <Route path="/modify-account" element={<ModifyAccount />} />
       </Routes>
     </>

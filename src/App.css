@@ -48,6 +48,14 @@ body {
   color: #ffad00;
 }
 
+.portfolio-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  /* background: #2a3143; */
+}
+
 .crypto-icon {
   width: 25px;
 }
@@ -114,6 +122,27 @@ a {
   font-size: 16px;
 }
 
+.portfolio-search-input {
+  width: 300px;
+  background-color: #2a3143;
+  border-radius: 5px 5px;
+  height: 1.4375em;
+  padding: 16.5px 14px;
+  padding-left: 5px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  border-width: 0em;
+  font-size: 16px;
+}
+
+.search-icon {
+  background-color: #ffad00;
+  width: 30px;
+  height: 55px;
+  opacity: 0.8;
+  border-radius: 5px 0px 0px 5px;
+}
+
 .search-bar {
   display: flex;
   justify-content: center;
@@ -146,9 +175,42 @@ a {
   cursor: pointer;
 }
 
+.add-coin-button {
+  background-color: #48c1be;
+  color: #2a3143;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  transition: ease-out 0.3s;
+  outline: none;
+  cursor: pointer;
+}
+
+.delete-coin-button {
+  background-color: #dd143c;
+  color: #ffffff;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  transition: ease-out 0.3s;
+  outline: none;
+  cursor: pointer;
+}
+
+.add-coin-button:hover,
 .sign-up-button:hover {
   background-color: #384d61;
   color: #48c1be;
+  border: 1px solid;
+}
+
+.delete-coin-button:hover {
+  background-color: #384d61;
+  color: #dd143c;
   border: 1px solid;
 }
 

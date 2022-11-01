@@ -1,10 +1,8 @@
 import Coin from "../components/Coin";
 import Pages from "../components/Pages";
 import { useState } from "react";
-import { FaStar, FaRegStar } from "react-icons/fa";
+import { FaStar, FaRegStar, FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import CoinDesc from "../components/CoinDesc";
-// import CoinDescription from "./CoinDescription";
 import CoinDescription from "./CoinDescription";
 
 const Home = (props) => {
@@ -15,19 +13,26 @@ const Home = (props) => {
     setSearch(e.target.value);
   };
 
+  const handlePortfolioItem = (name) => {
+    const portfolioCopy = [...props.portfolio];
+    if (portfolioCopy.includes(name)) return;
+    portfolioCopy.push(name);
+    props.addPortfolio(portfolioCopy);
+    console.log(portfolioCopy);
+  };
+
   const filteredCoins = props.home.filter((coin) => {
-    // console.log(coin.name, search);
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
 
   //if user enters search term use filtered version of coins otherwise use all coins
   const coinsToUse = search ? filteredCoins : props.home;
-  console.log(coinsToUse);
 
   return (
     <>
       <div className="user-coin-search">
         <div className="search-bar">
+          {/* <FaSearch className="search-icon" size="16" /> */}
           <input
             className="search-input"
             list="search-input-2"
@@ -49,7 +54,11 @@ const Home = (props) => {
             key={coin.name}
           >
             <div className="coin-container">
-              <FaRegStar className="star-icon" size="16" />
+              <FaRegStar
+                onClick={() => handlePortfolioItem(coin.name)}
+                className="star-icon"
+                size="16"
+              />
               <Coin
                 id={coin.id}
                 rank={coin.market_cap_rank}

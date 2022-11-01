@@ -2,7 +2,6 @@ import CoinDesc from "../components/CoinDesc";
 import { useLocation } from "react-router-dom";
 
 const CoinDescription = (props) => {
-  //   console.log("props", props);
   const location = useLocation();
   const currentCoin = location.pathname.split("/");
   let coinToShow = props.coinDescription;
@@ -11,6 +10,7 @@ const CoinDescription = (props) => {
       return coin.name === currentCoin[2];
     });
   }
+  console.log(props);
   return (
     <>
       {coinToShow.map((coindesc) => {
@@ -35,7 +35,7 @@ const CoinDescription = (props) => {
               twentyFourHourLow={coindesc.low_24h.toLocaleString()}
               ath={coindesc.ath.toLocaleString()}
               atl={coindesc.atl.toLocaleString()}
-              descText={coindesc.desc.description.en}
+              // descText={coindesc.desc.description.en}
             />
           </div>
         );
