@@ -52,8 +52,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-direction: row;
-  /* background: #2a3143; */
+  flex-direction: column;
+  background: #2a3143;
 }
 
 .crypto-icon {
@@ -64,7 +64,7 @@ body {
   width: 100px;
 }
 
-.star-icon {
+a .star-icon {
   fill: #ffffff;
   opacity: 0.5;
 }
@@ -175,7 +175,8 @@ a {
   cursor: pointer;
 }
 
-.add-coin-button {
+.add-coin-button,
+.login-button {
   background-color: #48c1be;
   color: #2a3143;
   font-size: 14px;
@@ -202,7 +203,8 @@ a {
 }
 
 .add-coin-button:hover,
-.sign-up-button:hover {
+.sign-up-button:hover,
+.login-button:hover {
   background-color: #384d61;
   color: #48c1be;
   border: 1px solid;
@@ -212,6 +214,38 @@ a {
   background-color: #384d61;
   color: #dd143c;
   border: 1px solid;
+}
+
+.login-container {
+  background: #2a3143;
+  background: #2a3143;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+label {
+  display: inline-block;
+  width: 130px;
+  padding: 5px;
+  margin: 10px;
+}
+
+/* label::after {
+  content: "*";
+  color: #333333;
+  margin: 5px;
+} */
+
+.login-password-input,
+.login-email-input {
+  width: 220px;
+  height: 30px;
+  border-radius: 5px 0px 0px 5px;
+  background: #2a3143;
+  border-width: 0em;
 }
 
 @media (max-width: 600px) {

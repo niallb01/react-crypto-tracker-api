@@ -8,6 +8,7 @@ import CoinDescription from "./CoinDescription";
 const Home = (props) => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
+  // const [toggle, setToggle] = useState(false);
 
   const handleSearchInput = (e) => {
     setSearch(e.target.value);
@@ -54,11 +55,13 @@ const Home = (props) => {
             key={coin.name}
           >
             <div className="coin-container">
-              <FaRegStar
-                onClick={() => handlePortfolioItem(coin.name)}
-                className="star-icon"
-                size="16"
-              />
+              <Link to={"#"}>
+                <FaRegStar
+                  onClick={() => handlePortfolioItem(coin.name)}
+                  className="star-icon"
+                  size="16"
+                />
+              </Link>
               <Coin
                 id={coin.id}
                 rank={coin.market_cap_rank}

@@ -24,7 +24,6 @@ function getApiData() {
 function App() {
   const [home, setCoins] = useState(getApiData());
   const [page, setPage] = useState(1);
-  const [search, setSearch] = useState("");
   const [coinDescription, setDesc] = useState(getApiData());
   const [portfolio, addPortfolio] = useState([]);
 
@@ -86,7 +85,9 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route
           path="/portfolio"
-          element={<Portfolio portfolio={portfolio} />}
+          element={
+            <Portfolio portfolio={portfolio} addPortfolio={addPortfolio} />
+          }
         />
         <Route path="/modify-account" element={<ModifyAccount />} />
       </Routes>
