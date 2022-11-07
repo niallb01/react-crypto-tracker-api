@@ -1,14 +1,14 @@
 import Coin from "../components/Coin";
 import Pages from "../components/Pages";
 import { useState } from "react";
-import { FaStar, FaRegStar, FaSearch } from "react-icons/fa";
+import { Icon, FaStar, FaRegStar, FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import CoinDescription from "./CoinDescription";
 
 const Home = (props) => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
-  // const [toggle, setToggle] = useState(false);
+  // const [toggleIcon, setToggleIcon] = useState(false);
 
   const handleSearchInput = (e) => {
     setSearch(e.target.value);
@@ -28,6 +28,8 @@ const Home = (props) => {
 
   //if user enters search term use filtered version of coins otherwise use all coins
   const coinsToUse = search ? filteredCoins : props.home;
+
+  // console.log("home", props.home);
 
   return (
     <>

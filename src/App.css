@@ -74,6 +74,11 @@ a .star-icon {
   opacity: 1;
 }
 
+.star-icon-fill {
+  color: #ffad00;
+  fill: #ffad00;
+}
+
 .header {
   text-align: center;
   font-size: 30px;

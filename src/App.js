@@ -26,6 +26,7 @@ function App() {
   const [page, setPage] = useState(1);
   const [coinDescription, setDesc] = useState(getApiData());
   const [portfolio, addPortfolio] = useState([]);
+  // const [portfolioModal, setPortfolioModal] = useState(false);
 
   useEffect(() => {
     if (home.length > 0) return;
@@ -86,7 +87,11 @@ function App() {
         <Route
           path="/portfolio"
           element={
-            <Portfolio portfolio={portfolio} addPortfolio={addPortfolio} />
+            <Portfolio
+              portfolio={portfolio}
+              addPortfolio={addPortfolio}
+              // setPortfolioModal={setPortfolioModal}
+            />
           }
         />
         <Route path="/modify-account" element={<ModifyAccount />} />
