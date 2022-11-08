@@ -19,7 +19,7 @@ const Home = (props) => {
 
   const handlePortfolioItem = (name) => {
     const portfolioCopy = [...props.portfolio];
-    //where item is in array - is it in array
+    //where item is in array - is it in array?
     const indexOf = portfolioCopy.indexOf(name);
     console.log(name, indexOf);
     if (indexOf > -1) {
@@ -32,7 +32,7 @@ const Home = (props) => {
     console.log(portfolioCopy);
     toast.success("Coin Added To Portfolio", {
       position: toast.POSITION.TOP_CENTER,
-      autoClose: 1500,
+      autoClose: 1000,
     });
   };
 
