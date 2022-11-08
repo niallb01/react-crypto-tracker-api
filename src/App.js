@@ -22,14 +22,13 @@ function getApiData() {
 }
 
 function App() {
-  const [home, setCoins] = useState(getApiData());
+  const [coins, setCoins] = useState(getApiData());
   const [page, setPage] = useState(1);
   const [coinDescription, setDesc] = useState(getApiData());
   const [portfolio, addPortfolio] = useState([]);
-  // const [portfolioModal, setPortfolioModal] = useState(false);
 
   useEffect(() => {
-    if (home.length > 0) return;
+    if (coins.length > 0) return;
     console.log("no data found. getting new data");
     async function getApiData() {
       try {
@@ -61,7 +60,7 @@ function App() {
     getApiData();
   }, []);
 
-  console.log(portfolio);
+  // console.log(portfolio);
 
   return (
     <>
@@ -71,7 +70,7 @@ function App() {
           path="/home"
           element={
             <Home
-              home={home}
+              coins={coins}
               portfolio={portfolio}
               addPortfolio={addPortfolio}
             />
@@ -90,7 +89,7 @@ function App() {
             <Portfolio
               portfolio={portfolio}
               addPortfolio={addPortfolio}
-              // setPortfolioModal={setPortfolioModal}
+              coins={coins}
             />
           }
         />

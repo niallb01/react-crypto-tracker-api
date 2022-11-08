@@ -4,6 +4,9 @@ import { useState } from "react";
 import { Icon, FaStar, FaRegStar, FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import CoinDescription from "./CoinDescription";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = (props) => {
   const [page, setPage] = useState(1);
@@ -16,23 +19,33 @@ const Home = (props) => {
 
   const handlePortfolioItem = (name) => {
     const portfolioCopy = [...props.portfolio];
-    if (portfolioCopy.includes(name)) return;
+    //where item is in array - is it in array
+    const indexOf = portfolioCopy.indexOf(name);
+    console.log(name, indexOf);
+    if (indexOf > -1) {
+      portfolioCopy.splice(indexOf, 1);
+      props.addPortfolio(portfolioCopy);
+      return;
+    }
     portfolioCopy.push(name);
     props.addPortfolio(portfolioCopy);
     console.log(portfolioCopy);
+    toast.success("Coin Added To Portfolio", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 1500,
+    });
   };
 
-  const filteredCoins = props.home.filter((coin) => {
+  const filteredCoins = props.coins.filter((coin) => {
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
 
   //if user enters search term use filtered version of coins otherwise use all coins
-  const coinsToUse = search ? filteredCoins : props.home;
-
-  // console.log("home", props.home);
+  const coinsToUse = search ? filteredCoins : props.coins;
 
   return (
     <>
+      <ToastContainer />
       <div className="user-coin-search">
         <div className="search-bar">
           {/* <FaSearch className="search-icon" size="16" /> */}
@@ -43,7 +56,7 @@ const Home = (props) => {
             onInput={handleSearchInput}
           ></input>
           <datalist id="search-input-2">
-            {props.home.map((coin) => (
+            {props.coins.map((coin) => (
               <option>{coin.name}</option>
             ))}
           </datalist>
@@ -58,11 +71,19 @@ const Home = (props) => {
           >
             <div className="coin-container">
               <Link to={"#"}>
-                <FaRegStar
-                  onClick={() => handlePortfolioItem(coin.name)}
-                  className="star-icon"
-                  size="16"
-                />
+                {props.portfolio.includes(coin.name) ? (
+                  <FaStar
+                    onClick={() => handlePortfolioItem(coin.name)}
+                    className="star-icon-fill"
+                    size="16"
+                  />
+                ) : (
+                  <FaRegStar
+                    onClick={() => handlePortfolioItem(coin.name)}
+                    className="star-icon"
+                    size="16"
+                  />
+                )}
               </Link>
               <Coin
                 id={coin.id}
