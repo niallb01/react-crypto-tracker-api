@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import CoinDescription from "./CoinDescription";
 import Coin from "../components/Coin";
+import InputCoin from "../inputcomponents/InputCoin";
 
 const Portfolio = (props) => {
   const [portfolioModal, setPortfolioModal] = useState(false);
@@ -34,8 +35,10 @@ const Portfolio = (props) => {
     return props.portfolio.includes(coin.name);
   });
 
+  // coin.name.toLowerCase().includes(search.toLowerCase());
+
   const coinResults = props.coins.filter((coin) => {
-    return coin.name.includes(portfolioSearch);
+    return coin.name.toLowerCase().includes(portfolioSearch);
   });
 
   console.log(coinResults);
@@ -43,29 +46,38 @@ const Portfolio = (props) => {
   return (
     <>
       <ToastContainer limit={1} />
-      {/* <div className="portfolio-container"> */}
       <h1>My Portfolio</h1>
 
-      <button onClick={togglePortfolioModal} className="btn-modal">
-        + Add Coin
-      </button>
+      <div className="add-portfolio-btn">
+        <button onClick={togglePortfolioModal} className="btn-modal">
+          + Add Coin
+        </button>
+      </div>
       {portfolioModal && (
         <div className="modal">
           <div onClick={togglePortfolioModal} className="overlay"></div>
           <div className="modal-content">
             <h4 className="modal-header">Add Coin</h4>
             <input
-              type="text"
               className="portfolio-search"
+              list="search-input-3"
               placeholder="Search Coin..."
               onInput={handlePortfolioSearchInput}
-              list="search-input-3"
             />
-            {/* <ul>
+            <ul>
               {coinResults.map((coin) => {
-                return <li>{coin.name}</li>;
+                // return <li>{coin.name}</li>;
+                return (
+                  <li>
+                    <InputCoin
+                      image={coin.image}
+                      symbol={coin.symbol.toUpperCase()}
+                      name={coin.name}
+                    />
+                  </li>
+                );
               })}
-            </ul> */}
+            </ul>
 
             <input
               type="text"
@@ -104,9 +116,11 @@ const Portfolio = (props) => {
           </Link>
         );
       })}
-      <button onClick={onDeletePortfolio} className="delete-coin-button">
-        Delete
-      </button>
+      <div className="delete-portfolio-btn">
+        <button onClick={onDeletePortfolio} className="delete-coin-button">
+          Delete
+        </button>
+      </div>
     </>
   );
 };

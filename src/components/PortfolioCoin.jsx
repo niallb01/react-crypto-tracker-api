@@ -17,12 +17,9 @@ const PortfolioCoin = (props) => {
       <Image image={props.image} />
       <Name name={props.name} />
       <Symbol symbol={props.symbol} />
+      <Quantity quantity={props.quantity} />
       <CoinPrice coinPrice={props.coinPrice} />
       <TwentyFourHour twentyFourHour={props.twentyFourHour} />
-      <Volume volume={props.volume} />
-      <FDV fdv={props.fdv} />
-      <MarketCap marketCap={props.marketCap} />
-      <Quantity quantity={props.quantity} />
     </>
   );
 };

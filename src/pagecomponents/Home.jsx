@@ -11,7 +11,6 @@ import "react-toastify/dist/ReactToastify.css";
 const Home = (props) => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
-  // const [toggleIcon, setToggleIcon] = useState(false);
 
   const handleSearchInput = (e) => {
     setSearch(e.target.value);
@@ -42,6 +41,8 @@ const Home = (props) => {
 
   //if user enters search term use filtered version of coins otherwise use all coins
   const coinsToUse = search ? filteredCoins : props.coins;
+
+  console.log(filteredCoins);
 
   return (
     <>
