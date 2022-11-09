@@ -2,6 +2,8 @@ import { useState } from "react";
 import "../Modal.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
+import CoinDescription from "./CoinDescription";
 import Coin from "../components/Coin";
 
 const Portfolio = (props) => {
@@ -59,11 +61,11 @@ const Portfolio = (props) => {
               onInput={handlePortfolioSearchInput}
               list="search-input-3"
             />
-            <ul>
+            {/* <ul>
               {coinResults.map((coin) => {
                 return <li>{coin.name}</li>;
               })}
-            </ul>
+            </ul> */}
 
             <input
               type="text"
@@ -80,20 +82,26 @@ const Portfolio = (props) => {
       )}
       {coinPortfolio.map((coin) => {
         return (
-          <div className="portfolio-container">
-            <Coin
-              id={coin.id}
-              rank={coin.market_cap_rank}
-              image={coin.image}
-              name={coin.name}
-              symbol={coin.symbol.toUpperCase()}
-              marketCap={coin.market_cap.toLocaleString()}
-              coinPrice={coin.current_price.toLocaleString()}
-              twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
-              volume={coin.total_volume.toLocaleString()}
-              fdv={coin.fully_diluted_valuation.toLocaleString()}
-            />
-          </div>
+          <Link
+            to={`/coin-description/${coin.name}`}
+            element={<CoinDescription />}
+            key={coin.name}
+          >
+            <div className="portfolio-container">
+              <Coin
+                id={coin.id}
+                rank={coin.market_cap_rank}
+                image={coin.image}
+                name={coin.name}
+                symbol={coin.symbol.toUpperCase()}
+                marketCap={coin.market_cap.toLocaleString()}
+                coinPrice={coin.current_price.toLocaleString()}
+                twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
+                volume={coin.total_volume.toLocaleString()}
+                fdv={coin.fully_diluted_valuation.toLocaleString()}
+              />
+            </div>
+          </Link>
         );
       })}
       <button onClick={onDeletePortfolio} className="delete-coin-button">

@@ -93,6 +93,11 @@ function App() {
             />
           }
         />
+        <Route
+          path="/coin-description/:coinName"
+          element={<CoinDescription coinDescription={coinDescription} />}
+        />
+
         <Route path="/modify-account" element={<ModifyAccount />} />
       </Routes>
     </>

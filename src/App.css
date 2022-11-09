@@ -229,7 +229,6 @@ a {
 
 .login-container {
   background: #2a3143;
-  background: #2a3143;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -243,12 +242,6 @@ label {
   padding: 5px;
   margin: 10px;
 }
-
-/* label::after {
-  content: "*";
-  color: #333333;
-  margin: 5px;
-} */
 
 .login-password-input,
 .login-email-input {

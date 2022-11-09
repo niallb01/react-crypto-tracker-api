@@ -8,6 +8,7 @@ import Volume from "./Volume";
 import Rank from "./Rank";
 import TwentyFourHour from "./24hr";
 import FDV from "./FDV";
+import Quantity from "./Quantity";
 
 const PortfolioCoin = (props) => {
   return (
@@ -21,6 +22,7 @@ const PortfolioCoin = (props) => {
       <Volume volume={props.volume} />
       <FDV fdv={props.fdv} />
       <MarketCap marketCap={props.marketCap} />
+      <Quantity quantity={props.quantity} />
     </>
   );
 };
