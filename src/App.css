@@ -150,6 +150,16 @@ a {
   font-size: 16px;
 }
 
+.input-coin {
+  /* display: flex;
+  justify-content: space-evenly;
+  flex-direction: row; */
+}
+
+.input-coin:hover {
+  cursor: pointer;
+}
+
 .search-icon {
   background-color: #ffad00;
   width: 30px;

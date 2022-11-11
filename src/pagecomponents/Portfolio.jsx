@@ -10,9 +10,15 @@ import InputCoin from "../inputcomponents/InputCoin";
 const Portfolio = (props) => {
   const [portfolioModal, setPortfolioModal] = useState(false);
   const [portfolioSearch, setPortfolioSearch] = useState([]);
+  const [quantity, setQuantity] = useState([]);
 
   const handlePortfolioSearchInput = (e) => {
     setPortfolioSearch(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const handleQuantity = (e) => {
+    setQuantity(e.target.value);
     console.log(e.target.value);
   };
 
@@ -35,13 +41,21 @@ const Portfolio = (props) => {
     return props.portfolio.includes(coin.name);
   });
 
-  // coin.name.toLowerCase().includes(search.toLowerCase());
-
   const coinResults = props.coins.filter((coin) => {
     return coin.name.toLowerCase().includes(portfolioSearch);
   });
 
-  console.log(coinResults);
+  const handleNewCoin = (name) => {
+    //create spread version of state
+    const newCoin = [...props.portfolio];
+    //add new item to portfolio/state
+    newCoin.push(name);
+    props.addPortfolio(newCoin);
+    console.log(newCoin);
+  };
+
+  // console.log(props.portfolio);
+  // console.log(coinResults);
 
   return (
     <>
@@ -64,12 +78,14 @@ const Portfolio = (props) => {
               placeholder="Search Coin..."
               onInput={handlePortfolioSearchInput}
             />
+
             <ul>
               {coinResults.map((coin) => {
                 // return <li>{coin.name}</li>;
                 return (
-                  <li>
+                  <li className="input-coin">
                     <InputCoin
+                      onClick={() => handleNewCoin(coin.name)}
                       image={coin.image}
                       symbol={coin.symbol.toUpperCase()}
                       name={coin.name}
@@ -80,6 +96,7 @@ const Portfolio = (props) => {
             </ul>
 
             <input
+              onInput={handleQuantity}
               type="text"
               className="portfolio-quantity"
               placeholder="Add Quantity..."
