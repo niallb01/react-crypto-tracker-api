@@ -150,12 +150,6 @@ a {
   font-size: 16px;
 }
 
-.input-coin {
-  /* display: flex;
-  justify-content: space-evenly;
-  flex-direction: row; */
-}
-
 .input-coin:hover {
   cursor: pointer;
 }
@@ -248,6 +242,14 @@ a {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
+}
+
+.edit-coin {
+  background-color: #384d61;
+  color: #48c1be;
+  /* border: 1px solid; */
+  border: none;
+  cursor: pointer;
 }
 
 label {

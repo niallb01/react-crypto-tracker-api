@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import CoinDescription from "./CoinDescription";
 import Coin from "../components/Coin";
 import InputCoin from "../inputcomponents/InputCoin";
+import PortfolioCoin from "../portfoliocomponents.jsx/PortfolioCoin";
 
 const Portfolio = (props) => {
   const [portfolioModal, setPortfolioModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
   const [portfolioSearch, setPortfolioSearch] = useState([]);
   const [quantity, setQuantity] = useState([]);
 
@@ -24,6 +26,10 @@ const Portfolio = (props) => {
 
   const togglePortfolioModal = () => {
     setPortfolioModal(!portfolioModal);
+  };
+
+  const toggleEditModal = () => {
+    setEditModal(!editModal);
   };
 
   const onDeletePortfolio = (item) => {
@@ -61,7 +67,6 @@ const Portfolio = (props) => {
     <>
       <ToastContainer limit={1} />
       <h1>My Portfolio</h1>
-
       <div className="add-portfolio-btn">
         <button onClick={togglePortfolioModal} className="btn-modal">
           + Add Coin
@@ -117,22 +122,18 @@ const Portfolio = (props) => {
             key={coin.name}
           >
             <div className="portfolio-container">
-              <Coin
-                id={coin.id}
-                rank={coin.market_cap_rank}
+              <PortfolioCoin
                 image={coin.image}
                 name={coin.name}
                 symbol={coin.symbol.toUpperCase()}
-                marketCap={coin.market_cap.toLocaleString()}
-                coinPrice={coin.current_price.toLocaleString()}
                 twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
-                volume={coin.total_volume.toLocaleString()}
-                fdv={coin.fully_diluted_valuation.toLocaleString()}
+                coinPrice={coin.current_price.toLocaleString()}
               />
             </div>
           </Link>
         );
       })}
+
       <div className="delete-portfolio-btn">
         <button onClick={onDeletePortfolio} className="delete-coin-button">
           Delete
