@@ -10,7 +10,7 @@ import PortfolioCoin from "../portfoliocomponents.jsx/PortfolioCoin";
 
 const Portfolio = (props) => {
   const [portfolioModal, setPortfolioModal] = useState(false);
-  const [editModal, setEditModal] = useState(false);
+  // const [editModal, setEditModal] = useState(false);
   const [portfolioSearch, setPortfolioSearch] = useState([]);
   const [quantity, setQuantity] = useState([]);
 
@@ -28,9 +28,9 @@ const Portfolio = (props) => {
     setPortfolioModal(!portfolioModal);
   };
 
-  const toggleEditModal = () => {
-    setEditModal(!editModal);
-  };
+  // const toggleEditModal = () => {
+  //   setEditModal(!editModal);
+  // };
 
   const onDeletePortfolio = (item) => {
     const deletePortfolio = [...props.portfolio];
@@ -117,7 +117,8 @@ const Portfolio = (props) => {
       {coinPortfolio.map((coin) => {
         return (
           <Link
-            to={`/coin-description/${coin.name}`}
+            // to={`/coin-description/${coin.name}`}
+            to={"#"}
             element={<CoinDescription />}
             key={coin.name}
           >

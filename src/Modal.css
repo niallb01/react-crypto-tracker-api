@@ -57,6 +57,7 @@ body.active-modal {
   opacity: 0.7;
   background: #12171f;
 }
+
 .modal-content {
   position: relative;
   display: flex;
@@ -113,6 +114,20 @@ body.active-modal {
   margin-bottom: 20px;
 }
 
+.edit-coin-input {
+  width: 300px;
+  background: #1d2330;
+  border-radius: 5px 5px;
+  height: 0.8em;
+  padding: 16.5px 14px;
+  padding-left: 5px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  border-width: 0em;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
 .portfolio-quantity {
   width: 150px;
   background: #1d2330;
@@ -142,5 +157,25 @@ body.active-modal {
 .add-portfolio-coin-btn:hover {
   background: #2a3143;
   color: #48c1be;
+  border: 1px solid;
+}
+
+.delete-portfolio-coin-btn {
+  background-color: #dd143c;
+  color: #ffffff;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  transition: ease-out 0.3s;
+  outline: none;
+  cursor: pointer;
+  margin-left: 400px;
+}
+
+.delete-portfolio-coin-btn:hover {
+  background-color: #384d61;
+  color: #dd143c;
   border: 1px solid;
 }
