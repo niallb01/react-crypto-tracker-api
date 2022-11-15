@@ -27,8 +27,7 @@ body {
   height: 50px;
 }
 
-.coin-container:hover,
-.portfolio-container:hover {
+.coin-container:hover {
   transform: scale(1.01);
   transition: 0.2s ease-in-out;
   background-color: #343f56;
