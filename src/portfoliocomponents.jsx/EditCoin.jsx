@@ -1,32 +1,58 @@
 import { useState } from "react";
 import "../Modal.css";
+// import PortfolioEditCoin from "./PortfolioEditCoin";
+import Placeholder from "./Placeholder";
 
 const EditCoin = (props) => {
   const [editModal, setEditModal] = useState(false);
-  const [editQuantity, setEditQuantity] = useState([]);
+  const [quantity, setQuantity] = useState([]);
+  const [editCoin, setEditCoin] = useState([]); //edit coin
+  const [selectedCoin, setSelectedCoin] = useState();
+  //const [placeholder, setPlaceholder] = useState([]);
 
-  const toggleEditModal = () => {
+  //weve passed down the coin into editcoin when btn is clicked we are then storing coin in local state
+  const toggleEditModal = (coin) => {
     setEditModal(!editModal);
+    setSelectedCoin(coin);
   };
 
+  //event handler to edit coin quantity from user
   const handleEditQuantity = (e) => {
-    setEditQuantity(e.target.value);
+    setQuantity(e.target.value);
     console.log(e.target.value);
   };
 
-  const onDeletePortfolioCoin = (item) => {
-    const deleteCoin = [...props.portfolio];
-    deleteCoin.splice(item, 1);
-    props.addPortfolio(deleteCoin);
-    // console.log(props.portfolio);
+  //need function to add quantity to state - need to iterate over portfolio in this file
+  //need to know which item in array to edit - array method to update?
+  const newCoinQuantity = () => {
+    console.log("update btn was clicked");
+    // const updatedCoin = [...props.portfolio];
+    // // updatedCoin.?
+    // props.addPortfolio(updatedCoin);
   };
 
-  // console.log(props.portfolio);
+  //need to tell this function which coin to delete, index, itemNo then delete from state
+
+  //add updated coin to the state
+  // const editCoinPortfolio = () => {
+  //   const coinToEdit = [...props.portfolio];
+  //   props.addPortfolio(editCoin);
+  // };
+
+  //user choose's coin to edit, ideally using toggleEdit but it already has onClick
+  // const chooseEditCoin = (name) => {
+  //   setEditCoin(name);
+  // };
 
   return (
     <>
       <div className="add-portfolio-btn">
-        <button onClick={toggleEditModal} className="edit-coin">
+        <button
+          onClick={() => {
+            toggleEditModal(props.name);
+          }}
+          className="edit-coin"
+        >
           Edit
         </button>
       </div>
@@ -37,23 +63,34 @@ const EditCoin = (props) => {
             <h4 className="modal-header">Edit Coin</h4>
             <input
               className="edit-coin-input"
-              //   placeholder={}
+              disabled
+              value={selectedCoin} // value should never be action
             />
 
             <input
               onInput={handleEditQuantity}
               type="text"
               className="portfolio-quantity"
-              placeholder="Add Quantity..."
+              value={quantity}
+              placeholder="Enter Quantity..."
             />
             <button
-              onClick={onDeletePortfolioCoin}
+              onClick={() => {
+                props.onDeletePortfolioCoin(selectedCoin);
+              }}
               className="delete-portfolio-coin-btn"
             >
               Delete
             </button>
-            <button className="add-portfolio-coin-btn">Update</button>
-
+            <button
+              onClick={() => {
+                props.onUpdatePortfolioCoin(selectedCoin, quantity);
+                toggleEditModal();
+              }}
+              className="add-portfolio-coin-btn"
+            >
+              Update
+            </button>
             <button onClick={toggleEditModal} className="close-modal">
               X
             </button>

@@ -1,7 +1,7 @@
 const TotalValue = (props) => {
   return (
     <>
-      <p className="total-value">Total Value{props.totalValue}</p>
+      <p className="total-value">Total Value: £{props.totalValue}</p>
     </>
   );
 };

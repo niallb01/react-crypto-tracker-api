@@ -4,7 +4,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import CoinDescription from "./CoinDescription";
-// import Coin from "../components/Coin";
 import InputCoin from "../inputcomponents/InputCoin";
 import PortfolioCoin from "../portfoliocomponents.jsx/PortfolioCoin";
 
@@ -38,6 +37,24 @@ const Portfolio = (props) => {
     });
   };
 
+  const onDeletePortfolioCoin = (item) => {
+    // console.log("delete btn was clicked", portfolioCopy);
+    const portfolioCopy = [...props.portfolio];
+    const indexOf = portfolioCopy.findIndex((item) => item.name === item);
+    portfolioCopy.splice(indexOf, 1);
+    props.addPortfolio(portfolioCopy);
+  };
+
+  const onUpdatePortfolioCoin = (name, quantity) => {
+    const portfolioCopy = [...props.portfolio];
+    const indexOf = portfolioCopy.findIndex((item) => {
+      return item.name === name;
+    });
+    console.log(indexOf);
+    portfolioCopy[indexOf].quantity = quantity;
+    props.addPortfolio(portfolioCopy);
+  };
+
   //looks inside each object of the array to see if coin name is inside it
   const coinPortfolio = props.coins.filter((coin) => {
     const indexOf = props.portfolio.findIndex((item) => {
@@ -52,29 +69,25 @@ const Portfolio = (props) => {
     return coin.name.toLowerCase().includes(portfolioSearch);
   });
 
-  //adding new coin to portfolio, need to add quantity, price * quantity = totalvalue
   const chooseCoin = (name) => {
     setPortfolioSearch(name);
-    //create spread version of state
-    // const newCoin = [...props.portfolio];
-    // //add new item to portfolio/state
-    // newCoin.push(name);
-    // props.addPortfolio(newCoin);
   };
 
+  //adding new coin to portfolio, need to add quantity, price * quantity = totalvalue
   const onAddNewCoin = () => {
     console.log("hi", props.portfolio);
     const newCoin = [...props.portfolio];
     console.log("yo", newCoin);
-    // //add new item to portfolio/state
+    //add new item to portfolio/state
     newCoin.push({ name: portfolioSearch, quantity });
     console.log("new coin", newCoin);
     props.addPortfolio(newCoin);
+    //empty search inputs
     setPortfolioSearch("");
     setQuantity("");
   };
 
-  console.log(props.portfolio);
+  // console.log(props.portfolio);
 
   return (
     <>
@@ -100,7 +113,6 @@ const Portfolio = (props) => {
 
             <ul>
               {coinResults.map((coin) => {
-                // return <li>{coin.name}</li>;
                 return (
                   <li
                     className="input-coin"
@@ -108,7 +120,6 @@ const Portfolio = (props) => {
                     key={coin.name}
                   >
                     <InputCoin
-                      // onClick={() => handleNewCoin(coin.name)}
                       image={coin.image}
                       symbol={coin.symbol.toUpperCase()}
                       name={coin.name}
@@ -155,6 +166,8 @@ const Portfolio = (props) => {
                 coinPrice={coin.current_price.toLocaleString()}
                 quantity={item.quantity}
                 totalValue={item.quantity * coin.current_price}
+                onDeletePortfolioCoin={onDeletePortfolioCoin}
+                onUpdatePortfolioCoin={onUpdatePortfolioCoin}
               />
             </div>
           </Link>

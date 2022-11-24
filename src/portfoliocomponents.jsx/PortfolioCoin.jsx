@@ -19,8 +19,12 @@ const PortfolioCoin = (props) => {
       <TwentyFourHour twentyFourHour={props.twentyFourHour} />
       <CoinPrice coinPrice={props.coinPrice} />
       <Quantity quantity={props.quantity} />
-      <TotalValue totalValue={props.totalValue} />
-      <EditCoin editCoin={props.editCoin} />
+      <TotalValue totalValue={props.totalValue.toLocaleString()} />
+      <EditCoin
+        name={props.name}
+        onDeletePortfolioCoin={props.onDeletePortfolioCoin}
+        onUpdatePortfolioCoin={props.onUpdatePortfolioCoin}
+      />
     </>
   );
 };
