@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import CoinDescription from "./CoinDescription";
 import InputCoin from "../inputcomponents/InputCoin";
 import PortfolioCoin from "../portfoliocomponents.jsx/PortfolioCoin";
+//this component is child of app - data is being sent down from app
 
 const Portfolio = (props) => {
   const [portfolioModal, setPortfolioModal] = useState(false);
@@ -13,6 +14,7 @@ const Portfolio = (props) => {
   const [quantity, setQuantity] = useState([]);
 
   const togglePortfolioModal = () => {
+    console.log("hi, from portfolio", props.portfolio);
     setPortfolioModal(!portfolioModal);
   };
 
@@ -38,7 +40,6 @@ const Portfolio = (props) => {
   };
 
   const onDeletePortfolioCoin = (item) => {
-    // console.log("delete btn was clicked", portfolioCopy);
     const portfolioCopy = [...props.portfolio];
     const indexOf = portfolioCopy.findIndex((item) => item.name === item);
     portfolioCopy.splice(indexOf, 1);
@@ -86,8 +87,6 @@ const Portfolio = (props) => {
     setPortfolioSearch("");
     setQuantity("");
   };
-
-  // console.log(props.portfolio);
 
   return (
     <>

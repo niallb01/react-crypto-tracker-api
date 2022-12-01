@@ -24,8 +24,12 @@ function getApiData() {
 function App() {
   const [coins, setCoins] = useState(getApiData());
   const [page, setPage] = useState(1);
-  const [coinDescription, setDesc] = useState(getApiData());
-  const [portfolio, addPortfolio] = useState([]);
+  const [coinDescription, setDescription] = useState(getApiData());
+  const [portfolio, addPortfolio] = useState();
+
+  useEffect(() => {
+    console.log(portfolio, "hi from portfolio in app");
+  }, [portfolio]);
 
   useEffect(() => {
     if (coins.length > 0) return;
@@ -52,15 +56,13 @@ function App() {
         console.log(res.data);
         setCoins(res.data);
         setApiData(res.data);
-        setDesc(res.data);
+        setDescription(res.data);
       } catch (error) {
         console.log("Error", error);
       }
     }
     getApiData();
   }, []);
-
-  // console.log(portfolio);
 
   return (
     <>

@@ -8,6 +8,8 @@ import Rank from "../components/Rank";
 import Quantity from "./Quantity";
 import TotalValue from "./TotalValue";
 import EditCoin from "./EditCoin";
+//this component is child of portfolio - data is being sent down from portfolio
+// parent - portfolio is mapping over data
 
 const PortfolioCoin = (props) => {
   return (

@@ -16,23 +16,57 @@ const Home = (props) => {
     setSearch(e.target.value);
   };
 
+  // const handlePortfolioItem = (name) => {
+  //   const portfolioCopy = [...props.portfolio];
+  //   //where item is in array - is it in array?
+  //   const indexOf = portfolioCopy.indexOf(name);
+  //   console.log(name, indexOf);
+  //   if (indexOf > -1) {
+  //     portfolioCopy.splice(indexOf, 1);
+  //     props.addPortfolio(portfolioCopy);
+  //     return;
+  //   }
+  //   portfolioCopy.push(name);
+  //   props.addPortfolio(portfolioCopy);
+  //   console.log("hi, from portfoliocopy", props.portfolio);
+  //   toast.success("Coin Added To Portfolio", {
+  //     position: toast.POSITION.TOP_CENTER,
+  //     autoClose: 1000,
+  //   });
+  // };
+
   const handlePortfolioItem = (name) => {
+    console.log(name, "this is the handle protfolio function");
     const portfolioCopy = [...props.portfolio];
     //where item is in array - is it in array?
-    const indexOf = portfolioCopy.indexOf(name);
-    console.log(name, indexOf);
-    if (indexOf > -1) {
-      portfolioCopy.splice(indexOf, 1);
+    // console.log(name, indexOf);
+    //all coins we have in portfolio, look at them, if name is equal to one we passed in return it
+    const found = portfolioCopy.find((coin) => {
+      return coin.name === name;
+    }); // if found remove from array
+    if (found) {
+      console.log(found, "coin found");
+      portfolioCopy.filter((coin) => {
+        return coin.name !== name;
+      });
+      console.log(
+        "filtered coins",
+        portfolioCopy.filter((coin) => {
+          return coin.name !== name;
+        })
+      );
       props.addPortfolio(portfolioCopy);
       return;
     }
-    portfolioCopy.push(name);
+    console.log(portfolioCopy, { name: name, quantity: "1" });
+    portfolioCopy.push({ name: name, quantity: "1" });
+    // portfolioCopy.push(name);
     props.addPortfolio(portfolioCopy);
-    console.log(portfolioCopy);
-    toast.success("Coin Added To Portfolio", {
-      position: toast.POSITION.TOP_CENTER,
-      autoClose: 1000,
-    });
+    console.log("hi, from portfoliocopy", props.portfolio);
+    // toast.success("Coin Added To Portfolio", {
+    //   position: toast.POSITION.TOP_CENTER,
+    //   autoClose: 1000,
+    // });
   };
 
   const filteredCoins = props.coins.filter((coin) => {
@@ -42,7 +76,7 @@ const Home = (props) => {
   //if user enters search term use filtered version of coins otherwise use all coins
   const coinsToUse = search ? filteredCoins : props.coins;
 
-  console.log(filteredCoins);
+  // console.log(filteredCoins);
 
   return (
     <>
@@ -72,7 +106,9 @@ const Home = (props) => {
           >
             <div className="coin-container">
               <Link to={"#"}>
-                {props.portfolio.includes(coin.name) ? (
+                {props.portfolio.find((coinToFind) => {
+                  return coinToFind.name === coin.name;
+                }) ? (
                   <FaStar
                     onClick={() => handlePortfolioItem(coin.name)}
                     className="star-icon-fill"

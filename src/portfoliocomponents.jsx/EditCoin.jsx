@@ -1,16 +1,13 @@
 import { useState } from "react";
 import "../Modal.css";
-// import PortfolioEditCoin from "./PortfolioEditCoin";
-import Placeholder from "./Placeholder";
+//this component is a child of portfolioCoin - data is being sent down from portfolioCoin
 
 const EditCoin = (props) => {
   const [editModal, setEditModal] = useState(false);
   const [quantity, setQuantity] = useState([]);
-  const [editCoin, setEditCoin] = useState([]); //edit coin
   const [selectedCoin, setSelectedCoin] = useState();
-  //const [placeholder, setPlaceholder] = useState([]);
 
-  //weve passed down the coin into editcoin when btn is clicked we are then storing coin in local state
+  //we've passed down the coin into editcoin when btn is clicked we are then storing coin in local state
   const toggleEditModal = (coin) => {
     setEditModal(!editModal);
     setSelectedCoin(coin);
@@ -21,28 +18,6 @@ const EditCoin = (props) => {
     setQuantity(e.target.value);
     console.log(e.target.value);
   };
-
-  //need function to add quantity to state - need to iterate over portfolio in this file
-  //need to know which item in array to edit - array method to update?
-  const newCoinQuantity = () => {
-    console.log("update btn was clicked");
-    // const updatedCoin = [...props.portfolio];
-    // // updatedCoin.?
-    // props.addPortfolio(updatedCoin);
-  };
-
-  //need to tell this function which coin to delete, index, itemNo then delete from state
-
-  //add updated coin to the state
-  // const editCoinPortfolio = () => {
-  //   const coinToEdit = [...props.portfolio];
-  //   props.addPortfolio(editCoin);
-  // };
-
-  //user choose's coin to edit, ideally using toggleEdit but it already has onClick
-  // const chooseEditCoin = (name) => {
-  //   setEditCoin(name);
-  // };
 
   return (
     <>
@@ -66,7 +41,6 @@ const EditCoin = (props) => {
               disabled
               value={selectedCoin} // value should never be action
             />
-
             <input
               onInput={handleEditQuantity}
               type="text"
