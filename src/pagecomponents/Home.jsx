@@ -36,37 +36,26 @@ const Home = (props) => {
   // };
 
   const handlePortfolioItem = (name) => {
-    console.log(name, "this is the handle protfolio function");
     const portfolioCopy = [...props.portfolio];
-    //where item is in array - is it in array?
-    // console.log(name, indexOf);
     //all coins we have in portfolio, look at them, if name is equal to one we passed in return it
-    const found = portfolioCopy.find((coin) => {
+    const found = portfolioCopy?.find((coin) => {
       return coin.name === name;
     }); // if found remove from array
     if (found) {
-      console.log(found, "coin found");
-      portfolioCopy.filter((coin) => {
+      //Remove found coin
+      const filtered = portfolioCopy.filter((coin) => {
         return coin.name !== name;
       });
-      console.log(
-        "filtered coins",
-        portfolioCopy.filter((coin) => {
-          return coin.name !== name;
-        })
-      );
-      props.addPortfolio(portfolioCopy);
+      //Update state
+      props.addPortfolio(filtered);
       return;
     }
-    console.log(portfolioCopy, { name: name, quantity: "1" });
     portfolioCopy.push({ name: name, quantity: "1" });
-    // portfolioCopy.push(name);
     props.addPortfolio(portfolioCopy);
-    console.log("hi, from portfoliocopy", props.portfolio);
-    // toast.success("Coin Added To Portfolio", {
-    //   position: toast.POSITION.TOP_CENTER,
-    //   autoClose: 1000,
-    // });
+    toast.success("Coin Added To Portfolio", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 1000,
+    });
   };
 
   const filteredCoins = props.coins.filter((coin) => {
@@ -106,7 +95,7 @@ const Home = (props) => {
           >
             <div className="coin-container">
               <Link to={"#"}>
-                {props.portfolio.find((coinToFind) => {
+                {props.portfolio && props.portfolio.find((coinToFind) => {
                   return coinToFind.name === coin.name;
                 }) ? (
                   <FaStar
