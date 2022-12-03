@@ -115,12 +115,17 @@ a {
   margin-bottom: 40px;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.modal-link:hover {
   color: #ffad00;
   color: #49c0be;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 1rem;
+}
+
+.modal-link:hover {
+  cursor: pointer;
 }
 
 .search-input {
@@ -234,14 +239,14 @@ a {
   border: 1px solid;
 }
 
-.login-container {
+/* .login-container {
   background: #2a3143;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-}
+} */
 
 .edit-coin {
   background-color: #384d61;

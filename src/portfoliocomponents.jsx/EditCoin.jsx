@@ -36,11 +36,7 @@ const EditCoin = (props) => {
           <div onClick={toggleEditModal} className="overlay"></div>
           <div className="modal-content">
             <h4 className="modal-header">Edit Coin</h4>
-            <input
-              className="edit-coin-input"
-              disabled
-              value={selectedCoin} // value should never be action
-            />
+            <input className="edit-coin-input" disabled value={selectedCoin} />
             <input
               onInput={handleEditQuantity}
               type="text"

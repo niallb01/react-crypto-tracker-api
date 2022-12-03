@@ -7,6 +7,7 @@ import CoinDescription from "./CoinDescription";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LoginModal from "../modalcomponents/LoginModal";
 
 const Home = (props) => {
   const [page, setPage] = useState(1);
@@ -36,7 +37,7 @@ const Home = (props) => {
   // };
 
   const handlePortfolioItem = (name) => {
-    console.log(name, "this is the handle protfolio function");
+    console.log(name, "this is the handle portfolio function");
     const portfolioCopy = [...props.portfolio];
     //where item is in array - is it in array?
     // console.log(name, indexOf);
@@ -76,8 +77,6 @@ const Home = (props) => {
   //if user enters search term use filtered version of coins otherwise use all coins
   const coinsToUse = search ? filteredCoins : props.coins;
 
-  // console.log(filteredCoins);
-
   return (
     <>
       <ToastContainer />
@@ -105,7 +104,7 @@ const Home = (props) => {
             key={coin.name}
           >
             <div className="coin-container">
-              <Link to={"#"}>
+              {/* <Link to={"#"}>
                 {props.portfolio.find((coinToFind) => {
                   return coinToFind.name === coin.name;
                 }) ? (
@@ -121,7 +120,7 @@ const Home = (props) => {
                     size="16"
                   />
                 )}
-              </Link>
+              </Link> */}
               <Coin
                 id={coin.id}
                 rank={coin.market_cap_rank}
