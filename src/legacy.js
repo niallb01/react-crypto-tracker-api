@@ -23,3 +23,24 @@
     </div>
     
   </div>
+
+  //home line 20
+
+    // const handlePortfolioItem = (name) => {
+  //   const portfolioCopy = [...props.portfolio];
+  //   //where item is in array - is it in array?
+  //   const indexOf = portfolioCopy.indexOf(name);
+  //   console.log(name, indexOf);
+  //   if (indexOf > -1) {
+  //     portfolioCopy.splice(indexOf, 1);
+  //     props.addPortfolio(portfolioCopy);
+  //     return;
+  //   }
+  //   portfolioCopy.push(name);
+  //   props.addPortfolio(portfolioCopy);
+  //   console.log("hi, from portfoliocopy", props.portfolio);
+  //   toast.success("Coin Added To Portfolio", {
+  //     position: toast.POSITION.TOP_CENTER,
+  //     autoClose: 1000,
+  //   });
+  // };

@@ -25,7 +25,7 @@ const Navbar = (props) => {
         <li onClick={toggleLoginModal} className="modal-link">
           Login
         </li>
-        {loginModal && (
+        {/* {loginModal && (
           <div className="modal">
             <div onClick={toggleLoginModal} className="overlay"></div>
             <div className="modal-content">
@@ -58,7 +58,7 @@ const Navbar = (props) => {
               </button>
             </div>
           </div>
-        )}
+        )} */}
         <li>
           <Link to="/logout">Logout</Link>
         </li>

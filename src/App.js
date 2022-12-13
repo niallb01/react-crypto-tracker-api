@@ -25,7 +25,7 @@ function App() {
   const [coins, setCoins] = useState(getApiData());
   const [page, setPage] = useState(1);
   const [coinDescription, setDescription] = useState(getApiData());
-  const [portfolio, addPortfolio] = useState();
+  const [portfolio, addPortfolio] = useState([]);
 
   useEffect(() => {
     console.log(portfolio, "hi from portfolio in app");
