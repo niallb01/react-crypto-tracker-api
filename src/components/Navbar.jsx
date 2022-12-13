@@ -7,10 +7,22 @@ import { useState } from "react";
 
 const Navbar = (props) => {
   const [loginModal, setLoginModal] = useState(false);
+  const [modifyModal, setModifyModal] = useState(false);
+  const [signUpModal, setSignUpModal] = useState(false);
 
   const toggleLoginModal = () => {
     setLoginModal(!loginModal);
     console.log(loginModal);
+  };
+
+  const toggleModifyModal = () => {
+    setModifyModal(!modifyModal);
+    console.log(modifyModal);
+  };
+
+  const toggleSignUpModal = () => {
+    setSignUpModal(!signUpModal);
+    console.log(signUpModal);
   };
 
   return (
@@ -25,7 +37,7 @@ const Navbar = (props) => {
         <li onClick={toggleLoginModal} className="modal-link">
           Login
         </li>
-        {/* {loginModal && (
+        {loginModal && (
           <div className="modal">
             <div onClick={toggleLoginModal} className="overlay"></div>
             <div className="modal-content">
@@ -58,7 +70,7 @@ const Navbar = (props) => {
               </button>
             </div>
           </div>
-        )} */}
+        )}
         <li>
           <Link to="/logout">Logout</Link>
         </li>
@@ -66,7 +78,43 @@ const Navbar = (props) => {
           <Link to="/portfolio">Portfolio</Link>
         </li>
         <li>
-          <Link to="/modify-account">Account</Link>
+          <li onClick={toggleModifyModal} className="modal-link">
+            Account
+          </li>
+          {modifyModal && (
+            <div className="modal">
+              <div onClick={toggleModifyModal} className="overlay"></div>
+              <div className="modal-content">
+                <h4 className="modal-header">Modify Account</h4>
+                <form className="login-form">
+                  <div className="login-container">
+                    <label>Email:</label>
+                    <input
+                      type="text"
+                      className="login-email-input"
+                      name="email"
+                      placeholder="Your Email"
+                    />
+                    <label>Password:</label>
+                    <input
+                      className="login-password-input"
+                      name="password"
+                      placeholder="Your Password"
+                    />
+                    <button className="password-icon-button">
+                      <FaRegEye size="18" />
+                    </button>
+                    <br />
+                    <button className="modify-button">Modify</button>
+                  </div>
+                </form>
+
+                <button onClick={toggleModifyModal} className="close-modal">
+                  X
+                </button>
+              </div>
+            </div>
+          )}
         </li>
         <li>
           <Link to="/sign-up">

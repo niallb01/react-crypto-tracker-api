@@ -199,7 +199,8 @@ a {
 }
 
 .add-coin-button,
-.login-button {
+.login-button,
+.modify-button {
   background-color: #48c1be;
   color: #2a3143;
   font-size: 14px;
@@ -227,7 +228,8 @@ a {
 
 .add-coin-button:hover,
 .sign-up-button:hover,
-.login-button:hover {
+.login-button:hover,
+.modify-button:hover {
   background-color: #384d61;
   color: #48c1be;
   border: 1px solid;

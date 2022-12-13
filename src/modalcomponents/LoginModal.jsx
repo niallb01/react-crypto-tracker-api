@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../Modal.css";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const LoginModal = (props) => {
   const [loginModal, setLoginModal] = useState(false);
