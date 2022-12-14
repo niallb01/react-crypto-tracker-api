@@ -83,8 +83,8 @@ function App() {
           element={<CoinDescription coinDescription={coinDescription} />}
         />
         {/* <Route path="/login" element={<Login />} /> */}
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        {/* <Route path="/logout" element={<Logout />} /> */}
+        {/* <Route path="/sign-up" element={<SignUp />} /> */}
         <Route
           path="/portfolio"
           element={
