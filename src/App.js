@@ -5,10 +5,10 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pagecomponents/Home";
 // import Login from "./pagecomponents/Login";
-import Logout from "./pagecomponents/Logout";
-import SignUp from "./pagecomponents/SignUp";
+// import Logout from "./pagecomponents/Logout";
+// import SignUp from "./pagecomponents/SignUp";
 import Portfolio from "./pagecomponents/Portfolio";
-import ModifyAccount from "./pagecomponents/ModifyAccount";
+// import ModifyAccount from "./pagecomponents/ModifyAccount";
 import CoinDescription from "./pagecomponents/CoinDescription";
 
 function setApiData(apiData) {

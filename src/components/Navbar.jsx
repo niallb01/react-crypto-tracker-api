@@ -91,6 +91,13 @@ const Navbar = (props) => {
                 <h4 className="modal-header">Modify Account</h4>
                 <form className="login-form">
                   <div className="login-container">
+                    <label>Name:</label>
+                    <input
+                      type="text"
+                      className="login-email-input"
+                      name="modfify-name"
+                      placeholder="Your Name"
+                    />
                     <label>Email:</label>
                     <input
                       type="text"
