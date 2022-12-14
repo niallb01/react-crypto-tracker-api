@@ -4,11 +4,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pagecomponents/Home";
-// import Login from "./pagecomponents/Login";
-// import Logout from "./pagecomponents/Logout";
-// import SignUp from "./pagecomponents/SignUp";
 import Portfolio from "./pagecomponents/Portfolio";
-// import ModifyAccount from "./pagecomponents/ModifyAccount";
 import CoinDescription from "./pagecomponents/CoinDescription";
 
 function setApiData(apiData) {
@@ -82,9 +78,6 @@ function App() {
           path="/coin-description/:coinName"
           element={<CoinDescription coinDescription={coinDescription} />}
         />
-        {/* <Route path="/login" element={<Login />} /> */}
-        {/* <Route path="/logout" element={<Logout />} /> */}
-        {/* <Route path="/sign-up" element={<SignUp />} /> */}
         <Route
           path="/portfolio"
           element={
@@ -99,7 +92,6 @@ function App() {
           path="/coin-description/:coinName"
           element={<CoinDescription coinDescription={coinDescription} />}
         />
-        {/* <Route path="/modify-account" element={<ModifyAccount />} /> */}
       </Routes>
     </>
   );
