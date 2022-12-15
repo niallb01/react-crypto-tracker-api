@@ -68,6 +68,17 @@ const Navbar = (props) => {
                   <br />
                   <button className="login-button">Login</button>
                 </div>
+                <div>
+                  <p>
+                    Don't have an Account?
+                    <span
+                      onClick={toggleSignUpModal}
+                      className="sign-up-link-text"
+                    >
+                      Sign Up
+                    </span>
+                  </p>
+                </div>
               </form>
 
               <button onClick={toggleLoginModal} className="close-modal">
