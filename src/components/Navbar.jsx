@@ -30,6 +30,11 @@ const Navbar = (props) => {
     console.log(logoutModal);
   };
 
+  const toggleSignUpLink = () => {
+    if (setSignUpModal(!signUpModal)) {
+    } else toggleLoginModal(!loginModal);
+  };
+
   return (
     <>
       <h1 className="header">
@@ -72,7 +77,7 @@ const Navbar = (props) => {
                   <p>
                     Don't have an Account?
                     <span
-                      onClick={toggleSignUpModal}
+                      onClick={toggleSignUpLink}
                       className="sign-up-link-text"
                     >
                       Sign Up
