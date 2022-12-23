@@ -16,14 +16,14 @@ const Home = (props) => {
     setSearch(e.target.value);
   };
 
-  //disable when modal is active
+  //disable function when modal is active
   const handlePortfolioItem = (name) => {
     console.log(name, "this is the handle portfolio function");
     const portfolioCopy = [...props.portfolio];
     //all coins we have in portfolio, look at them, if name is equal to one we passed in return it
     const found = portfolioCopy?.find((coin) => {
       return coin.name === name;
-    }); // if found remove from array
+    }); //if found remove from array
     if (found) {
       //Remove found coin
       const filtered = portfolioCopy.filter((coin) => {

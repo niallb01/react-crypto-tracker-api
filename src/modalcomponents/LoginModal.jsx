@@ -6,7 +6,12 @@ const LoginModal = (props) => {
   const [loginModal, setLoginModal] = useState(false);
 
   const toggleLoginModal = (props) => {
-    setLoginModal(!loginModal);
+    props.setLoginModal(!loginModal);
+  };
+
+  const toggleSignUpLink = () => {
+    if (props.setSignUpModal(!signUpModal)) {
+    } else props.toggleLoginModal(!loginModal);
   };
 
   return (
@@ -36,6 +41,17 @@ const LoginModal = (props) => {
                 </button>
                 <br />
                 <button className="login-button">Login</button>
+              </div>
+              <div>
+                <p>
+                  Don't have an Account?
+                  <span
+                    onClick={toggleSignUpLink}
+                    className="sign-up-link-text"
+                  >
+                    Sign Up
+                  </span>
+                </p>
               </div>
             </form>
 

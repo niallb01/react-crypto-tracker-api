@@ -17,7 +17,7 @@ const LogoutModal = (props) => {
         </li>
         {logoutModal && (
           <div className="modal">
-            <div onClick={toggleLogoutModal} className="overlay"></div>
+            <div onClick={props.toggleLogoutModal} className="overlay"></div>
             <div className="modal-content">
               <h4 className="modal-header">Logout</h4>
               <form className="login-form">

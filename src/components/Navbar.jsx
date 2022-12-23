@@ -9,6 +9,8 @@ const Navbar = (props) => {
   const [modifyModal, setModifyModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
+  //state for user input
+  const [input, setInput] = useState({ loginPassword: "", loginEmail: "" });
 
   const toggleLoginModal = () => {
     setLoginModal(!loginModal);
@@ -35,6 +37,16 @@ const Navbar = (props) => {
     } else toggleLoginModal(!loginModal);
   };
 
+  //controlled component is always stateful
+  const onInput = (e) => {
+    console.log(e.target.value, e.target.name);
+    //put what user has typed into the state
+    //name of event is key - use value as value
+    setInput({ [e.target.name]: e.target.value });
+    //empty search input
+    setInput("");
+  };
+
   return (
     <>
       <h1 className="header">
@@ -47,24 +59,27 @@ const Navbar = (props) => {
         <li onClick={toggleLoginModal} className="modal-link">
           Login
         </li>
+
         {loginModal && (
           <div className="modal">
             <div onClick={toggleLoginModal} className="overlay"></div>
             <div className="modal-content">
               <h4 className="modal-header">Login</h4>
               <form className="login-form">
-                <div className="login-container">
+                <div className="login-container" onInput={onInput}>
                   <label>Email:</label>
                   <input
+                    value={input.loginEmail}
                     type="text"
                     className="login-email-input"
-                    name="email"
+                    name="loginEmail"
                     placeholder="Your Email"
                   />
                   <label>Password:</label>
                   <input
+                    value={input.loginPassword}
                     className="login-password-input"
-                    name="password"
+                    name="loginPassword"
                     placeholder="Your Password"
                   />
                   <button className="password-icon-button">
@@ -92,7 +107,6 @@ const Navbar = (props) => {
             </div>
           </div>
         )}
-
         <li>
           <Link to="/portfolio">Portfolio</Link>
         </li>
@@ -201,7 +215,7 @@ const Navbar = (props) => {
                       <FaRegEye size="18" />
                     </button>
                     <br />
-                    <button className="login-button">Login</button>
+                    <button className="login-button">Register</button>
                   </div>
                 </form>
 

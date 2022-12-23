@@ -56,10 +56,11 @@ body.active-modal {
   /* background: rgba(49, 49, 49, 0.8); */
   opacity: 0.7;
   background: #12171f;
+  /* pointer-events: none; */
 }
 
 .modal-content {
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   height: 250px;
