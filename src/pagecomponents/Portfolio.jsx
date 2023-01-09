@@ -14,7 +14,7 @@ const Portfolio = (props) => {
   const [quantity, setQuantity] = useState([]);
 
   const togglePortfolioModal = () => {
-    console.log("hi, from portfolio", props.portfolio);
+    // console.log("hi, from portfolio", props.portfolio);
     setPortfolioModal(!portfolioModal);
   };
 
@@ -85,12 +85,10 @@ const Portfolio = (props) => {
 
   //adding new coin to portfolio, need to add quantity, price * quantity = totalvalue
   const onAddNewCoin = () => {
-    // console.log("hi", props.portfolio);
     const newCoin = [...props.portfolio];
-    // console.log("yo", newCoin);
     //add new item to portfolio/state
     newCoin.push({ name: portfolioSearch, quantity });
-    console.log("new coin", newCoin);
+    // console.log("new coin", newCoin);
     props.addPortfolio(newCoin);
     //empty search inputs
     setPortfolioSearch("");

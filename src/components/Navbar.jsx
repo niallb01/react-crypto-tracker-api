@@ -10,26 +10,18 @@ const Navbar = (props) => {
   const [modifyModal, setModifyModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
+  const { input, setInput, handleInputs, onLogin, onLogout } = props;
   //custom hook
   // const [handleInputs, input] = useForm({});
 
   //state for user input
-  const [input, setInput] = useState({
-    loginPassword: "",
-    loginEmail: "",
-    modifyName: "",
-    modifyPassword: "",
-    modifyEmail: "",
-  });
-
-  const handleInputs = (e) => {
-    const { name, value } = e.target;
-    setInput({
-      ...input,
-      [name]: value,
-    });
-    console.log(input);
-  };
+  // const [input, setInput] = useState({
+  //   loginPassword: "",
+  //   loginEmail: "",
+  //   modifyName: "",
+  //   modifyPassword: "",
+  //   modifyEmail: "",
+  // });
 
   const toggleLoginModal = () => {
     setLoginModal(!loginModal);
@@ -52,28 +44,25 @@ const Navbar = (props) => {
     } else toggleLoginModal(!loginModal);
   };
 
-  //controlled component is always stateful
+  // //gives back object with key(name) and value(user input)
   // const handleInputs = (e) => {
-  //   // console.log(e.target.value, e.target.name);
-  //   //put what user has typed into the state
-  //   //name of event is key - use value as value
-  //   // setInput({ [e.target.name]: e.target.value });
-  //   //add data to state
-  //   if (e.target.name === "loginEmail") {
-  //     setInput({
-  //       loginEmail: e.target.value,
-  //       loginPassword: input.loginPassword,
-  //     });
-  //   }
-  //   if (e.target.name === "loginPassword") {
-  //     setInput({
-  //       loginEmail: input.loginEmail,
-  //       loginPassword: e.target.value,
-  //     });
-  //   }
-  //   //empty search input
-  //   // setInput("");
+  //   const { name, value } = e.target;
+  //   setInput({
+  //     ...input,
+  //     [name]: value,
+  //   });
   //   console.log(input);
+  // };
+
+  // const onLogin = (e) => {
+  //   e.prevent.default();
+  // };
+
+  // const onModifyDetails = (e) => {};
+
+  // const onSignUp = (e) => {};
+
+  // const onLogout = (e) => {
   // };
 
   return (
@@ -118,7 +107,9 @@ const Navbar = (props) => {
                     <FaRegEye size="18" />
                   </button>
                   <br />
-                  <button className="login-button">Login</button>
+                  <button onClick={onLogin} className="login-button">
+                    Login
+                  </button>
                 </div>
                 <div>
                   <p>
@@ -173,6 +164,8 @@ const Navbar = (props) => {
                     />
                     <label>Password:</label>
                     <input
+                      onChange={handleInputs}
+                      value={input.modifyPassword}
                       className="login-password-input"
                       type="password"
                       name="password"
@@ -204,7 +197,9 @@ const Navbar = (props) => {
                 <h4 className="modal-header">Logout</h4>
                 <form className="login-form">
                   <div className="login-container">
-                    <button className="modify-button">Logout</button>
+                    <button onClick={onLogout} className="modify-button">
+                      Logout
+                    </button>
                   </div>
                 </form>
 
@@ -217,7 +212,6 @@ const Navbar = (props) => {
         </li>
 
         <li>
-          {/* <Link to="/sign-up"> */}
           <button onClick={toggleSignUpModal} className="sign-up-button">
             Sign Up
           </button>
@@ -230,6 +224,8 @@ const Navbar = (props) => {
                   <div className="login-container">
                     <label>Name:</label>
                     <input
+                      onChange={handleInputs}
+                      value={input.signUpName}
                       type="text"
                       className="login-email-input"
                       name="name"
@@ -237,6 +233,8 @@ const Navbar = (props) => {
                     />
                     <label>Email:</label>
                     <input
+                      onChange={handleInputs}
+                      value={input.signUpEmail}
                       type="text"
                       className="login-email-input"
                       name="email"
@@ -244,6 +242,8 @@ const Navbar = (props) => {
                     />
                     <label>Password:</label>
                     <input
+                      onChange={handleInputs}
+                      value={input.signUpPassword}
                       className="login-password-input"
                       type="password"
                       name="password"
@@ -263,7 +263,6 @@ const Navbar = (props) => {
               </div>
             </div>
           )}
-          {/* </Link> */}
         </li>
       </ul>
     </>

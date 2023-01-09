@@ -23,3 +23,27 @@ const useForm = () => {
 };
 
 export default useForm;
+
+//controlled component is always stateful
+// const handleInputs = (e) => {
+//   // console.log(e.target.value, e.target.name);
+//   //put what user has typed into the state
+//   //name of event is key - use value as value
+//   // setInput({ [e.target.name]: e.target.value });
+//   //add data to state
+//   if (e.target.name === "loginEmail") {
+//     setInput({
+//       loginEmail: e.target.value,
+//       loginPassword: input.loginPassword,
+//     });
+//   }
+//   if (e.target.name === "loginPassword") {
+//     setInput({
+//       loginEmail: input.loginEmail,
+//       loginPassword: e.target.value,
+//     });
+//   }
+//   //empty search input
+//   // setInput("");
+//   console.log(input);
+// };

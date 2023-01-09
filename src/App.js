@@ -22,10 +22,16 @@ function App() {
   const [page, setPage] = useState(1);
   const [coinDescription, setDescription] = useState(getApiData());
   const [portfolio, addPortfolio] = useState([]);
-
-  useEffect(() => {
-    console.log(portfolio, "hi from portfolio in app");
-  }, [portfolio]);
+  const [input, setInput] = useState({
+    loginPassword: "",
+    loginEmail: "",
+    modifyName: "",
+    modifyPassword: "",
+    modifyEmail: "",
+    signUpName: "",
+    signUpPassword: "",
+    signUpEmail: "",
+  });
 
   useEffect(() => {
     if (coins.length > 0) return;
@@ -60,9 +66,38 @@ function App() {
     getApiData();
   }, []);
 
+  //modal forms
+  //gives back object with key(name) and value(user input)
+  const handleInputs = (e) => {
+    const { name, value } = e.target;
+    setInput({
+      ...input,
+      [name]: value,
+    });
+    console.log(input);
+  };
+
+  const onLogin = (e) => {
+    e.prevent.default();
+  };
+
+  const onModifyDetails = (e) => {};
+
+  const onSignUp = (e) => {};
+
+  const onLogout = (e) => {};
+
   return (
     <>
-      <Navbar />
+      <Navbar
+        input={input}
+        setInput={setInput}
+        handleInputs={handleInputs}
+        onLogin={onLogin}
+        onModifyDetails={onModifyDetails}
+        onSignUp={onSignUp}
+        onLogout={onLogout}
+      />
       <Routes>
         <Route
           path="/home"
