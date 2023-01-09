@@ -25,7 +25,7 @@ const Portfolio = (props) => {
 
   const handleQuantity = (e) => {
     setQuantity(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   const onDeletePortfolio = (item) => {
@@ -85,9 +85,9 @@ const Portfolio = (props) => {
 
   //adding new coin to portfolio, need to add quantity, price * quantity = totalvalue
   const onAddNewCoin = () => {
-    console.log("hi", props.portfolio);
+    // console.log("hi", props.portfolio);
     const newCoin = [...props.portfolio];
-    console.log("yo", newCoin);
+    // console.log("yo", newCoin);
     //add new item to portfolio/state
     newCoin.push({ name: portfolioSearch, quantity });
     console.log("new coin", newCoin);
