@@ -81,7 +81,9 @@ function App() {
     e.prevent.default();
   };
 
-  const onModifyDetails = (e) => {};
+  const onModifyDetails = (e) => {
+    // e.prevent.default();
+  };
 
   const onSignUp = (e) => {};
 

@@ -277,7 +277,13 @@ label {
 }
 
 .login-password-input,
-.login-email-input {
+.login-email-input,
+.modify-name-input,
+.modify-email-input,
+.modify-password-input,
+.sign-up-name-input,
+.sign-up-password-input,
+.sign-up-email-input {
   width: 220px;
   height: 30px;
   border-radius: 5px 0px 0px 5px;

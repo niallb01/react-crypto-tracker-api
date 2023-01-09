@@ -3,14 +3,23 @@ import { Link } from "react-router-dom";
 import { FaCoins } from "react-icons/fa";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-import useForm from "../userFunctions";
+// import useForm from "../userFunctions";
 
 const Navbar = (props) => {
+  const {
+    input,
+    setInput,
+    handleInputs,
+    onLogin,
+    onLogout,
+    onSignUp,
+    onModifyDetails,
+  } = props;
   const [loginModal, setLoginModal] = useState(false);
   const [modifyModal, setModifyModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
-  const { input, setInput, handleInputs, onLogin, onLogout } = props;
+
   //custom hook
   // const [handleInputs, input] = useForm({});
 
@@ -149,8 +158,8 @@ const Navbar = (props) => {
                       onChange={handleInputs}
                       value={input.modifyName}
                       type="text"
-                      className="login-email-input"
-                      name="modfify-name"
+                      className="modify-name-input"
+                      name="modifyName"
                       placeholder="Your Name"
                     />
                     <label>Email:</label>
@@ -158,24 +167,26 @@ const Navbar = (props) => {
                       onChange={handleInputs}
                       value={input.modifyEmail}
                       type="email"
-                      className="login-email-input"
-                      name="email"
+                      className="modify-email-input"
+                      name="modifyEmail"
                       placeholder="Your Email"
                     />
                     <label>Password:</label>
                     <input
                       onChange={handleInputs}
                       value={input.modifyPassword}
-                      className="login-password-input"
+                      className="modify-password-input"
                       type="password"
-                      name="password"
+                      name="modifyPassword"
                       placeholder="Your Password"
                     />
                     <button className="password-icon-button">
                       <FaRegEye size="18" />
                     </button>
                     <br />
-                    <button className="modify-button">Modify</button>
+                    <button onClick={onModifyDetails} className="modify-button">
+                      Modify
+                    </button>
                   </div>
                 </form>
 
@@ -227,8 +238,8 @@ const Navbar = (props) => {
                       onChange={handleInputs}
                       value={input.signUpName}
                       type="text"
-                      className="login-email-input"
-                      name="name"
+                      className="sign-up-email-input"
+                      name="signUpName"
                       placeholder="Your Name"
                     />
                     <label>Email:</label>
@@ -236,24 +247,26 @@ const Navbar = (props) => {
                       onChange={handleInputs}
                       value={input.signUpEmail}
                       type="text"
-                      className="login-email-input"
-                      name="email"
+                      className="sign-up-email-input"
+                      name="signUpEmail"
                       placeholder="Your Email"
                     />
                     <label>Password:</label>
                     <input
                       onChange={handleInputs}
                       value={input.signUpPassword}
-                      className="login-password-input"
+                      className="sign-up-password-input"
                       type="password"
-                      name="password"
+                      name="signUpPassword"
                       placeholder="Your Password"
                     />
                     <button className="password-icon-button">
                       <FaRegEye size="18" />
                     </button>
                     <br />
-                    <button className="login-button">Register</button>
+                    <button onClick={onSignUp} className="login-button">
+                      Register
+                    </button>
                   </div>
                 </form>
 
