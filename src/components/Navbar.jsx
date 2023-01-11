@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import { FaCoins } from "react-icons/fa";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-// import useForm from "../userFunctions";
 
 const Navbar = (props) => {
+  const [loginModal, setLoginModal] = useState(false);
+  const [modifyModal, setModifyModal] = useState(false);
+  const [signUpModal, setSignUpModal] = useState(false);
+  const [logoutModal, setLogoutModal] = useState(false);
+
   const {
     input,
     setInput,
@@ -14,23 +18,9 @@ const Navbar = (props) => {
     onLogout,
     onSignUp,
     onModifyDetails,
+    togglePassword,
+    passwordType,
   } = props;
-  const [loginModal, setLoginModal] = useState(false);
-  const [modifyModal, setModifyModal] = useState(false);
-  const [signUpModal, setSignUpModal] = useState(false);
-  const [logoutModal, setLogoutModal] = useState(false);
-
-  //custom hook
-  // const [handleInputs, input] = useForm({});
-
-  //state for user input
-  // const [input, setInput] = useState({
-  //   loginPassword: "",
-  //   loginEmail: "",
-  //   modifyName: "",
-  //   modifyPassword: "",
-  //   modifyEmail: "",
-  // });
 
   const toggleLoginModal = () => {
     setLoginModal(!loginModal);
@@ -52,27 +42,6 @@ const Navbar = (props) => {
     if (setSignUpModal(!signUpModal)) {
     } else toggleLoginModal(!loginModal);
   };
-
-  // //gives back object with key(name) and value(user input)
-  // const handleInputs = (e) => {
-  //   const { name, value } = e.target;
-  //   setInput({
-  //     ...input,
-  //     [name]: value,
-  //   });
-  //   console.log(input);
-  // };
-
-  // const onLogin = (e) => {
-  //   e.prevent.default();
-  // };
-
-  // const onModifyDetails = (e) => {};
-
-  // const onSignUp = (e) => {};
-
-  // const onLogout = (e) => {
-  // };
 
   return (
     <>
@@ -107,13 +76,20 @@ const Navbar = (props) => {
                   <input
                     onChange={handleInputs}
                     value={input.loginPassword}
-                    type="password"
+                    type={passwordType}
                     className="login-password-input"
                     name="loginPassword"
                     placeholder="Your Password"
                   />
-                  <button className="password-icon-button">
-                    <FaRegEye size="18" />
+                  <button
+                    className="password-icon-button"
+                    onClick={togglePassword}
+                  >
+                    {passwordType === "password" ? (
+                      <FaRegEyeSlash size="18" />
+                    ) : (
+                      <FaRegEye size="18" />
+                    )}
                   </button>
                   <br />
                   <button onClick={onLogin} className="login-button">
@@ -176,12 +152,19 @@ const Navbar = (props) => {
                       onChange={handleInputs}
                       value={input.modifyPassword}
                       className="modify-password-input"
-                      type="password"
+                      type={passwordType}
                       name="modifyPassword"
                       placeholder="Your Password"
                     />
-                    <button className="password-icon-button">
-                      <FaRegEye size="18" />
+                    <button
+                      className="password-icon-button"
+                      onClick={togglePassword}
+                    >
+                      {passwordType === "password" ? (
+                        <FaRegEyeSlash size="18" />
+                      ) : (
+                        <FaRegEye size="18" />
+                      )}
                     </button>
                     <br />
                     <button onClick={onModifyDetails} className="modify-button">
@@ -256,12 +239,19 @@ const Navbar = (props) => {
                       onChange={handleInputs}
                       value={input.signUpPassword}
                       className="sign-up-password-input"
-                      type="password"
+                      type={passwordType}
                       name="signUpPassword"
                       placeholder="Your Password"
                     />
-                    <button className="password-icon-button">
-                      <FaRegEye size="18" />
+                    <button
+                      className="password-icon-button"
+                      onClick={togglePassword}
+                    >
+                      {passwordType === "password" ? (
+                        <FaRegEyeSlash size="18" />
+                      ) : (
+                        <FaRegEye size="18" />
+                      )}
                     </button>
                     <br />
                     <button onClick={onSignUp} className="login-button">

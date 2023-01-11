@@ -22,6 +22,9 @@ function App() {
   const [page, setPage] = useState(1);
   const [coinDescription, setDescription] = useState(getApiData());
   const [portfolio, addPortfolio] = useState([]);
+  //password
+  const [passwordType, setPasswordType] = useState("password");
+  //inputs
   const [input, setInput] = useState({
     loginPassword: "",
     loginEmail: "",
@@ -66,7 +69,6 @@ function App() {
     getApiData();
   }, []);
 
-  //modal forms
   //gives back object with key(name) and value(user input)
   const handleInputs = (e) => {
     const { name, value } = e.target;
@@ -77,17 +79,35 @@ function App() {
     console.log(input);
   };
 
+  // const togglePassword = (e) => {
+  //   if (passwordType === "password") {
+  //     setPasswordType("password");
+  //   } else {
+  //     setPasswordType("text");
+  //   }
+  //   e.preventDefault();
+  // };
+
+  const togglePassword = (e) => {
+    setPasswordType(passwordType === "password" ? "text" : "password");
+    e.preventDefault();
+  };
+
   const onLogin = (e) => {
     e.prevent.default();
   };
 
   const onModifyDetails = (e) => {
-    // e.prevent.default();
+    e.prevent.default();
   };
 
-  const onSignUp = (e) => {};
+  const onSignUp = (e) => {
+    e.prevent.default();
+  };
 
-  const onLogout = (e) => {};
+  const onLogout = (e) => {
+    e.prevent.default();
+  };
 
   return (
     <>
@@ -99,6 +119,8 @@ function App() {
         onModifyDetails={onModifyDetails}
         onSignUp={onSignUp}
         onLogout={onLogout}
+        togglePassword={togglePassword}
+        passwordType={passwordType}
       />
       <Routes>
         <Route

@@ -10,7 +10,7 @@ const CoinDescription = (props) => {
       return coin.name === currentCoin[2];
     });
   }
-  console.log(props);
+  // console.log(props);
   return (
     <>
       {coinToShow.map((coindesc) => {

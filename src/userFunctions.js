@@ -47,3 +47,36 @@ export default useForm;
 //   // setInput("");
 //   console.log(input);
 // };
+
+//custom hook
+// const [handleInputs, input] = useForm({});
+
+//state for user input
+// const [input, setInput] = useState({
+//   loginPassword: "",
+//   loginEmail: "",
+//   modifyName: "",
+//   modifyPassword: "",
+//   modifyEmail: "",
+// });
+
+// //gives back object with key(name) and value(user input)
+// const handleInputs = (e) => {
+//   const { name, value } = e.target;
+//   setInput({
+//     ...input,
+//     [name]: value,
+//   });
+//   console.log(input);
+// };
+
+// const onLogin = (e) => {
+//   e.prevent.default();
+// };
+
+// const onModifyDetails = (e) => {};
+
+// const onSignUp = (e) => {};
+
+// const onLogout = (e) => {
+// };
