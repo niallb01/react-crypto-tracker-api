@@ -5,14 +5,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 const LoginModal = (props) => {
   const [loginModal, setLoginModal] = useState(false);
 
-  const toggleLoginModal = (props) => {
-    props.setLoginModal(!loginModal);
-  };
-
-  const toggleSignUpLink = () => {
-    if (props.setSignUpModal(!signUpModal)) {
-    } else props.toggleLoginModal(!loginModal);
-  };
+  const { input, handleInputs, onLogin, togglePassword, passwordType } = props;
 
   return (
     <>
@@ -25,22 +18,36 @@ const LoginModal = (props) => {
               <div className="login-container">
                 <label>Email:</label>
                 <input
+                  onChange={handleInputs}
+                  value={input.loginEmail}
                   type="text"
                   className="login-email-input"
-                  name="email"
+                  name="loginEmail"
                   placeholder="Your Email"
                 />
                 <label>Password:</label>
                 <input
+                  onChange={handleInputs}
+                  value={input.loginPassword}
+                  type={passwordType}
                   className="login-password-input"
-                  name="password"
+                  name="loginPassword"
                   placeholder="Your Password"
                 />
-                <button className="password-icon-button">
-                  <FaRegEye size="18" />
+                <button
+                  className="password-icon-button"
+                  onClick={togglePassword}
+                >
+                  {passwordType === "password" ? (
+                    <FaRegEyeSlash size="18" />
+                  ) : (
+                    <FaRegEye size="18" />
+                  )}
                 </button>
                 <br />
-                <button className="login-button">Login</button>
+                <button onClick={onLogin} className="login-button">
+                  Login
+                </button>
               </div>
               <div>
                 <p>

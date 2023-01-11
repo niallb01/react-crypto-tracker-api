@@ -4,35 +4,29 @@ import "../Modal.css";
 const LogoutModal = (props) => {
   const [logoutModal, setLogoutModal] = useState(false);
 
-  const toggleLogoutModal = () => {
-    setLogoutModal(!logoutModal);
-    console.log(logoutModal);
-  };
+  const { onLogout } = props;
 
   return (
     <>
-      <li>
-        <li onClick={toggleLogoutModal} className="modal-link">
-          Logout
-        </li>
-        {logoutModal && (
-          <div className="modal">
-            <div onClick={props.toggleLogoutModal} className="overlay"></div>
-            <div className="modal-content">
-              <h4 className="modal-header">Logout</h4>
-              <form className="login-form">
-                <div className="login-container">
-                  <button className="modify-button">Logout</button>
-                </div>
-              </form>
+      {logoutModal && (
+        <div className="modal">
+          <div onClick={toggleLogoutModal} className="overlay"></div>
+          <div className="modal-content">
+            <h4 className="modal-header">Logout</h4>
+            <form className="logout-form">
+              <div className="logout-container">
+                <button onClick={onLogout} className="modify-button">
+                  Logout
+                </button>
+              </div>
+            </form>
 
-              <button onClick={toggleLogoutModal} className="close-modal">
-                X
-              </button>
-            </div>
+            <button onClick={toggleLogoutModal} className="close-modal">
+              X
+            </button>
           </div>
-        )}
-      </li>
+        </div>
+      )}
     </>
   );
 };

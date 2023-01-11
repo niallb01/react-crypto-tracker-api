@@ -12,7 +12,6 @@ const Navbar = (props) => {
 
   const {
     input,
-    setInput,
     handleInputs,
     onLogin,
     onLogout,
@@ -189,8 +188,8 @@ const Navbar = (props) => {
               <div onClick={toggleLogoutModal} className="overlay"></div>
               <div className="modal-content">
                 <h4 className="modal-header">Logout</h4>
-                <form className="login-form">
-                  <div className="login-container">
+                <form className="logout-form">
+                  <div className="logout-container">
                     <button onClick={onLogout} className="modify-button">
                       Logout
                     </button>
@@ -258,8 +257,18 @@ const Navbar = (props) => {
                       Register
                     </button>
                   </div>
+                  {/* <div>
+                    <p>
+                      Already have an Account?
+                      <span
+                        onClick={toggleSignUpLink}
+                        className="sign-up-link-text"
+                      >
+                        Login
+                      </span>
+                    </p>
+                  </div> */}
                 </form>
-
                 <button onClick={toggleSignUpModal} className="close-modal">
                   X
                 </button>

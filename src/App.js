@@ -22,9 +22,7 @@ function App() {
   const [page, setPage] = useState(1);
   const [coinDescription, setDescription] = useState(getApiData());
   const [portfolio, addPortfolio] = useState([]);
-  //password
   const [passwordType, setPasswordType] = useState("password");
-  //inputs
   const [input, setInput] = useState({
     loginPassword: "",
     loginEmail: "",
@@ -79,15 +77,6 @@ function App() {
     console.log(input);
   };
 
-  // const togglePassword = (e) => {
-  //   if (passwordType === "password") {
-  //     setPasswordType("password");
-  //   } else {
-  //     setPasswordType("text");
-  //   }
-  //   e.preventDefault();
-  // };
-
   const togglePassword = (e) => {
     setPasswordType(passwordType === "password" ? "text" : "password");
     e.preventDefault();
@@ -113,7 +102,6 @@ function App() {
     <>
       <Navbar
         input={input}
-        setInput={setInput}
         handleInputs={handleInputs}
         onLogin={onLogin}
         onModifyDetails={onModifyDetails}
