@@ -20,9 +20,9 @@ const Coin = (props) => {
       <CoinPrice coinPrice={props.coinPrice} />
       <TwentyFourHour twentyFourHour={props.twentyFourHour} />
       <Volume volume={props.volume} />
-      <Sparkline sparkline={props.sparkline} />
       <FDV fdv={props.fdv} />
       <MarketCap marketCap={props.marketCap} />
+      <Sparkline sparkline={props.sparkline} />
     </>
   );
 };

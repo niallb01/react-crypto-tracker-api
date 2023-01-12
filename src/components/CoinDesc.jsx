@@ -15,6 +15,7 @@ import Ath from "./Ath";
 import Atl from "./Atl";
 import Volume from "./Volume";
 import DescText from "./DescText";
+import DescSparkline from "./DescSparkline";
 
 const CoinDesc = (props) => {
   return (
@@ -35,6 +36,7 @@ const CoinDesc = (props) => {
       <Ath ath={props.ath} />
       <Atl atl={props.atl} />
       <DescText descText={props.descText} />
+      <DescSparkline descSparkline={props.descSparkline} />
     </>
   );
 };

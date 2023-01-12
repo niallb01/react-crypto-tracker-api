@@ -37,6 +37,7 @@ const CoinDescription = (props) => {
               atl={coindesc.atl.toLocaleString()}
               // descText={coindesc.desc.description.en}
               // descText={coindesc.description.platforms}
+              descSparkline={coindesc.sparkline_in_7d}
             />
           </div>
         );
