@@ -3,7 +3,7 @@ import "../Modal.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const LoginModal = (props) => {
-  const [loginModal, setLoginModal] = useState(false);
+  // const [loginModal, setLoginModal] = useState(false);
 
   const { input, handleInputs, onLogin, togglePassword, passwordType } = props;
 

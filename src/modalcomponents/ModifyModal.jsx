@@ -3,7 +3,7 @@ import "../Modal.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const ModifyModal = (props) => {
-  const [modifyModal, setModifyModal] = useState(false);
+  // const [modifyModal, setModifyModal] = useState(false);
 
   const { input, handleInputs, onModifyDetails, togglePassword, passwordType } =
     props;

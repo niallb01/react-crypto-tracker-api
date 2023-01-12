@@ -102,6 +102,7 @@ const Home = (props) => {
                 marketCap={coin.market_cap.toLocaleString()}
                 coinPrice={coin.current_price.toLocaleString()}
                 twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
+                sparkline={coin.sparkline_in_7d}
                 volume={coin.total_volume.toLocaleString()}
                 fdv={coin.fully_diluted_valuation.toLocaleString()}
               />

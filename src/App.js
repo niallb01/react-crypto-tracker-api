@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pagecomponents/Home";
 import Portfolio from "./pagecomponents/Portfolio";
 import CoinDescription from "./pagecomponents/CoinDescription";
+// import SignUpModal from "./modalcomponents/SignUpModal";
 
 function setApiData(apiData) {
   localStorage.setItem("apiData", JSON.stringify(apiData));
@@ -33,6 +34,8 @@ function App() {
     signUpPassword: "",
     signUpEmail: "",
   });
+  //modals
+  // const [signUpModal, setSignUpModal] = useState(false);
 
   useEffect(() => {
     if (coins.length > 0) return;
@@ -40,7 +43,7 @@ function App() {
     async function getApiData() {
       try {
         const res = await axios.get(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=5&page=${page}&sparkline=false`
+          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=5&page=${page}&sparkline=true`
         );
         const now = Math.round(Date.now() / 1000);
         const sevenDaysAgo = Math.round(now - 86400);
@@ -98,6 +101,10 @@ function App() {
     e.prevent.default();
   };
 
+  // const toggleSignUpModal = () => {
+  //   setSignUpModal(!signUpModal);
+  // };
+
   return (
     <>
       <Navbar
@@ -109,7 +116,12 @@ function App() {
         onLogout={onLogout}
         togglePassword={togglePassword}
         passwordType={passwordType}
+        // toggleSignUpModal={toggleSignUpModal}
       />
+      {/* <SignUpModal
+        toggleSignUpModal={toggleSignUpModal}
+        signUpModal={signUpModal}
+      /> */}
       <Routes>
         <Route
           path="/home"

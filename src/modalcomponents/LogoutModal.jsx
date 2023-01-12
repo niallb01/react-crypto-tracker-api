@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../Modal.css";
 
 const LogoutModal = (props) => {
-  const [logoutModal, setLogoutModal] = useState(false);
+  // const [logoutModal, setLogoutModal] = useState(false);
 
   const { onLogout } = props;
 

@@ -3,9 +3,17 @@ import "../Modal.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const SignUpModal = (props) => {
-  const [signUpModal, setSignUpModal] = useState(false);
+  // const [signUpModal, setSignUpModal] = useState(false);
 
-  const { input, handleInputs, onSignUp, togglePassword, passwordType } = props;
+  const {
+    input,
+    handleInputs,
+    onSignUp,
+    togglePassword,
+    passwordType,
+    toggleSignUpModal,
+    signUpModal,
+  } = props;
 
   return (
     <>

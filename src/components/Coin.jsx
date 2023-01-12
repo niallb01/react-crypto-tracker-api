@@ -8,6 +8,7 @@ import Volume from "./Volume";
 import Rank from "./Rank";
 import TwentyFourHour from "./24hr";
 import FDV from "./FDV";
+import Sparkline from "./Sparkline";
 
 const Coin = (props) => {
   return (
@@ -19,6 +20,7 @@ const Coin = (props) => {
       <CoinPrice coinPrice={props.coinPrice} />
       <TwentyFourHour twentyFourHour={props.twentyFourHour} />
       <Volume volume={props.volume} />
+      <Sparkline sparkline={props.sparkline} />
       <FDV fdv={props.fdv} />
       <MarketCap marketCap={props.marketCap} />
     </>
