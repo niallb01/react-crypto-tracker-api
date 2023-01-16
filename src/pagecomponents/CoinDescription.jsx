@@ -14,7 +14,7 @@ const CoinDescription = (props) => {
   return (
     <>
       {coinToShow.map((coindesc) => {
-        console.log(coindesc.coinDescription.description.en);
+        // console.log(coindesc.coinDescription.description.en);
         return (
           <div className="description-container">
             <CoinDesc

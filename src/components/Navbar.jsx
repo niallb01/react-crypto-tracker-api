@@ -73,30 +73,32 @@ const Navbar = (props) => {
         <li>
           <Link to="/portfolio">Portfolio</Link>
         </li>
-        <li>
-          <li onClick={toggleModifyModal} className="modal-link">
-            Account
-          </li>
 
-          {modifyModal && (
-            <ModifyModal
-              input={input}
-              handleInputs={handleInputs}
-              onModifyDetails={onModifyDetails}
-              togglePassword={togglePassword}
-              toggleModifyModal={toggleModifyModal}
-              passwordType={passwordType}
-            />
-          )}
+        <li onClick={toggleModifyModal} className="modal-link">
+          Account
         </li>
 
-        <li>
-          <li onClick={toggleLogoutModal} className="modal-link">
-            Logout
-          </li>
+        {modifyModal && (
+          <ModifyModal
+            input={input}
+            handleInputs={handleInputs}
+            onModifyDetails={onModifyDetails}
+            togglePassword={togglePassword}
+            toggleModifyModal={toggleModifyModal}
+            passwordType={passwordType}
+          />
+        )}
 
-          {logoutModal && <LogoutModal onLogout={onLogout} />}
+        <li onClick={toggleLogoutModal} className="modal-link">
+          Logout
         </li>
+
+        {logoutModal && (
+          <LogoutModal
+            onLogout={onLogout}
+            toggleLogoutModal={toggleLogoutModal}
+          />
+        )}
 
         <li>
           <button onClick={toggleSignUpModal} className="sign-up-button">

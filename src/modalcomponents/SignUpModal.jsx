@@ -10,7 +10,6 @@ const SignUpModal = (props) => {
     passwordType,
     toggleSignUpModal,
     toggleSignUpLink,
-    // signUpModal,
   } = props;
 
   return (

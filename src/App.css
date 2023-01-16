@@ -221,7 +221,8 @@ a {
 
 .add-coin-button,
 .login-button,
-.modify-button {
+.modify-button,
+.logout-button {
   background-color: #48c1be;
   color: #2a3143;
   font-size: 14px;

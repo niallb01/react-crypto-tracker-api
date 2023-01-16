@@ -11,7 +11,7 @@ const LogoutModal = (props) => {
           <h4 className="modal-header">Logout</h4>
           <form className="logout-form">
             <div className="logout-container">
-              <button onClick={onLogout} className="modify-button">
+              <button onClick={onLogout} className="logout-button">
                 Logout
               </button>
             </div>
