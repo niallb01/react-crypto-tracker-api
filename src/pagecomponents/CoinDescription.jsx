@@ -10,10 +10,11 @@ const CoinDescription = (props) => {
       return coin.name === currentCoin[2];
     });
   }
-  // console.log(props);
+
   return (
     <>
       {coinToShow.map((coindesc) => {
+        console.log(coindesc.coinDescription.description.en);
         return (
           <div className="description-container">
             <CoinDesc
@@ -35,9 +36,11 @@ const CoinDescription = (props) => {
               twentyFourHourLow={coindesc.low_24h.toLocaleString()}
               ath={coindesc.ath.toLocaleString()}
               atl={coindesc.atl.toLocaleString()}
-              // descText={coindesc.desc.description.en}
-              // descText={coindesc.description.platforms}
-              descSparkline={coindesc.sparkline_in_7d}
+              descText={coindesc.coinDescription.description.en}
+              // descText={
+              //   coindesc.desc.description ? coindesc.desc.description.en : ""
+              // }
+              descSparkline={coindesc.sparkline_in_7d.price[0].price}
             />
           </div>
         );

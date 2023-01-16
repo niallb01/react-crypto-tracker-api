@@ -7,6 +7,7 @@ const DescText = (props) => {
         className="description-text"
         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(props.descText) }}
       />
+      {/* <p className="description-text">{props.descText}</p> */}
     </>
   );
 };
