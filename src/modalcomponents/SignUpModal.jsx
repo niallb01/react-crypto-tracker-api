@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../Modal.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
@@ -10,7 +9,8 @@ const SignUpModal = (props) => {
     togglePassword,
     passwordType,
     toggleSignUpModal,
-    signUpModal,
+    toggleSignUpLink,
+    // signUpModal,
   } = props;
 
   return (
@@ -61,12 +61,12 @@ const SignUpModal = (props) => {
               </button>
             </div>
             <div>
-              {/* <p>
+              <p>
                 Already have an Account?
                 <span onClick={toggleSignUpLink} className="sign-up-link-text">
                   Login
                 </span>
-              </p> */}
+              </p>
             </div>
           </form>
           <button onClick={toggleSignUpModal} className="close-modal">
