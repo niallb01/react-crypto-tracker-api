@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar";
 import Home from "./pagecomponents/Home";
 import Portfolio from "./pagecomponents/Portfolio";
 import CoinDescription from "./pagecomponents/CoinDescription";
+import { useSelector, useDispatch } from "react-redux"; //hooks
+import { setCoin } from "./features/counter/counterSlice";
 
 function setApiData(apiData) {
   localStorage.setItem("apiData", JSON.stringify(apiData));
@@ -18,6 +20,10 @@ function getApiData() {
 }
 
 function App() {
+  // const coins = useSelector((state) => state.coins); // pulling in state from store, global tree, small obj created is coins has value + actions - how we amnipulate
+  // console.log(coins);
+  // const dispatch = useDispatch(); // returns function - dispatches action
+  //
   const [coins, setCoins] = useState(getApiData());
   const [page, setPage] = useState(1);
   const [coinDescription, setDescription] = useState(getApiData());
@@ -33,6 +39,14 @@ function App() {
     signUpPassword: "",
     signUpEmail: "",
   });
+
+  // useEffect(() => {
+  //   dispatch(setCoin());
+  // }, []);
+
+  // if (coins.length === 0) {
+  //   return <div>loading.....</div>;
+  // }
 
   useEffect(() => {
     if (coins.length > 0) return;
@@ -57,13 +71,14 @@ function App() {
           res.data[index].coinDescription = description.data;
         }
         console.log(res.data);
-        setCoins(res.data);
+        // setCoins(res.data);
         setApiData(res.data);
         setDescription(res.data);
       } catch (error) {
         console.log("Error", error);
       }
     }
+    // dispatch(getApiData());
     getApiData();
   }, []);
 
@@ -144,5 +159,17 @@ function App() {
     </>
   );
 }
+
+// state - magic box where all our data will be - function takes state from store and pushes it into component as a prop - no state in
+// any component any more, will be props
+// function mapStateToProps(state) {
+//   return {
+//     coins, setCoins
+//   }
+// }
+
+//function that picks things from the store - we say to connect, here's what we want from the store(mapStateToProps), component we
+// want to connect to store(App) - connect function wires it all up - we don't need to worry how wiring works
+// export default connect(mapStateToProps)(App);
 
 export default App;

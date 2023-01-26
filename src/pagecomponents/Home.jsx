@@ -18,7 +18,7 @@ const Home = (props) => {
 
   //disable function when modal is active
   const handlePortfolioItem = (name) => {
-    console.log(name, "this is the handle portfolio function");
+    // console.log(name, "this is the handle portfolio function");
     const portfolioCopy = [...props.portfolio];
     //all coins we have in portfolio, look at them, if name is equal to one we passed in return it
     const found = portfolioCopy?.find((coin) => {
@@ -40,7 +40,7 @@ const Home = (props) => {
       autoClose: 1000,
     });
   };
-
+  console.log(props.coins);
   const filteredCoins = props.coins.filter((coin) => {
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
@@ -61,8 +61,8 @@ const Home = (props) => {
             onInput={handleSearchInput}
           ></input>
           <datalist id="search-input-2">
-            {props.coins.map((coin) => (
-              <option>{coin.name}</option>
+            {props.coins.map((coin, coinName) => (
+              <option key={coinName}>{coin.name}</option>
             ))}
           </datalist>
         </div>

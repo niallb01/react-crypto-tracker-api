@@ -13,10 +13,10 @@ const CoinDescription = (props) => {
 
   return (
     <>
-      {coinToShow.map((coindesc) => {
+      {coinToShow.map((coindesc, description) => {
         // console.log(coindesc.coinDescription.description.en);
         return (
-          <div className="description-container">
+          <div key={description} className="description-container">
             <CoinDesc
               key={coindesc.key}
               marketRank={coindesc.market_cap_rank}

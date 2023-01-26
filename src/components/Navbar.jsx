@@ -53,11 +53,11 @@ const Navbar = (props) => {
           Live Coin Tracker
         </Link>
       </h1>
+
       <ul className="nav-links">
         <li onClick={toggleLoginModal} className="modal-link">
           Login
         </li>
-
         {loginModal && (
           <LoginModal
             input={input}
@@ -77,7 +77,6 @@ const Navbar = (props) => {
         <li onClick={toggleModifyModal} className="modal-link">
           Account
         </li>
-
         {modifyModal && (
           <ModifyModal
             input={input}
@@ -92,7 +91,6 @@ const Navbar = (props) => {
         <li onClick={toggleLogoutModal} className="modal-link">
           Logout
         </li>
-
         {logoutModal && (
           <LogoutModal
             onLogout={onLogout}
@@ -105,7 +103,6 @@ const Navbar = (props) => {
             Sign Up
           </button>
         </li>
-
         {signUpModal && (
           <SignUpModal
             input={input}
