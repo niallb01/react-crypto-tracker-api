@@ -7,8 +7,12 @@ import CoinDescription from "./CoinDescription";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
 
 const Home = (props) => {
+  const coins = useSelector((state) => {
+    return state.currency.coins;
+  });
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
 
@@ -16,7 +20,7 @@ const Home = (props) => {
     setSearch(e.target.value);
   };
 
-  //disable function when modal is active
+  //disable function when modal is active or z index
   const handlePortfolioItem = (name) => {
     // console.log(name, "this is the handle portfolio function");
     const portfolioCopy = [...props.portfolio];
@@ -40,13 +44,13 @@ const Home = (props) => {
       autoClose: 1000,
     });
   };
-  console.log(props.coins);
-  const filteredCoins = props.coins.filter((coin) => {
+
+  const filteredCoins = coins.filter((coin) => {
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
-
+  console.log(filteredCoins);
   //if user enters search term use filtered version of coins otherwise use all coins
-  const coinsToUse = search ? filteredCoins : props.coins;
+  const coinsToUse = search ? filteredCoins : coins;
 
   return (
     <>

@@ -7,7 +7,8 @@ import Home from "./pagecomponents/Home";
 import Portfolio from "./pagecomponents/Portfolio";
 import CoinDescription from "./pagecomponents/CoinDescription";
 import { useSelector, useDispatch } from "react-redux"; //hooks
-import { setCoin } from "./features/counter/counterSlice";
+// import { setCoin } from "./features/counter/counterSlice";
+import { setCoins } from "./state/reducers/currencySlice";
 
 function setApiData(apiData) {
   localStorage.setItem("apiData", JSON.stringify(apiData));
@@ -20,11 +21,12 @@ function getApiData() {
 }
 
 function App() {
-  // const coins = useSelector((state) => state.coins); // pulling in state from store, global tree, small obj created is coins has value + actions - how we amnipulate
-  // console.log(coins);
-  // const dispatch = useDispatch(); // returns function - dispatches action
+  const coins = useSelector((state) => state.currency.coins);
+  console.log("line 25", coins);
+  // pulling in state from store, global tree, small obj created is coins has value + actions - how we amnipulate
+  const dispatch = useDispatch(); // returns function - dispatches action
   //
-  const [coins, setCoins] = useState(getApiData());
+  // const [coins, setCoins] = useState(getApiData());
   const [page, setPage] = useState(1);
   const [coinDescription, setDescription] = useState(getApiData());
   const [portfolio, addPortfolio] = useState([]);
@@ -40,47 +42,50 @@ function App() {
     signUpEmail: "",
   });
 
-  // useEffect(() => {
-  //   dispatch(setCoin());
-  // }, []);
-
-  // if (coins.length === 0) {
-  //   return <div>loading.....</div>;
-  // }
-
   useEffect(() => {
-    if (coins.length > 0) return;
-    console.log("no data found. getting new data");
-    async function getApiData() {
-      try {
-        const res = await axios.get(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=5&page=${page}&sparkline=true`
-        );
-        const now = Math.round(Date.now() / 1000);
-        const sevenDaysAgo = Math.round(now - 86400);
-        for (let index = 0; index < res.data.length; index++) {
-          const element = res.data[index];
-          const history = await axios.get(
-            `https://api.coingecko.com/api/v3/coins/${element.id}/market_chart/range?vs_currency=gbp&from=${sevenDaysAgo}&to=${now}`
-          );
-          //each entry will have correct data attached to it
-          res.data[index].history = history.data;
-          const description = await axios.get(
-            `https://api.coingecko.com/api/v3/coins/${element.id}`
-          );
-          res.data[index].coinDescription = description.data;
-        }
-        console.log(res.data);
-        // setCoins(res.data);
-        setApiData(res.data);
-        setDescription(res.data);
-      } catch (error) {
-        console.log("Error", error);
-      }
-    }
-    // dispatch(getApiData());
-    getApiData();
+    const coins = getApiData();
+    console.log("coins", coins);
+    dispatch(setCoins(coins));
   }, []);
+
+  console.log(coins);
+  if (coins.length === 0) {
+    return <div>loading.....</div>;
+  }
+
+  // useEffect(() => {
+  //   if (coins.length > 0) return;
+  //   console.log("no data found. getting new data");
+  //   async function getApiData() {
+  //     try {
+  //       const res = await axios.get(
+  //         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=5&page=${page}&sparkline=true`
+  //       );
+  //       const now = Math.round(Date.now() / 1000);
+  //       const sevenDaysAgo = Math.round(now - 86400);
+  //       for (let index = 0; index < res.data.length; index++) {
+  //         const element = res.data[index];
+  //         const history = await axios.get(
+  //           `https://api.coingecko.com/api/v3/coins/${element.id}/market_chart/range?vs_currency=gbp&from=${sevenDaysAgo}&to=${now}`
+  //         );
+  //         //each entry will have correct data attached to it
+  //         res.data[index].history = history.data;
+  //         const description = await axios.get(
+  //           `https://api.coingecko.com/api/v3/coins/${element.id}`
+  //         );
+  //         res.data[index].coinDescription = description.data;
+  //       }
+  //       console.log(res.data);
+  //       setCoins(res.data);
+  //       setApiData(res.data);
+  //       setDescription(res.data);
+  //     } catch (error) {
+  //       console.log("Error", error);
+  //     }
+  //   }
+  //   // dispatch(getApiData());
+  //   getApiData();
+  // }, []);
 
   //gives back object with key(name) and value(user input)
   const handleInputs = (e) => {
@@ -112,7 +117,7 @@ function App() {
   const onLogout = (e) => {
     e.prevent.default();
   };
-
+  console.log("should never occur");
   return (
     <>
       <Navbar
