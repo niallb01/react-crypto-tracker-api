@@ -42,13 +42,6 @@ export const currencySlice = createSlice({
       // immutable state based off those changes
       state.coins = action.payload; //code we're running on state when we call that action
     },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-    // incrementByAmount: (state, action) => {
-    //   state.value += action.payload;
-    // },
   },
 });
 

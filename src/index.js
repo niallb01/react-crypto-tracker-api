@@ -10,6 +10,7 @@ import { BrowserRouter } from "react-router-dom";
 const container = document.getElementById("root");
 const root = createRoot(container);
 
+// Provider makes store available to all child components
 root.render(
   <React.StrictMode>
     <Provider store={store}>

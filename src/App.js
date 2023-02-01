@@ -7,8 +7,8 @@ import Home from "./pagecomponents/Home";
 import Portfolio from "./pagecomponents/Portfolio";
 import CoinDescription from "./pagecomponents/CoinDescription";
 import { useSelector, useDispatch } from "react-redux"; //hooks
-// import { setCoin } from "./features/counter/counterSlice";
 import { setCoins } from "./state/reducers/currencySlice";
+import { setDescription } from "./state/reducers/descriptionSlice";
 
 function setApiData(apiData) {
   localStorage.setItem("apiData", JSON.stringify(apiData));
@@ -19,12 +19,19 @@ function getApiData() {
   if (data) return JSON.parse(data);
   return [];
 }
-
+// From app we can send messages to store - dispatch
 function App() {
-  const coins = useSelector((state) => state.currency.coins);
-  console.log("line 25", coins);
-  // pulling in state from store, global tree, small obj created is coins has value + actions - how we amnipulate
-  const dispatch = useDispatch(); // returns function - dispatches action
+  const coins = useSelector((state) => state.currency.coins); // selects data we want from the store
+  // console.log("line 25", coins);
+  // pulling in state from store, global tree, small obj created is coins has value + actions - how we manipulate
+  // const dispatch = useDispatch(); // returns function - dispatches action
+
+  // const coinDescription = useSelector(
+  //   (state) => state.currencyDescription.coinDescription
+  // );
+  // console.log("line 30", coinDescription);
+
+  const dispatch = useDispatch(); // we create an instance of useDispatch- returns function - dispatches action - sends message to store
   //
   // const [coins, setCoins] = useState(getApiData());
   const [page, setPage] = useState(1);
@@ -44,7 +51,7 @@ function App() {
 
   useEffect(() => {
     const coins = getApiData();
-    console.log("coins", coins);
+    // console.log("coins", coins);
     dispatch(setCoins(coins));
   }, []);
 
@@ -52,6 +59,16 @@ function App() {
   if (coins.length === 0) {
     return <div>loading.....</div>;
   }
+
+  // useEffect(() => {
+  //   const coinDescription = getApiData();
+  //   // console.log("coins", coins);
+  //   dispatch(setDescription(coinDescription));
+  // }, []);
+
+  // if (coinDescription.length === 0) {
+  //   return <div>loading.....</div>;
+  // }
 
   // useEffect(() => {
   //   if (coins.length > 0) return;
@@ -117,6 +134,7 @@ function App() {
   const onLogout = (e) => {
     e.prevent.default();
   };
+
   console.log("should never occur");
   return (
     <>
@@ -164,17 +182,5 @@ function App() {
     </>
   );
 }
-
-// state - magic box where all our data will be - function takes state from store and pushes it into component as a prop - no state in
-// any component any more, will be props
-// function mapStateToProps(state) {
-//   return {
-//     coins, setCoins
-//   }
-// }
-
-//function that picks things from the store - we say to connect, here's what we want from the store(mapStateToProps), component we
-// want to connect to store(App) - connect function wires it all up - we don't need to worry how wiring works
-// export default connect(mapStateToProps)(App);
 
 export default App;

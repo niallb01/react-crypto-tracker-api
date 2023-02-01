@@ -31,7 +31,7 @@ const initialState = {
 };
 
 export const descriptionSlice = createSlice({
-  name: "coinDescription",
+  name: "currencyDescription",
   initialState, // decription property with empty array - state you start out with
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
@@ -40,15 +40,8 @@ export const descriptionSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state = action.payload; //code we're running on state when we call that action
+      state.coinDescription = action.payload; //code we're running on state when we call that action
     },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-    // incrementByAmount: (state, action) => {
-    //   state.value += action.payload;
-    // },
   },
 });
 

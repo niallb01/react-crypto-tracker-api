@@ -20,7 +20,6 @@ const Home = (props) => {
     setSearch(e.target.value);
   };
 
-  //disable function when modal is active or z index
   const handlePortfolioItem = (name) => {
     // console.log(name, "this is the handle portfolio function");
     const portfolioCopy = [...props.portfolio];

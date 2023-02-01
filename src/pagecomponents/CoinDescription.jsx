@@ -1,7 +1,12 @@
 import CoinDesc from "../components/CoinDesc";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const CoinDescription = (props) => {
+  // const coinDescription = useSelector((state) => {
+  //   return state.currencyDescription.coinDescription;
+  // });
+
   const location = useLocation();
   const currentCoin = location.pathname.split("/");
   let coinToShow = props.coinDescription;
