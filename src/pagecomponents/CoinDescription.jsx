@@ -3,18 +3,20 @@ import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const CoinDescription = (props) => {
-  // const coinDescription = useSelector((state) => {
-  //   return state.currencyDescription.coinDescription;
-  // });
+  const coinDescription = useSelector((state) => {
+    return state.currencyDescription.coinDescription;
+  });
 
   const location = useLocation();
   const currentCoin = location.pathname.split("/");
-  let coinToShow = props.coinDescription;
+  let coinToShow = coinDescription; // was props.coinDescription
   if (currentCoin[2]) {
-    coinToShow = props.coinDescription.filter((coin) => {
+    coinToShow = coinDescription.filter((coin) => {
       return coin.name === currentCoin[2];
     });
   }
+
+  console.log(coinToShow);
 
   return (
     <>

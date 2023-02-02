@@ -6,6 +6,9 @@ import currencyDescriptionReducer from "../state/reducers/descriptionSlice";
 export const store = configureStore({
   reducer: {
     currency: currencyReducer,
-    description: currencyDescriptionReducer,
+    currencyDescription: currencyDescriptionReducer,
   },
+  // reducer: {
+  //   currencyDescription: currencyDescriptionReducer,
+  // },
 });

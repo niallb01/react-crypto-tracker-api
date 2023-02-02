@@ -26,16 +26,16 @@ function App() {
   // pulling in state from store, global tree, small obj created is coins has value + actions - how we manipulate
   // const dispatch = useDispatch(); // returns function - dispatches action
 
-  // const coinDescription = useSelector(
-  //   (state) => state.currencyDescription.coinDescription
-  // );
-  // console.log("line 30", coinDescription);
+  const coinDescription = useSelector(
+    (state) => state.currencyDescription.coinDescription
+  );
+  console.log("line 30", coinDescription);
 
-  const dispatch = useDispatch(); // we create an instance of useDispatch- returns function - dispatches action - sends message to store
+  const dispatch = useDispatch(); //we create an instance of useDispatch- returns function - dispatches action - sends message to store
   //
   // const [coins, setCoins] = useState(getApiData());
   const [page, setPage] = useState(1);
-  const [coinDescription, setDescription] = useState(getApiData());
+  // const [coinDescription, setDescription] = useState(getApiData());
   const [portfolio, addPortfolio] = useState([]);
   const [passwordType, setPasswordType] = useState("password");
   const [input, setInput] = useState({
@@ -49,26 +49,28 @@ function App() {
     signUpEmail: "",
   });
 
+  // coins
   useEffect(() => {
     const coins = getApiData();
     // console.log("coins", coins);
     dispatch(setCoins(coins));
   }, []);
+  // console.log(coins);
 
-  console.log(coins);
+  // description
+  useEffect(() => {
+    const coinDescription = getApiData();
+    console.log("coinDescription line 62", coinDescription);
+    dispatch(setDescription(coinDescription));
+  }, []);
+
   if (coins.length === 0) {
     return <div>loading.....</div>;
   }
 
-  // useEffect(() => {
-  //   const coinDescription = getApiData();
-  //   // console.log("coins", coins);
-  //   dispatch(setDescription(coinDescription));
-  // }, []);
-
-  // if (coinDescription.length === 0) {
-  //   return <div>loading.....</div>;
-  // }
+  if (coinDescription.length === 0) {
+    return <div>loading.....</div>;
+  }
 
   // useEffect(() => {
   //   if (coins.length > 0) return;
