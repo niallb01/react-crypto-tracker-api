@@ -39,13 +39,6 @@ const Portfolio = (props) => {
     });
   };
 
-  // const onDeletePortfolioCoin = (item) => {
-  //   const portfolioCopy = [...props.portfolio];
-  //   const indexOf = portfolioCopy.findIndex((item) => item.name === item);
-  //   portfolioCopy.splice(indexOf, 1);
-  //   props.addPortfolio(portfolioCopy);
-  // };
-
   const onDeletePortfolioCoin = (coin) => {
     const portfolioCopy = [...props.portfolio];
     const indexOf = portfolioCopy.findIndex((item) => {

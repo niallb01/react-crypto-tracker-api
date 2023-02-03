@@ -1,14 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import currencyReducer from "../state/reducers/currencySlice";
 import currencyDescriptionReducer from "../state/reducers/descriptionSlice";
+import portfolioItemReducer from "../state/reducers/addPortfolioSlice";
+import userInputReducer from "../state/reducers/inputSlice";
 
 //reducer is an object - we put in reducers that we create - reducer handles updating our state - reducer has to be purely functional
 export const store = configureStore({
   reducer: {
     currency: currencyReducer,
     currencyDescription: currencyDescriptionReducer,
+    portfolioItem: portfolioItemReducer,
+    userInput: userInputReducer,
   },
-  // reducer: {
-  //   currencyDescription: currencyDescriptionReducer,
-  // },
 });

@@ -8,11 +8,17 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
+// import { addPortfolio } from "./state/reducers/addPortfolioSlice";
 
 const Home = (props) => {
   const coins = useSelector((state) => {
     return state.currency.coins;
   });
+  // add portfolio item
+  // const portfolio = useSelector((state) => {
+  //   return state.portfolioItem.portfolio;
+  // });
+
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
 
@@ -22,7 +28,7 @@ const Home = (props) => {
 
   const handlePortfolioItem = (name) => {
     // console.log(name, "this is the handle portfolio function");
-    const portfolioCopy = [...props.portfolio];
+    const portfolioCopy = [...props.portfolio]; // bf redux ...props or props
     //all coins we have in portfolio, look at them, if name is equal to one we passed in return it
     const found = portfolioCopy?.find((coin) => {
       return coin.name === name;

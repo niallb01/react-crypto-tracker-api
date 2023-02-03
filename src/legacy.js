@@ -1,46 +1,35 @@
-//portfolio line 121
+// App line 102
 
-<Coin
-  id={coin.id}
-  rank={coin.market_cap_rank}
-  image={coin.image}
-  name={coin.name}
-  symbol={coin.symbol.toUpperCase()}
-  marketCap={coin.market_cap.toLocaleString()}
-  coinPrice={coin.current_price.toLocaleString()}
-  twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
-  volume={coin.total_volume.toLocaleString()}
-  fdv={coin.fully_diluted_valuation.toLocaleString()}
-/>;
-
-
-{editModal && (
-  <div className="modal">
-    <div onClick={toggleEditModal} className="overlay"></div>
-    <div className="modal-content">
-      <h4 className="modal-header">Edit Coin</h4>
-      
-    </div>
-    
-  </div>
-
-  //home line 20
-
-    // const handlePortfolioItem = (name) => {
-  //   const portfolioCopy = [...props.portfolio];
-  //   //where item is in array - is it in array?
-  //   const indexOf = portfolioCopy.indexOf(name);
-  //   console.log(name, indexOf);
-  //   if (indexOf > -1) {
-  //     portfolioCopy.splice(indexOf, 1);
-  //     props.addPortfolio(portfolioCopy);
-  //     return;
-  //   }
-  //   portfolioCopy.push(name);
-  //   props.addPortfolio(portfolioCopy);
-  //   console.log("hi, from portfoliocopy", props.portfolio);
-  //   toast.success("Coin Added To Portfolio", {
-  //     position: toast.POSITION.TOP_CENTER,
-  //     autoClose: 1000,
-  //   });
-  // };
+// useEffect(() => {
+//   if (coins.length > 0) return;
+//   console.log("no data found. getting new data");
+//   async function getApiData() {
+//     try {
+//       const res = await axios.get(
+//         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=5&page=${page}&sparkline=true`
+//       );
+//       const now = Math.round(Date.now() / 1000);
+//       const sevenDaysAgo = Math.round(now - 86400);
+//       for (let index = 0; index < res.data.length; index++) {
+//         const element = res.data[index];
+//         const history = await axios.get(
+//           `https://api.coingecko.com/api/v3/coins/${element.id}/market_chart/range?vs_currency=gbp&from=${sevenDaysAgo}&to=${now}`
+//         );
+//         //each entry will have correct data attached to it
+//         res.data[index].history = history.data;
+//         const description = await axios.get(
+//           `https://api.coingecko.com/api/v3/coins/${element.id}`
+//         );
+//         res.data[index].coinDescription = description.data;
+//       }
+//       console.log(res.data);
+//       setCoins(res.data);
+//       setApiData(res.data);
+//       setDescription(res.data);
+//     } catch (error) {
+//       console.log("Error", error);
+//     }
+//   }
+//   // dispatch(getApiData());
+//   getApiData();
+// }, []);
