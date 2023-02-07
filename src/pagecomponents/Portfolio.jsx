@@ -14,7 +14,6 @@ const Portfolio = (props) => {
   const [quantity, setQuantity] = useState([]);
 
   const togglePortfolioModal = () => {
-    // console.log("hi, from portfolio", props.portfolio);
     setPortfolioModal(!portfolioModal);
   };
 
@@ -25,7 +24,6 @@ const Portfolio = (props) => {
 
   const handleQuantity = (e) => {
     setQuantity(e.target.value);
-    // console.log(e.target.value);
   };
 
   const onDeletePortfolio = (item) => {

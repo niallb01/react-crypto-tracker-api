@@ -7,18 +7,8 @@ import CoinDescription from "./CoinDescription";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useSelector } from "react-redux";
-// import { addPortfolio } from "./state/reducers/addPortfolioSlice";
 
 const Home = (props) => {
-  const coins = useSelector((state) => {
-    return state.currency.coins;
-  });
-  // add portfolio item
-  // const portfolio = useSelector((state) => {
-  //   return state.portfolioItem.portfolio;
-  // });
-
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
 
@@ -50,12 +40,12 @@ const Home = (props) => {
     });
   };
 
-  const filteredCoins = coins.filter((coin) => {
+  const filteredCoins = props.coins.filter((coin) => {
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
   console.log(filteredCoins);
   //if user enters search term use filtered version of coins otherwise use all coins
-  const coinsToUse = search ? filteredCoins : coins;
+  const coinsToUse = search ? filteredCoins : props.coins;
 
   return (
     <>
