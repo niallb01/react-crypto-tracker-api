@@ -39,7 +39,7 @@ function App() {
     async function getApiData() {
       try {
         const res = await axios.get(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=5&page=${page}&sparkline=true`
+          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=10&page=${page}&sparkline=false`
         );
         const now = Math.round(Date.now() / 1000);
         const sevenDaysAgo = Math.round(now - 86400);
