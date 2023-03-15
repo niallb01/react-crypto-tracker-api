@@ -63,7 +63,7 @@ body.active-modal {
   /* position: relative; */
   display: flex;
   flex-direction: column;
-  height: 250px;
+  /* height: 400px; */
   width: 500px;
   position: absolute;
   top: 40%;

@@ -17,8 +17,7 @@ const Home = (props) => {
   };
 
   const handlePortfolioItem = (name) => {
-    // console.log(name, "this is the handle portfolio function");
-    const portfolioCopy = [...props.portfolio]; // bf redux ...props or props
+    const portfolioCopy = [...props.portfolio];
     //all coins we have in portfolio, look at them, if name is equal to one we passed in return it
     const found = portfolioCopy?.find((coin) => {
       return coin.name === name;
