@@ -33,7 +33,7 @@ function App() {
     signUpEmail: "",
   });
 
-  //exixts as the api is rate limiting on a free account
+  //exists as the api is rate limiting on a free account
   const russellsWaitHack = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
