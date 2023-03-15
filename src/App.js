@@ -33,10 +33,21 @@ function App() {
     signUpEmail: "",
   });
 
+  //exixts as the api is rate limiting on a free account
+  const russellsWaitHack = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 15000);
+    });
+  };
+
   useEffect(() => {
     if (coins.length > 0) return;
     console.log("no data found. getting new data");
     async function getApiData() {
+      await russellsWaitHack(); //wait before begin
+
       try {
         const res = await axios.get(
           `https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=10&page=${page}&sparkline=false`
@@ -44,6 +55,8 @@ function App() {
         const now = Math.round(Date.now() / 1000);
         const sevenDaysAgo = Math.round(now - 86400);
         for (let index = 0; index < res.data.length; index++) {
+          await russellsWaitHack(); //wait after each api call
+          console.log("Doing");
           const element = res.data[index];
           const history = await axios.get(
             `https://api.coingecko.com/api/v3/coins/${element.id}/market_chart/range?vs_currency=gbp&from=${sevenDaysAgo}&to=${now}`
