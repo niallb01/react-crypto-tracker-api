@@ -29,8 +29,16 @@ const CoinDescription = (props) => {
               coinPrice={coindesc.current_price.toLocaleString()}
               volume={coindesc.total_volume.toLocaleString()}
               circulating={coindesc.circulating_supply.toLocaleString()}
-              fullyDiluted={coindesc.fully_diluted_valuation.toLocaleString()}
-              totalSupply={coindesc.total_supply.toLocaleString()}
+              fullyDiluted={
+                coindesc.fully_diluted_valuation
+                  ? coindesc.fully_diluted_valuation.toLocaleString()
+                  : ""
+              }
+              totalSupply={
+                coindesc.total_supply
+                  ? coindesc.total_supply.toLocaleString()
+                  : ""
+              }
               maxSupply={
                 coindesc.max_supply ? coindesc.max_supply.toLocaleString() : "∞"
               }
@@ -39,7 +47,7 @@ const CoinDescription = (props) => {
               ath={coindesc.ath.toLocaleString()}
               atl={coindesc.atl.toLocaleString()}
               descText={coindesc.coinDescription.description.en}
-              descSparkline={coindesc.sparkline_in_7d.price[0].price}
+              // descSparkline={coindesc.sparkline_in_7d.price[0].price}
             />
           </div>
         );

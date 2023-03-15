@@ -36,7 +36,7 @@ const CoinDesc = (props) => {
       <Ath ath={props.ath} />
       <Atl atl={props.atl} />
       <DescText descText={props.descText} />
-      <DescSparkline descSparkline={props.descSparkline} />
+      {/* <DescSparkline descSparkline={props.descSparkline} /> */}
     </>
   );
 };

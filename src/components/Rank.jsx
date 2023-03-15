@@ -1,7 +1,9 @@
 const Rank = (props) => {
   return (
     <>
-      <p className="rank">{props.rank}</p>
+      <div style={{ width: "30px" }}>
+        <p className="rank">{props.rank}</p>
+      </div>
     </>
   );
 };

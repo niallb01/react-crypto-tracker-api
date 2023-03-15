@@ -22,7 +22,7 @@ const Coin = (props) => {
       <Volume volume={props.volume} />
       <FDV fdv={props.fdv} />
       <MarketCap marketCap={props.marketCap} />
-      <Sparkline sparkline={props.sparkline} />
+      {/* <Sparkline sparkline={props.sparkline} /> */}
     </>
   );
 };
