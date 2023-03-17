@@ -65,6 +65,15 @@ const Home = (props) => {
           </datalist>
         </div>
       </div>
+      <div className="heading">
+        <p className="coin-rank">#</p>
+        <p className="coin-name">Coin</p>
+        <p className="coin-price">Price</p>
+        <p className="mkt-cap">Mkt Cap</p>
+        <p className="24hr">24hr</p>
+        <p className="fdv">FDV</p>
+        <p className="volume">Volume</p>
+      </div>
       {coinsToUse.map((coin) => {
         return (
           <Link
@@ -73,45 +82,47 @@ const Home = (props) => {
             key={coin.name}
           >
             <div className="coin-container">
-              <Link to={"#"}>
-                {props.portfolio.find((coinToFind) => {
-                  return coinToFind.name === coin.name;
-                }) ? (
-                  <FaStar
-                    onClick={() => handlePortfolioItem(coin.name)}
-                    className="star-icon-fill"
-                    size="16"
-                  />
-                ) : (
-                  <FaRegStar
-                    onClick={() => handlePortfolioItem(coin.name)}
-                    className="star-icon"
-                    size="16"
-                  />
-                )}
-              </Link>
+              <div className="coin-row">
+                <Link to={"#"}>
+                  {props.portfolio.find((coinToFind) => {
+                    return coinToFind.name === coin.name;
+                  }) ? (
+                    <FaStar
+                      onClick={() => handlePortfolioItem(coin.name)}
+                      className="star-icon-fill"
+                      size="16"
+                    />
+                  ) : (
+                    <FaRegStar
+                      onClick={() => handlePortfolioItem(coin.name)}
+                      className="star-icon"
+                      size="16"
+                    />
+                  )}
+                </Link>
 
-              <Coin
-                id={coin.id}
-                rank={coin.market_cap_rank}
-                image={coin.image}
-                name={coin.name}
-                symbol={coin.symbol.toUpperCase()}
-                marketCap={coin.market_cap.toLocaleString()}
-                coinPrice={coin.current_price.toLocaleString()}
-                twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
-                // sparkline={coin.sparkline_in_7d}
-                fdv={
-                  coin.fully_diluted_valuation
-                    ? coin.fully_diluted_valuation.toLocaleString()
-                    : ""
-                }
-                volume={coin.total_volume.toLocaleString()}
-              />
+                <Coin
+                  id={coin.id}
+                  rank={coin.market_cap_rank}
+                  image={coin.image}
+                  name={coin.name}
+                  symbol={coin.symbol.toUpperCase()}
+                  marketCap={coin.market_cap.toLocaleString()}
+                  coinPrice={coin.current_price.toLocaleString()}
+                  twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
+                  fdv={
+                    coin.fully_diluted_valuation
+                      ? coin.fully_diluted_valuation.toLocaleString()
+                      : "Not Applicable"
+                  }
+                  volume={coin.total_volume.toLocaleString()}
+                />
+              </div>
             </div>
           </Link>
         );
       })}
+
       <>
         <div className="page-select">{!search && <Pages pages={page} />}</div>
       </>

@@ -14,7 +14,7 @@ body {
   background: #181b26;
 }
 
-.coin-container,
+/* .coin-container,
 .portfolio-container {
   display: flex;
   align-items: center;
@@ -25,6 +25,43 @@ body {
   margin: 2px;
   padding: 5px;
   height: 50px;
+} */
+
+.coin-container {
+  max-width: 1140px;
+  margin: auto;
+}
+
+.coin-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2a3143;
+  border-top: #ffad00;
+  margin: 2px;
+  padding: 5px;
+  height: 55px;
+}
+
+/* .coin-row:hover {
+  transform: scale(1.01);
+  transition: 0.2s ease-in-out;
+  background-color: #343f56;
+  cursor: pointer;
+} */
+
+.heading {
+  max-width: 1240px;
+  /* max-width: 1000px; */
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+.coin-rank {
+  margin-left: 10px;
 }
 
 .coin-container:hover {
@@ -86,6 +123,7 @@ body {
 a .star-icon {
   fill: #ffffff;
   opacity: 0.5;
+  position: relative;
 }
 
 .star-icon:hover {

@@ -1,7 +1,9 @@
 const Image = (props) => {
   return (
     <>
-      <img className="crypto-icon" src={props.image} alt="crypto" />
+      <div style={{ width: "10px" }}>
+        <img className="crypto-icon" src={props.image} alt="crypto" />
+      </div>
     </>
   );
 };
