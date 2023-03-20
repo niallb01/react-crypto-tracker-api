@@ -6,6 +6,7 @@ import SignUpModal from "../modalcomponents/SignUpModal";
 import LoginModal from "../modalcomponents/LoginModal";
 import ModifyModal from "../modalcomponents/ModifyModal";
 import LogoutModal from "../modalcomponents/LogoutModal";
+import { FaStar } from "react-icons/fa";
 
 const Navbar = (props) => {
   const [loginModal, setLoginModal] = useState(false);
@@ -71,7 +72,12 @@ const Navbar = (props) => {
         )}
 
         <li>
-          <Link to="/portfolio">Portfolio</Link>
+          <FaStar
+            className="star-icon-fill"
+            size="10"
+            width={{ width: "10px" }}
+          />
+          <Link to="/portfolio"> Portfolio</Link>
         </li>
 
         <li onClick={toggleModifyModal} className="modal-link">

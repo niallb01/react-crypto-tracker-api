@@ -32,17 +32,6 @@ body {
 } */
 
 .portfolio-container {
-  /* max-width: 1300px; */
-  /* display: flex;
-  align-items: center;
-  justify-content: space-evenly; */
-  /* flex-direction: row; */
-  /* background: #2a3143;
-  border-top: #ffad00;
-  margin: 2px;
-  padding: 5px;
-  height: 55px; */
-
   max-width: 1300px;
   margin: auto;
   border-radius: 5px;
@@ -59,17 +48,11 @@ body {
 .coin-row {
   display: flex;
   justify-content: space-evenly;
-  /* justify-content: start; */
   align-items: center;
   background: #2a3143;
-  /* border-top: #ffad00; */
   margin: 2px;
   padding: 5px;
   height: 55px;
-
-  /* border-bottom: 1px solid #d7d7d7; */
-  /* border: none; */
-  /* width: 1300px; */
   bottom: 80%;
 }
 
@@ -97,15 +80,14 @@ body {
   cursor: pointer;
 } */
 
-.coin-row:hover,
-.portfolio-row:hover {
+.coin-row:hover {
   transform: scale(1.01);
   transition: 0.2s ease-in-out;
   background-color: #343f56;
   cursor: pointer;
 }
 
-.description-container {
+.desc-container {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -307,18 +289,20 @@ a {
   width: 100%;
   font-weight: 400;
 }
+
 .add-coin-button {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+
 .delete-coin-button {
   background-color: #dd143c;
   color: #ffffff;
   font-size: 14px;
   border: none;
   border-radius: 5px;
-  width: 100px;
+  /* width: 100px; */
   height: 40px;
   transition: ease-out 0.3s;
   outline: none;
@@ -353,11 +337,13 @@ a {
 } */
 
 .edit-coin {
-  background-color: #384d61;
+  background: #2a3143;
   color: #48c1be;
   /* border: 1px solid; */
   border: none;
   cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 label {

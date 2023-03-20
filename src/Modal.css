@@ -28,7 +28,8 @@ body.active-modal {
   font-size: 14px;
   border: none;
   border-radius: 5px;
-  width: 100px;
+  /* width: 100px; */
+  width: 110px;
   height: 40px;
   transition: ease-out 0.3s;
   outline: none;

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "../Modal.css";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import CoinDescription from "./CoinDescription";
 import InputCoin from "../inputcomponents/InputCoin";
 import PortfolioCoin from "../portfoliocomponents.jsx/PortfolioCoin";
 //this component is child of app - data is being sent down from app
+import { BsLightning } from "react-icons/bs";
 
 const Portfolio = (props) => {
   const [portfolioModal, setPortfolioModal] = useState(false);
@@ -30,11 +30,6 @@ const Portfolio = (props) => {
     const deletePortfolio = [...props.portfolio];
     deletePortfolio.splice(item);
     props.addPortfolio(deletePortfolio);
-    toast.success("Success! Portfolio Deleted!", {
-      position: toast.POSITION.TOP_CENTER,
-      autoClose: 1500,
-      limit: 1,
-    });
   };
 
   const onDeletePortfolioCoin = (coin) => {
@@ -88,8 +83,10 @@ const Portfolio = (props) => {
 
   return (
     <>
-      <ToastContainer limit={1} />
-      <h4 className="portfolio-header">Quick Portfolio</h4>
+      <h4 className="portfolio-header">
+        <BsLightning size={22} />
+        Quick Portfolio
+      </h4>
       <div className="add-portfolio-btn">
         <button onClick={togglePortfolioModal} className="btn-modal">
           + Add Coin
@@ -143,41 +140,34 @@ const Portfolio = (props) => {
           </div>
         </div>
       )}
+
       {coinPortfolio.map((coin) => {
         const item = props.portfolio.find((item) => {
           return item.name === coin.name;
         });
         return (
-          <Link
-            // to={`/coin-description/${coin.name}`}
-            to={"#"}
-            element={<CoinDescription />}
-            key={coin.name}
-          >
-            <div className="portfolio-container">
-              <div className="portfolio-row">
-                <PortfolioCoin
-                  rank={coin.market_cap_rank}
-                  image={coin.image}
-                  name={coin.name}
-                  symbol={coin.symbol.toUpperCase()}
-                  twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
-                  coinPrice={coin.current_price.toLocaleString()}
-                  quantity={item.quantity}
-                  marketCap={coin.market_cap.toLocaleString()}
-                  totalValue={item.quantity * coin.current_price}
-                  onDeletePortfolioCoin={onDeletePortfolioCoin}
-                  onUpdatePortfolioCoin={onUpdatePortfolioCoin}
-                />
-              </div>
+          <div className="portfolio-container">
+            <div className="portfolio-row">
+              <PortfolioCoin
+                rank={coin.market_cap_rank}
+                image={coin.image}
+                name={coin.name}
+                symbol={coin.symbol.toUpperCase()}
+                twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
+                coinPrice={coin.current_price.toLocaleString()}
+                quantity={item.quantity}
+                marketCap={coin.market_cap.toLocaleString()}
+                totalValue={item.quantity * coin.current_price}
+                onDeletePortfolioCoin={onDeletePortfolioCoin}
+                onUpdatePortfolioCoin={onUpdatePortfolioCoin}
+              />
             </div>
-          </Link>
+          </div>
         );
       })}
-
       <div className="delete-portfolio-btn">
         <button onClick={onDeletePortfolio} className="delete-coin-button">
-          Delete
+          Delete Portfolio
         </button>
       </div>
     </>

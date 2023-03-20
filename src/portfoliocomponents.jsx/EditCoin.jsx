@@ -23,12 +23,12 @@ const EditCoin = (props) => {
     <>
       <div className="add-portfolio-btn">
         <button
+          className="edit-coin"
           onClick={() => {
             toggleEditModal(props.name);
           }}
-          className="edit-coin"
         >
-          Edit
+          EDIT
         </button>
       </div>
       {editModal && (
@@ -50,7 +50,7 @@ const EditCoin = (props) => {
               }}
               className="delete-portfolio-coin-btn"
             >
-              Delete
+              Delete Coin
             </button>
             <button
               onClick={() => {
