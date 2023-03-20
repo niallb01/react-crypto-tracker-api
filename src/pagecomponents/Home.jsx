@@ -65,15 +65,20 @@ const Home = (props) => {
           </datalist>
         </div>
       </div>
-      <div className="heading">
-        <p className="coin-rank">#</p>
-        <p className="coin-name">Coin</p>
-        <p className="coin-price">Price</p>
-        <p className="mkt-cap">Mkt Cap</p>
-        <p className="24hr">24hr</p>
-        <p className="fdv">FDV</p>
-        <p className="volume">Volume</p>
-      </div>
+
+      {/* <div className="heading-container">
+        <div className="heading">
+          <p className="portfolio">Portfolio</p>
+          <p className="rank">#</p>
+          <p className="coin">Coin</p>
+          <p className="price">Price</p>
+          <p className="24hr">24hr</p>
+          <p className="mtk-cap">Mkt Cap</p>
+          <p className="fdv">FDV</p>
+          <p className="volume">Volume</p>
+        </div>
+      </div> */}
+
       {coinsToUse.map((coin) => {
         return (
           <Link
@@ -91,12 +96,14 @@ const Home = (props) => {
                       onClick={() => handlePortfolioItem(coin.name)}
                       className="star-icon-fill"
                       size="16"
+                      width={{ width: "10px" }}
                     />
                   ) : (
                     <FaRegStar
                       onClick={() => handlePortfolioItem(coin.name)}
                       className="star-icon"
                       size="16"
+                      width={{ width: "10px" }}
                     />
                   )}
                 </Link>

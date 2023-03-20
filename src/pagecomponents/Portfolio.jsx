@@ -89,7 +89,7 @@ const Portfolio = (props) => {
   return (
     <>
       <ToastContainer limit={1} />
-      <h1>My Portfolio</h1>
+      <h4 className="portfolio-header">Quick Portfolio</h4>
       <div className="add-portfolio-btn">
         <button onClick={togglePortfolioModal} className="btn-modal">
           + Add Coin
@@ -155,17 +155,21 @@ const Portfolio = (props) => {
             key={coin.name}
           >
             <div className="portfolio-container">
-              <PortfolioCoin
-                image={coin.image}
-                name={coin.name}
-                symbol={coin.symbol.toUpperCase()}
-                twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
-                coinPrice={coin.current_price.toLocaleString()}
-                quantity={item.quantity}
-                totalValue={item.quantity * coin.current_price}
-                onDeletePortfolioCoin={onDeletePortfolioCoin}
-                onUpdatePortfolioCoin={onUpdatePortfolioCoin}
-              />
+              <div className="portfolio-row">
+                <PortfolioCoin
+                  rank={coin.market_cap_rank}
+                  image={coin.image}
+                  name={coin.name}
+                  symbol={coin.symbol.toUpperCase()}
+                  twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
+                  coinPrice={coin.current_price.toLocaleString()}
+                  quantity={item.quantity}
+                  marketCap={coin.market_cap.toLocaleString()}
+                  totalValue={item.quantity * coin.current_price}
+                  onDeletePortfolioCoin={onDeletePortfolioCoin}
+                  onUpdatePortfolioCoin={onUpdatePortfolioCoin}
+                />
+              </div>
             </div>
           </Link>
         );

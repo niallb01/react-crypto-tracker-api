@@ -33,6 +33,9 @@ body.active-modal {
   transition: ease-out 0.3s;
   outline: none;
   cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn-modal:hover {

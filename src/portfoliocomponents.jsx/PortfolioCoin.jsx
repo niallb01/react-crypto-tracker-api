@@ -8,6 +8,7 @@ import Rank from "../components/Rank";
 import Quantity from "./Quantity";
 import TotalValue from "./TotalValue";
 import EditCoin from "./EditCoin";
+import MarketCap from "../components/MarketCap";
 //this component is child of portfolio - data is being sent down from portfolio
 //parent - portfolio is mapping over data
 
@@ -21,6 +22,7 @@ const PortfolioCoin = (props) => {
       <TwentyFourHour twentyFourHour={props.twentyFourHour} />
       <CoinPrice coinPrice={props.coinPrice} />
       <Quantity quantity={props.quantity} />
+      <MarketCap marketCap={props.marketCap} />
       <TotalValue totalValue={props.totalValue.toLocaleString()} />
       <EditCoin
         name={props.name}
