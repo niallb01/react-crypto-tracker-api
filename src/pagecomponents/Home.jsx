@@ -1,7 +1,7 @@
 import Coin from "../components/Coin";
 import Pages from "../components/Pages";
 import { useState } from "react";
-import { Icon, FaStar, FaRegStar, FaSearch } from "react-icons/fa";
+import { Icon, FaStar, FaRegStar, FaSearch, FaCoins } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import CoinDescription from "./CoinDescription";
 import { toast } from "react-toastify";
@@ -49,6 +49,7 @@ const Home = (props) => {
   return (
     <>
       <ToastContainer />
+
       <div className="user-coin-search">
         <div className="search-bar">
           {/* <FaSearch className="search-icon" size="16" /> */}
@@ -66,18 +67,22 @@ const Home = (props) => {
         </div>
       </div>
 
-      {/* <div className="heading-container">
-        <div className="heading">
-          <p className="portfolio">Portfolio</p>
-          <p className="rank">#</p>
-          <p className="coin">Coin</p>
-          <p className="price">Price</p>
-          <p className="24hr">24hr</p>
-          <p className="mtk-cap">Mkt Cap</p>
-          <p className="fdv">FDV</p>
-          <p className="volume">Volume</p>
-        </div>
-      </div> */}
+      <div className="portfolio-link">
+        Go to
+        <Link to="/portfolio">
+          <a href="#" className="portfolio-link-text">
+            {" "}
+            Portfolio{" "}
+            {
+              <FaStar
+                className="star-icon-fill"
+                size="10"
+                width={{ width: "10px" }}
+              />
+            }
+          </a>
+        </Link>
+      </div>
 
       {coinsToUse.map((coin) => {
         return (

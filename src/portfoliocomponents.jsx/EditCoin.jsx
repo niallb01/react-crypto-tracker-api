@@ -44,26 +44,28 @@ const EditCoin = (props) => {
               value={quantity}
               placeholder="Enter Quantity..."
             />
-            <button
-              onClick={() => {
-                props.onDeletePortfolioCoin(selectedCoin);
-              }}
-              className="delete-portfolio-coin-btn"
-            >
-              Delete Coin
-            </button>
-            <button
-              onClick={() => {
-                props.onUpdatePortfolioCoin(selectedCoin, quantity);
-                toggleEditModal();
-              }}
-              className="add-portfolio-coin-btn"
-            >
-              Update
-            </button>
-            <button onClick={toggleEditModal} className="close-modal">
-              X
-            </button>
+            <div className="edit-coin-btn-container">
+              <button
+                onClick={() => {
+                  props.onUpdatePortfolioCoin(selectedCoin, quantity);
+                  toggleEditModal();
+                }}
+                className="add-portfolio-coin-btn"
+              >
+                Update
+              </button>
+              <button onClick={toggleEditModal} className="close-modal">
+                X
+              </button>
+              <button
+                onClick={() => {
+                  props.onDeletePortfolioCoin(selectedCoin);
+                }}
+                className="delete-portfolio-coin-btn"
+              >
+                Delete Coin
+              </button>
+            </div>
           </div>
         </div>
       )}

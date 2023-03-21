@@ -22,16 +22,6 @@ function App() {
   const [coinDescription, setDescription] = useState(getApiData());
   const [portfolio, addPortfolio] = useState([]);
   const [passwordType, setPasswordType] = useState("password");
-  const [input, setInput] = useState({
-    loginPassword: "",
-    loginEmail: "",
-    modifyName: "",
-    modifyPassword: "",
-    modifyEmail: "",
-    signUpName: "",
-    signUpPassword: "",
-    signUpEmail: "",
-  });
 
   //exists as the api is rate limiting on a free account
   const russellsWaitHack = () => {
@@ -79,15 +69,6 @@ function App() {
     getApiData();
   }, []);
 
-  const handleInputs = (e) => {
-    const { name, value } = e.target;
-    setInput({
-      ...input,
-      [name]: value,
-    });
-    console.log(input);
-  };
-
   const togglePassword = (e) => {
     setPasswordType(passwordType === "password" ? "text" : "password");
     e.preventDefault();
@@ -112,8 +93,6 @@ function App() {
   return (
     <>
       <Navbar
-        input={input}
-        handleInputs={handleInputs}
         onLogin={onLogin}
         onModifyDetails={onModifyDetails}
         onSignUp={onSignUp}
