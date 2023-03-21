@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../Modal.css";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
+
 import CoinDescription from "./CoinDescription";
 import InputCoin from "../inputcomponents/InputCoin";
 import PortfolioCoin from "../portfoliocomponents.jsx/PortfolioCoin";

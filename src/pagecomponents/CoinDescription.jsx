@@ -1,6 +1,8 @@
 import CoinDesc from "../components/CoinDesc";
 import { useLocation } from "react-router-dom";
 import DescText from "../components/DescText";
+import { Link } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
 
 const CoinDescription = (props) => {
   const location = useLocation();
@@ -16,6 +18,24 @@ const CoinDescription = (props) => {
 
   return (
     <>
+      <h4 className="desc-header">All About {currentCoin[2]}</h4>
+      <div className="portfolio-link">
+        Go to
+        <Link to="/portfolio">
+          <a href="#" className="portfolio-link-text">
+            {" "}
+            Portfolio{" "}
+            {
+              <FaStar
+                className="star-icon-fill"
+                size="10"
+                width={{ width: "10px" }}
+              />
+            }
+          </a>
+        </Link>
+      </div>
+
       {coinToShow.map((coindesc, description) => {
         // console.log(coindesc.coinDescription.description.en);
         return (
