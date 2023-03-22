@@ -2,7 +2,7 @@ const Circulating = (props) => {
   return (
     <>
       <p className="desc-circulating">
-        Circulating Supply: {props.circulating}
+        Circulating Supply: £{props.circulating}
       </p>
     </>
   );

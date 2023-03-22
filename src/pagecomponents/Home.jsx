@@ -1,11 +1,10 @@
 import Coin from "../components/Coin";
 import Pages from "../components/Pages";
 import { useState } from "react";
-import { Icon, FaStar, FaRegStar, FaSearch, FaCoins } from "react-icons/fa";
+import { FaStar, FaRegStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import CoinDescription from "./CoinDescription";
-import { toast } from "react-toastify";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Home = (props) => {
@@ -48,11 +47,9 @@ const Home = (props) => {
 
   return (
     <>
-      <ToastContainer />
-
+      <ToastContainer limit={1} />
       <div className="user-coin-search">
         <div className="search-bar">
-          {/* <FaSearch className="search-icon" size="16" /> */}
           <input
             className="search-input"
             list="search-input-2"

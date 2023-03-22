@@ -1,8 +1,6 @@
 import { useState } from "react";
 import "../Modal.css";
 import "react-toastify/dist/ReactToastify.css";
-
-import CoinDescription from "./CoinDescription";
 import InputCoin from "../inputcomponents/InputCoin";
 import PortfolioCoin from "../portfoliocomponents.jsx/PortfolioCoin";
 //this component is child of app - data is being sent down from app
@@ -105,14 +103,10 @@ const Portfolio = (props) => {
               onInput={handlePortfolioSearchInput}
             />
 
-            <ul>
+            <ul className="input-coin">
               {coinResults.map((coin) => {
                 return (
-                  <li
-                    className="input-coin"
-                    onClick={() => chooseCoin(coin.name)}
-                    key={coin.name}
-                  >
+                  <li onClick={() => chooseCoin(coin.name)} key={coin.name}>
                     <InputCoin
                       image={coin.image}
                       symbol={coin.symbol.toUpperCase()}

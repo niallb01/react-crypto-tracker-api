@@ -70,11 +70,38 @@ const CoinDescription = (props) => {
                 twentyFourHourLow={coindesc.low_24h.toLocaleString()}
                 ath={coindesc.ath.toLocaleString()}
                 atl={coindesc.atl.toLocaleString()}
-                // descText={coindesc.coinDescription.description.en}
               />
-              <div className="coin-desc-text">
-                <DescText descText={coindesc.coinDescription.description.en} />
-              </div>
+            </div>
+            {/* <div className="coin-desc-text">
+              {coindesc.coinDescription.description.en && (
+                <h4 className="coin-desc-header">What is {currentCoin[2]}?</h4>
+              )}
+              <DescText descText={coindesc.coinDescription.description.en} />
+            </div> */}
+            {/* 
+            <div className="coin-desc-text">
+              {coindesc.coinDescription.description.en ? (
+                <h4 className="coin-desc-header">What is {currentCoin[2]}?</h4>
+              )}
+              <DescText descText={coindesc.coinDescription.description.en} /> )
+              : (<p></p>)
+            </div>  */}
+
+            <div className="coin-desc-text">
+              {!coindesc.coinDescription.description.en ? (
+                <>
+                  <h4 className="coin-desc-header">No description available</h4>
+                </>
+              ) : (
+                <>
+                  <h4 className="coin-desc-header">
+                    What is {currentCoin[2]}?
+                  </h4>
+                  <DescText
+                    descText={coindesc.coinDescription.description.en}
+                  />
+                </>
+              )}
             </div>
           </div>
         );

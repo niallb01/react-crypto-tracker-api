@@ -3,16 +3,30 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 0.875rem;
   color: #ffffff;
-  /* background: #181b26; */
 }
 
 body.active-modal {
   overflow-y: hidden;
 }
 
+.input-coin {
+  list-style-type: none;
+  display: inline;
+  /* display: inline-flex; */
+  /* flex-direction: row; */
+}
+
+.input-crypto-icon {
+  width: 20px;
+}
+
+.input-coin:hover {
+  cursor: pointer;
+}
+
 .modal-header {
   line-height: 1.2;
-  font-size: 24px;
+  font-size: 18px;
   width: 100%;
   font-weight: 400;
 }
