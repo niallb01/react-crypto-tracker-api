@@ -34,7 +34,8 @@ const Home = (props) => {
     props.addPortfolio(portfolioCopy);
     toast.success("Coin Added To Portfolio", {
       position: toast.POSITION.TOP_CENTER,
-      autoClose: 1000,
+      autoClose: 500,
+      limit: 1,
     });
   };
 

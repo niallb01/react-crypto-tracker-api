@@ -84,6 +84,14 @@ body {
   bottom: 80%;
 }
 
+.add-portfolio-coin-text {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 20px 0 30px;
+  border: 1px dashed #c7cdd6;
+}
+
 .coin-row:hover {
   transform: scale(1.01);
   transition: 0.2s ease-in-out;

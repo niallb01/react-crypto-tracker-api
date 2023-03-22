@@ -1,9 +1,9 @@
+//this component is child of app - data is being sent down from app
 import { useState } from "react";
 import "../Modal.css";
 import "react-toastify/dist/ReactToastify.css";
 import InputCoin from "../inputcomponents/InputCoin";
 import PortfolioCoin from "../portfoliocomponents.jsx/PortfolioCoin";
-//this component is child of app - data is being sent down from app
 import { BsLightning } from "react-icons/bs";
 
 const Portfolio = (props) => {
@@ -134,7 +134,6 @@ const Portfolio = (props) => {
           </div>
         </div>
       )}
-
       {coinPortfolio.map((coin) => {
         const item = props.portfolio.find((item) => {
           return item.name === coin.name;
@@ -159,6 +158,23 @@ const Portfolio = (props) => {
           </div>
         );
       })}
+
+      <div className="add-portfolio-coin-text">
+        <p>
+          You don't have any holdings at the moment. Click Add a Coin button to
+          add Coins to your portfolio.
+        </p>
+      </div>
+
+      {/* {coinPortfolio.length < 0 && (
+        <div className="add-portfolio-coin-text">
+          <p>
+            You don't have any holdings at the moment. Click Add a Coin button
+            to add Coins to your portfolio.
+          </p>
+        </div>
+      )} */}
+
       <div className="delete-portfolio-btn">
         <button onClick={onDeletePortfolio} className="delete-coin-button">
           Delete Portfolio
