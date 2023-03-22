@@ -180,3 +180,9 @@ body.active-modal {
   color: #dd143c;
   border: 1px solid;
 }
+
+@media (max-width: 600px) {
+  .modal-content {
+    width: 0px;
+  }
+}

@@ -150,7 +150,6 @@ a {
 }
 
 .portfolio-link {
-  /* display: inline-flex; */
   font-size: 14px;
   margin-bottom: 20px;
 }
@@ -176,22 +175,7 @@ a {
 }
 
 .portfolio-link-text:hover {
-  color: #ffad00;
   color: #49c0be;
-  /* text-decoration: underline; */
-  text-decoration-thickness: 2px;
-  text-underline-offset: 1rem;
-}
-
-.sign-up-link-text {
-  color: #49c0be;
-  cursor: pointer;
-  text-decoration: underline;
-  padding: 5px;
-}
-
-.sign-up-link-text:hover {
-  color: #ffad00;
 }
 
 .modal-link:hover {
@@ -233,14 +217,6 @@ a {
   cursor: pointer;
 } */
 
-.search-icon {
-  background-color: #ffad00;
-  width: 30px;
-  height: 55px;
-  opacity: 0.8;
-  border-radius: 5px 0px 0px 5px;
-}
-
 .search-bar {
   display: flex;
   justify-content: center;
@@ -261,22 +237,7 @@ a {
   color: #27da71;
 }
 
-.sign-up-button {
-  background-color: #48c1be;
-  color: #2a3143;
-  border: none;
-  border-radius: 5px;
-  width: 70px;
-  height: 25px;
-  transition: ease-out 0.3s;
-  outline: none;
-  cursor: pointer;
-}
-
-.add-coin-button,
-.login-button,
-.modify-button,
-.logout-button {
+.add-coin-button {
   background-color: #48c1be;
   color: #2a3143;
   font-size: 14px;
@@ -334,10 +295,7 @@ a {
   margin-right: auto;
 }
 
-.add-coin-button:hover,
-.sign-up-button:hover,
-.login-button:hover,
-.modify-button:hover {
+.add-coin-button:hover {
   background-color: #384d61;
   color: #48c1be;
   border: 1px solid;
@@ -357,28 +315,6 @@ a {
   cursor: pointer;
   font-weight: 400;
   font-size: 14px;
-}
-
-label {
-  display: inline-block;
-  width: 130px;
-  padding: 5px;
-  margin: 10px;
-}
-
-.login-password-input,
-.login-email-input,
-.modify-name-input,
-.modify-email-input,
-.modify-password-input,
-.sign-up-name-input,
-.sign-up-password-input,
-.sign-up-email-input {
-  width: 220px;
-  height: 30px;
-  border-radius: 5px 0px 0px 5px;
-  background: #2a3143;
-  border-width: 0em;
 }
 
 .Toastify__toast-container--top-center {
@@ -419,5 +355,27 @@ label {
 
   .coin-desc-text {
     text-align: center;
+  }
+
+  .coin-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #2a3143;
+    margin: 5px;
+    height: 140px;
+    bottom: 80%;
+  }
+
+  .portfolio-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #2a3143;
+    margin: 5px;
+    height: 140px;
+    bottom: 80%;
   }
 }
