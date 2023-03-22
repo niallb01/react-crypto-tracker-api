@@ -90,7 +90,7 @@ const CoinDescription = (props) => {
             <div className="coin-desc-text">
               {!coindesc.coinDescription.description.en ? (
                 <>
-                  <h4 className="coin-desc-header">No description available</h4>
+                  <h4 className="coin-desc-header">No Description Available</h4>
                 </>
               ) : (
                 <>
