@@ -37,6 +37,7 @@ const Portfolio = (props) => {
     });
     portfolioCopy.splice(indexOf, 1);
     props.addPortfolio(portfolioCopy);
+    setPortfolioModal(!portfolioModal);
   };
 
   const onUpdatePortfolioCoin = (name, quantity) => {
@@ -93,7 +94,7 @@ const Portfolio = (props) => {
       {portfolioModal && (
         <div className="modal">
           <div onClick={togglePortfolioModal} className="overlay"></div>
-          <div className="modal-content">
+          <div className="modal-content-portfolio">
             <h4 className="modal-header">Add Coin</h4>
             <input
               className="portfolio-search"
@@ -159,21 +160,14 @@ const Portfolio = (props) => {
         );
       })}
 
-      <div className="add-portfolio-coin-text">
-        <p>
-          You don't have any holdings at the moment. Click Add a Coin button to
-          add Coins to your portfolio.
-        </p>
-      </div>
-
-      {/* {coinPortfolio.length < 0 && (
+      {coinPortfolio.length === 0 && (
         <div className="add-portfolio-coin-text">
           <p>
             You don't have any holdings at the moment. Click Add a Coin button
             to add Coins to your portfolio.
           </p>
         </div>
-      )} */}
+      )}
 
       <div className="delete-portfolio-btn">
         <button onClick={onDeletePortfolio} className="delete-coin-button">

@@ -117,8 +117,8 @@ const Home = (props) => {
                   image={coin.image}
                   name={coin.name}
                   symbol={coin.symbol.toUpperCase()}
-                  marketCap={coin.market_cap.toLocaleString()}
-                  coinPrice={coin.current_price.toLocaleString()}
+                  marketCap={(coin.market_cap / 1000000000).toFixed(2)}
+                  coinPrice={coin.current_price.toFixed(2)}
                   twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
                   fdv={
                     coin.fully_diluted_valuation

@@ -9,15 +9,10 @@ body.active-modal {
   overflow-y: hidden;
 }
 
-.input-coin {
-  list-style-type: none;
-  display: inline;
-  /* display: inline-flex; */
-  /* flex-direction: row; */
-}
-
 .input-crypto-icon {
   width: 20px;
+  height: 20px;
+  margin-top: 15px;
 }
 
 .input-coin:hover {
@@ -114,6 +109,7 @@ body.active-modal {
   color: #ffffff;
   border-width: 0em;
   font-size: 16px;
+  margin-bottom: 30px;
 }
 
 .edit-coin-input {

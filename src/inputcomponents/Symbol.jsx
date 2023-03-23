@@ -1,9 +1,7 @@
 const Symbol = (props) => {
   return (
     <>
-      <p className="input-coin-symbol">
-        <strong> ({props.symbol})</strong>
-      </p>
+      <p className="input-coin-symbol">({props.symbol})</p>
     </>
   );
 };

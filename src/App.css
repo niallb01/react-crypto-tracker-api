@@ -209,6 +209,11 @@ a {
   font-size: 16px;
 }
 
+.input-coin {
+  list-style-type: none;
+  display: contents;
+}
+
 /* ul li {
   display: inline;
 } */
@@ -317,6 +322,33 @@ a {
   font-size: 14px;
 }
 
+.modal-content-portfolio {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  position: absolute;
+  top: 5%;
+  left: 30%;
+  line-height: 1.4;
+  background: #2a3143;
+  padding: 14px 28px;
+  border-radius: 10px;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+li {
+  display: inline-flex;
+  /* height: 20px; */
+  width: 200px;
+  justify-content: space-between;
+  /* height: auto; */
+}
+
+.item-1 {
+  width: 10px;
+}
+
 .Toastify__toast-container--top-center {
   --toastify-toast-width: 370px;
   --toastify-toast-background: #fff;
@@ -359,7 +391,7 @@ a {
 
   .coin-row {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     background: #2a3143;
@@ -370,7 +402,7 @@ a {
 
   .portfolio-row {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     background: #2a3143;
