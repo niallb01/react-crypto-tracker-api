@@ -174,6 +174,8 @@ const Portfolio = (props) => {
           Delete Portfolio
         </button>
       </div>
+
+      <div className="portfolio-page-footer"></div>
     </>
   );
 };

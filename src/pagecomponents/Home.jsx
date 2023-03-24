@@ -1,5 +1,4 @@
 import Coin from "../components/Coin";
-import Pages from "../components/Pages";
 import { useState } from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -8,7 +7,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Home = (props) => {
-  const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
 
   const handleSearchInput = (e) => {
@@ -132,10 +130,7 @@ const Home = (props) => {
           </Link>
         );
       })}
-
-      <>
-        <div className="page-select">{!search && <Pages pages={page} />}</div>
-      </>
+      <div className="page-footer"></div>
     </>
   );
 };
