@@ -58,6 +58,42 @@ body {
   margin-bottom: 5px;
 }
 
+.item-1 {
+  width: 1px;
+}
+
+.item-2 {
+  width: 1px;
+}
+
+.item-3 {
+  width: 180px;
+}
+
+.item-4 {
+  width: 15px;
+}
+
+.item-5 {
+  width: 110px;
+}
+
+.item-6 {
+  width: 30px;
+}
+
+.item-7 {
+  width: 200px;
+}
+
+.item-8 {
+  width: 160px;
+}
+
+.item-9 {
+  width: 140px;
+}
+
 .page-footer {
   height: 150px;
 }
@@ -230,14 +266,6 @@ a {
   list-style-type: none;
   display: contents;
 }
-
-/* ul li {
-  display: inline;
-} */
-
-/* .input-coin:hover {
-  cursor: pointer;
-} */
 
 .search-bar {
   display: flex;

@@ -14,8 +14,9 @@ const Coin = (props) => {
     <>
       <Rank rank={props.rank} />
       <Image image={props.image} />
-      <Name name={props.name} />
       <Symbol symbol={props.symbol} />
+      <Name name={props.name} />
+
       <CoinPrice coinPrice={props.coinPrice} />
       <TwentyFourHour twentyFourHour={props.twentyFourHour} />
       <Volume volume={props.volume} />

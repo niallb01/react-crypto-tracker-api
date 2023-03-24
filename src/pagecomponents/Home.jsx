@@ -73,7 +73,7 @@ const Home = (props) => {
               <FaStar
                 className="star-icon-fill"
                 size="10"
-                width={{ width: "10px" }}
+                // width={{ width: "10px" }}
               />
             }
           </a>

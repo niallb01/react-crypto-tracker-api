@@ -1,11 +1,11 @@
 const Name = (props) => {
   return (
     <>
-      {/* <div style={{ width: "10px" }}> */}
-      <p className="coin-name">
-        <strong>{props.name}</strong>
-      </p>
-      {/* </div> */}
+      <div className="item-3">
+        <p className="coin-name">
+          <strong>{props.name}</strong>
+        </p>
+      </div>
     </>
   );
 };

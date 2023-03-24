@@ -1,8 +1,9 @@
 const CoinPrice = (props) => {
   return (
     <>
-      {/* <p className="coin-price">Price: £{props.coinPrice}</p> */}
-      <p className="coin-price">Price: £{props.coinPrice}</p>
+      <div className="item-5">
+        <p className="coin-price">Price: £{props.coinPrice}</p>
+      </div>
     </>
   );
 };

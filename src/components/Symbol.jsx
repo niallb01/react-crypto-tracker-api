@@ -1,8 +1,9 @@
 const Symbol = (props) => {
   return (
     <>
-      {/* <p className="coin-symbol">Symbol: {props.symbol}</p> */}
-      <p className="coin-symbol">{props.symbol}</p>
+      <div className="item-4">
+        <p className="coin-symbol">{props.symbol}</p>
+      </div>
     </>
   );
 };

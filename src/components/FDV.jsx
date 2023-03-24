@@ -1,8 +1,9 @@
 const FDV = (props) => {
   return (
     <>
-      {/* <p className="fdv">FDV: £{props.fdv}</p> */}
-      <p className="fdv">FDV: £{props.fdv}</p>
+      <div className="item-8">
+        <p className="fdv">FDV: £{props.fdv}</p>
+      </div>
     </>
   );
 };

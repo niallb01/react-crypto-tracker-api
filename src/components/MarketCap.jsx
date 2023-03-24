@@ -1,8 +1,9 @@
 const MarketCap = (props) => {
   return (
     <>
-      {/* <p className="market-cap">Mkt Cap: £{props.marketCap}</p> */}
-      <p className="market-cap">Mkt Cap: £{props.marketCap}b</p>
+      <div className="item-9">
+        <p className="market-cap">Mkt Cap: £{props.marketCap}b</p>
+      </div>
     </>
   );
 };
