@@ -150,7 +150,7 @@ const Portfolio = (props) => {
                 twentyFourHour={coin.price_change_percentage_24h.toFixed(1)}
                 coinPrice={coin.current_price.toLocaleString()}
                 quantity={item.quantity}
-                marketCap={coin.market_cap.toLocaleString()}
+                marketCap={(coin.market_cap / 1000000000).toFixed(2)}
                 totalValue={item.quantity * coin.current_price}
                 onDeletePortfolioCoin={onDeletePortfolioCoin}
                 onUpdatePortfolioCoin={onUpdatePortfolioCoin}

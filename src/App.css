@@ -91,7 +91,15 @@ body {
 }
 
 .item-9 {
-  width: 140px;
+  width: 130px;
+}
+
+.coin-quantity {
+  width: 90px;
+}
+
+.total-value {
+  width: 170px;
 }
 
 .page-footer {
@@ -441,7 +449,7 @@ li {
     flex-wrap: wrap;
     background: #2a3143;
     margin: 5px;
-    height: 140px;
+    height: 160px;
     bottom: 80%;
   }
 
@@ -452,7 +460,7 @@ li {
     flex-wrap: wrap;
     background: #2a3143;
     margin: 5px;
-    height: 140px;
+    height: 160px;
     bottom: 80%;
   }
 
@@ -469,5 +477,34 @@ li {
     border-radius: 10px;
     max-width: 600px;
     min-width: 300px;
+  }
+  .item-1 {
+    width: 20px;
+  }
+
+  .item-2 {
+    width: 20px;
+  }
+
+  .item-3 {
+    width: 80px;
+    text-align: center;
+  }
+
+  .item-4 {
+    width: 30px;
+  }
+
+  .item-6 {
+    width: 50px;
+  }
+
+  .coin-quantity {
+    width: 100px;
+    /* text-align: center; */
+  }
+
+  .total-value {
+    width: 180px;
   }
 }

@@ -17,10 +17,11 @@ const PortfolioCoin = (props) => {
     <>
       <Rank rank={props.rank} />
       <Image image={props.image} />
-      <Name name={props.name} />
       <Symbol symbol={props.symbol} />
-      <TwentyFourHour twentyFourHour={props.twentyFourHour} />
+      <Name name={props.name} />
       <CoinPrice coinPrice={props.coinPrice} />
+      <TwentyFourHour twentyFourHour={props.twentyFourHour} />
+
       <Quantity quantity={props.quantity} />
       <MarketCap marketCap={props.marketCap} />
       <TotalValue totalValue={props.totalValue.toLocaleString()} />

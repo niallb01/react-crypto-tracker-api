@@ -72,20 +72,6 @@ const CoinDescription = (props) => {
                 atl={coindesc.atl.toLocaleString()}
               />
             </div>
-            {/* <div className="coin-desc-text">
-              {coindesc.coinDescription.description.en && (
-                <h4 className="coin-desc-header">What is {currentCoin[2]}?</h4>
-              )}
-              <DescText descText={coindesc.coinDescription.description.en} />
-            </div> */}
-            {/* 
-            <div className="coin-desc-text">
-              {coindesc.coinDescription.description.en ? (
-                <h4 className="coin-desc-header">What is {currentCoin[2]}?</h4>
-              )}
-              <DescText descText={coindesc.coinDescription.description.en} /> )
-              : (<p></p>)
-            </div>  */}
 
             <div className="coin-desc-text">
               {!coindesc.coinDescription.description.en ? (
