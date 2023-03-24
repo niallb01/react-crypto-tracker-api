@@ -14,11 +14,11 @@ body {
   background: #181b26;
 }
 
-.portfolio-container {
+/* .portfolio-container {
   max-width: 1300px;
   margin: auto;
   border-radius: 5px;
-}
+} */
 
 .portfolio-row {
   display: flex;
@@ -28,8 +28,12 @@ body {
   margin: 2px;
   padding: 5px;
   height: 55px;
-  border-bottom: 1px solid #2a3143;
+  /* border-bottom: 1px solid #2a3143; */
   bottom: 80%;
+  margin-bottom: 5px;
+  max-width: 1300px;
+  margin: auto;
+  border-bottom: 1px solid #181b26;
   margin-bottom: 5px;
 }
 
