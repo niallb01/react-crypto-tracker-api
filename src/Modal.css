@@ -181,17 +181,4 @@ body.active-modal {
   .modal-content {
     width: 0px;
   }
-  /* .modal-content-portfolio {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    position: absolute;
-    top: 5%;
-    line-height: 1.4;
-    background: #2a3143;
-    padding: 14px 28px;
-    border-radius: 10px;
-    max-width: 600px;
-    min-width: 300px;
-  } */
 }
