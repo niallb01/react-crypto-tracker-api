@@ -13,7 +13,7 @@ import TwentyFourHourLow from "./TwentyFourHourLow ";
 import MarketRank from "./MarketRank";
 import Ath from "./Ath";
 import Atl from "./Atl";
-import Volume from "./Volume";
+import DescVolume from "./DescVolume";
 import DescText from "./DescText";
 
 const CoinDesc = (props) => {
@@ -25,7 +25,7 @@ const CoinDesc = (props) => {
       <Symbol symbol={props.symbol} />
       <CoinPrice coinPrice={props.coinPrice} />
       <MarketCap marketCap={props.marketCap} />
-      <Volume volume={props.volume} />
+      <DescVolume descvolume={props.descvolume} />
       <Circulating circulating={props.circulating} />
       <FullyDiluted fullyDiluted={props.fullyDiluted} />
       <TotalSupply totalSupply={props.totalSupply} />

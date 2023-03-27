@@ -47,19 +47,24 @@ const CoinDescription = (props) => {
                 descImage={coindesc.image}
                 name={coindesc.name}
                 symbol={coindesc.symbol.toUpperCase()}
-                marketCap={coindesc.market_cap.toLocaleString()}
+                // marketCap={coindesc.market_cap.toLocaleString()}
+                marketCap={(coindesc.market_cap / 1000000000).toFixed(2)}
                 coinPrice={coindesc.current_price.toLocaleString()}
-                volume={coindesc.total_volume.toLocaleString()}
-                circulating={coindesc.circulating_supply.toLocaleString()}
+                // volume={coindesc.total_volume.toLocaleString()}
+                descvolume={coindesc.total_volume.toLocaleString()}
+                // circulating={coindesc.circulating_supply.toLocaleString()}
+                circulating={(coindesc.circulating_supply / 1000000000).toFixed(
+                  4
+                )}
                 fullyDiluted={
                   coindesc.fully_diluted_valuation
                     ? coindesc.fully_diluted_valuation.toLocaleString()
-                    : ""
+                    : "∞"
                 }
                 totalSupply={
                   coindesc.total_supply
                     ? coindesc.total_supply.toLocaleString()
-                    : ""
+                    : "∞"
                 }
                 maxSupply={
                   coindesc.max_supply

@@ -121,9 +121,10 @@ const Home = (props) => {
                   fdv={
                     coin.fully_diluted_valuation
                       ? coin.fully_diluted_valuation.toLocaleString()
-                      : "N/A"
+                      : "∞"
                   }
                   volume={coin.total_volume.toLocaleString()}
+                  // volume={(coin.total_volume / 1000000000).toFixed(4)}
                 />
               </div>
             </div>

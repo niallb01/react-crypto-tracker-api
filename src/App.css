@@ -66,14 +66,17 @@ body {
 
 .item-6 {
   width: 30px;
+  text-align: center;
 }
 
 .item-7 {
   width: 200px;
+  text-align: center;
 }
 
 .item-8 {
   width: 160px;
+  /* text-align: center; */
 }
 
 /* .item-9 {
@@ -107,11 +110,12 @@ body {
   border-radius: 5px;
 }
 
-/* .desc-data {
-  flex-basis: 40%;
+.desc-data {
+  /* flex-basis: 40%;
   text-align: center;
-  width: 400px;
-} */
+  width: 400px; */
+  margin-left: 90px;
+}
 
 .coin-desc-text {
   height: 600px;
