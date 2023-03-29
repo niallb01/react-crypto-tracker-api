@@ -21,7 +21,6 @@ const PortfolioCoin = (props) => {
       <Name name={props.name} />
       <CoinPrice coinPrice={props.coinPrice} />
       <TwentyFourHour twentyFourHour={props.twentyFourHour} />
-
       <Quantity quantity={props.quantity} />
       <MarketCap marketCap={props.marketCap} />
       <TotalValue totalValue={props.totalValue.toLocaleString()} />
