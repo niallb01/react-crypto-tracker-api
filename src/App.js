@@ -24,7 +24,7 @@ function App() {
   // const [coins, setCoins] = useState(getApiData());
   // const [coinDescription, setDescription] = useState(getApiData());
   // const [portfolio, addPortfolio] = useState([]);
-  //
+  // state for local data
   const [coins, setCoins] = useState([]);
   const [coinDescription, setDescription] = useState([]);
   const [portfolio, addPortfolio] = useState([]);
@@ -75,12 +75,8 @@ function App() {
   //   getApiData();
   // }, []);
 
-  // "homepage": "react-crypto-tracker-api/home",
-  // react router changes url of website
-
   // on mount
   useEffect(() => {
-    // console.log(CoinData);
     getCoins();
     getCoinsDesc();
   }, []);

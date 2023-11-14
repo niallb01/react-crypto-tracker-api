@@ -9,8 +9,6 @@ import "react-toastify/dist/ReactToastify.css";
 const Home = (props) => {
   const [search, setSearch] = useState("");
 
-  // console.log(props, "home");
-
   const handleSearchInput = (e) => {
     setSearch(e.target.value);
   };
@@ -42,7 +40,7 @@ const Home = (props) => {
   const filteredCoins = props.coins.filter((coin) => {
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
-  console.log(filteredCoins);
+  // console.log(filteredCoins);
   //if user enters search term use filtered version of coins otherwise use all coins
   const coinsToUse = search ? filteredCoins : props.coins;
 
@@ -70,14 +68,7 @@ const Home = (props) => {
         <Link to="/portfolio">
           <a href="#" className="portfolio-link-text">
             {" "}
-            Portfolio{" "}
-            {
-              <FaStar
-                className="star-icon-fill"
-                size="10"
-                // width={{ width: "10px" }}
-              />
-            }
+            Portfolio {<FaStar className="star-icon-fill" size="10" />}
           </a>
         </Link>
       </div>
@@ -126,7 +117,6 @@ const Home = (props) => {
                       : "∞"
                   }
                   volume={coin.total_volume.toLocaleString()}
-                  // volume={(coin.total_volume / 1000000000).toFixed(4)}
                 />
               </div>
             </div>

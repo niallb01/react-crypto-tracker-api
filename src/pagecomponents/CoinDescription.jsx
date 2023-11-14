@@ -14,9 +14,6 @@ const CoinDescription = (props) => {
     });
   }
 
-  // console.log(coinToShow);
-  // console.log("coindesc", props);
-
   return (
     <>
       <h4 className="desc-header">All About {currentCoin[2]}</h4>
@@ -38,7 +35,6 @@ const CoinDescription = (props) => {
       </div>
 
       {coinToShow.map((coindesc, description) => {
-        // console.log(coindesc.coinDescription.description.en);
         return (
           <div key={description} className="desc-container">
             <div className="desc-data">
@@ -48,12 +44,9 @@ const CoinDescription = (props) => {
                 descImage={coindesc.image}
                 name={coindesc.name}
                 symbol={coindesc.symbol.toUpperCase()}
-                // marketCap={coindesc.market_cap.toLocaleString()}
                 marketCap={(coindesc.market_cap / 1000000000).toFixed(2)}
                 coinPrice={coindesc.current_price.toLocaleString()}
-                // volume={coindesc.total_volume.toLocaleString()}
                 descvolume={coindesc.total_volume.toLocaleString()}
-                // circulating={coindesc.circulating_supply.toLocaleString()}
                 circulating={(coindesc.circulating_supply / 1000000000).toFixed(
                   4
                 )}
