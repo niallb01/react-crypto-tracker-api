@@ -1,4 +1,2 @@
-// [[redirects]];
-// from = "/";
-// to = "/home";
-// status = 200;
+/* /index.html 200
+
