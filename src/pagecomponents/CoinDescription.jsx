@@ -14,7 +14,8 @@ const CoinDescription = (props) => {
     });
   }
 
-  console.log(coinToShow);
+  // console.log(coinToShow);
+  // console.log("coindesc", props);
 
   return (
     <>
@@ -79,7 +80,7 @@ const CoinDescription = (props) => {
             </div>
 
             <div className="coin-desc-text">
-              {!coindesc.coinDescription.description.en ? (
+              {!coindesc.coin_description ? (
                 <>
                   <h4 className="coin-desc-header">No Description Available</h4>
                 </>
@@ -88,9 +89,7 @@ const CoinDescription = (props) => {
                   <h4 className="coin-desc-header">
                     What is {currentCoin[2]}?
                   </h4>
-                  <DescText
-                    descText={coindesc.coinDescription.description.en}
-                  />
+                  <DescText descText={coindesc.coin_description} />
                 </>
               )}
             </div>

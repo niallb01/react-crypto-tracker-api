@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 const Home = (props) => {
   const [search, setSearch] = useState("");
 
+  // console.log(props, "home");
+
   const handleSearchInput = (e) => {
     setSearch(e.target.value);
   };
