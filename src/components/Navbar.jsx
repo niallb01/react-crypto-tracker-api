@@ -6,7 +6,7 @@ const Navbar = (props) => {
   return (
     <>
       <h1 className="header">
-        <Link to="/home">
+        <Link to="/">
           <FaCoins className="header-icon" />
           Live Coin Tracker
         </Link>

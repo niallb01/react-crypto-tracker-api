@@ -97,7 +97,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route
-          path="/home"
+          path="/"
           element={
             <Home
               coins={coins}
